@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tikvot-992f852f.zappy5.app/sitemap.xml
