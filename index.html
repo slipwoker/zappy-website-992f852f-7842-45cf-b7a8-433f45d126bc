@@ -1,19 +1,20 @@
 <!DOCTYPE html><html lang="he" dir="rtl"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
   <meta name="description" content="תקווה מציעה שיקום חיילים פצועי צה״ל ונפגעי טרור דרך ספורט. טיפול בסוסים, משלחות סקי וטריאתלון, תוכניות לוחמי מילואים.">
   <meta name="keywords" content="צהל, פצועי צהל, נפגעי טרור, Tikvot, שיקום חיילים, טיפול בסוסים, ספורט שיקומי">
   <title>שיקום פצועי צהל והעצמה דרך ספורט — Tikvot</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <style>
 /* Zappy Attribution Header Styles */
 .zappy-header {
@@ -262,7 +263,66 @@
 })();
 </script>
 <!-- End Zappy Analytics -->
-    <link rel="stylesheet" href="styles.css">
+
+    <style id="zappy-mobile-submenu-styles">
+      /* Mobile submenu accordion styles */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu {
+          position: static !important;
+          transform: none !important;
+          box-shadow: none !important;
+          background: transparent !important;
+          margin-top: 0 !important;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          visibility: hidden;
+          transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
+          padding: 0 !important;
+          border-radius: 0 !important;
+        }
+        .sub-menu.mobile-expanded {
+          max-height: 500px !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          padding: 8px 0 8px 16px !important;
+        }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded, html[lang="ar"] .sub-menu.mobile-expanded {
+          padding: 8px 16px 8px 0 !important;
+        }
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu {
+          opacity: 0; visibility: hidden; pointer-events: none;
+        }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded {
+          opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+        }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) {
+          display: flex !important; flex-wrap: wrap !important; align-items: center !important;
+        }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a {
+          flex: 1 !important;
+        }
+        .mobile-submenu-toggle {
+          display: flex !important; align-items: center !important; justify-content: center !important;
+          width: 44px !important; height: 44px !important; background: transparent !important;
+          border: none !important; cursor: pointer !important; padding: 0 !important; margin: 0 !important;
+          flex-shrink: 0 !important; -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-submenu-toggle::after {
+          content: '' !important; display: block !important; width: 0 !important; height: 0 !important;
+          border-left: 6px solid transparent !important; border-right: 6px solid transparent !important;
+          border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important;
+        }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu {
+          flex-basis: 100% !important; width: 100% !important;
+        }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; font-size: 14px !important; }
+        .sub-menu a:hover { background-color: transparent !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -274,7 +334,7 @@
     <div class="container nav-container">
       <div class="nav-brand">
         <a href="/" class="logo-link">
-          <img src="assets/tikvot-general-logo.webp" alt="Tikvot" class="logo" />
+          <img src="/assets/tikvot-general-logo.webp" alt="Tikvot" class="logo" />
         </a>
       </div>
       
@@ -308,7 +368,7 @@
   </nav>
 
   <section class="hero">
-    <img data-placeholder="hero-1" data-context="Wide panoramic shot of IDF soldiers participating in adaptive sports activities, showing resilience and determination in outdoor setting with Israeli landscape" src="assets/tikvot-general-hero-hero-1.webp" alt="פצועי צהל משתתפים בפעילויות ספורט שיקומיות" class="hero-img">
+    <img data-placeholder="hero-1" data-context="Wide panoramic shot of IDF soldiers participating in adaptive sports activities, showing resilience and determination in outdoor setting with Israeli landscape" src="/assets/tikvot-general-hero-hero-1.webp" alt="פצועי צהל משתתפים בפעילויות ספורט שיקומיות" class="hero-img">
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>שיקום והעצמת פצועי צה״ל ונפגעי טרור</h1>
@@ -351,7 +411,7 @@
       
       <div class="program-feature">
         <div class="program-image">
-          <img data-placeholder="service-1" data-context="Close-up shot of IDF veteran receiving equine therapy, gently interacting with a horse in therapeutic setting with natural lighting" src="assets/tikvot-general-service-service-1.webp" alt="טיפול בסוסים לפצועי צהל">
+          <img data-placeholder="service-1" data-context="Close-up shot of IDF veteran receiving equine therapy, gently interacting with a horse in therapeutic setting with natural lighting" src="/assets/tikvot-general-service-service-1.webp" alt="טיפול בסוסים לפצועי צהל">
         </div>
         <div class="program-text">
           <h2>טיפול בסוסים - ריפוי דרך קשר עם בעלי חיים</h2>
@@ -369,13 +429,13 @@
           <a href="/programs#international" class="btn-link">פרטים על המשלחות</a>
         </div>
         <div class="program-image">
-          <img data-placeholder="service-2" data-context="Action shot of IDF veterans skiing down snowy mountain slope during international adaptive sports competition, showing determination and skill" src="assets/tikvot-general-service-service-2.webp" alt="משלחות סקי בינלאומיות לפצועי צהל">
+          <img data-placeholder="service-2" data-context="Action shot of IDF veterans skiing down snowy mountain slope during international adaptive sports competition, showing determination and skill" src="/assets/tikvot-general-service-service-2.webp" alt="משלחות סקי בינלאומיות לפצועי צהל">
         </div>
       </div>
 
       <div class="program-feature">
         <div class="program-image">
-          <img data-placeholder="service-3" data-context="Group photo of IDF veterans participating in triathlon training, running together on outdoor track with supportive atmosphere" src="assets/tikvot-general-service-service-3.webp" alt="אימוני טריאתלון לפצועי צהל">
+          <img data-placeholder="service-3" data-context="Group photo of IDF veterans participating in triathlon training, running together on outdoor track with supportive atmosphere" src="/assets/tikvot-general-service-service-3.webp" alt="אימוני טריאתלון לפצועי צהל">
         </div>
         <div class="program-text">
           <h2>מרוצים ואירועי ספורט בישראל</h2>
@@ -392,17 +452,17 @@
       <h2>תוכניות מיוחדות לקהלים ספציפיים</h2>
       <div class="special-grid">
         <div class="special-card">
-          <img data-placeholder="service-4" data-context="Portrait of IDF reserve soldier in military uniform receiving support and guidance during rehabilitation program" src="assets/tikvot-general-service-service-4.webp" alt="תוכנית ללוחמי מילואים">
+          <img data-placeholder="service-4" data-context="Portrait of IDF reserve soldier in military uniform receiving support and guidance during rehabilitation program" src="/assets/tikvot-general-service-service-4.webp" alt="תוכנית ללוחמי מילואים">
           <h3>תוכנית ללוחמי מילואים</h3>
           <p>תוכנית ייעודית ללוחמי מילואים המתמודדים עם אתגרים פיזיים ונפשיים לאחר השירות. התוכנית מספקת כלים להתמודדות, תמיכה קהילתית ופעילויות ספורט מותאמות.</p>
         </div>
         <div class="special-card">
-          <img data-placeholder="service-5" data-context="Supportive group therapy session for October 7th survivors, showing healing and community support in safe environment" src="assets/tikvot-general-service-service-5.webp" alt="תוכנית לנפגעי 7 באוקטובר">
+          <img data-placeholder="service-5" data-context="Supportive group therapy session for October 7th survivors, showing healing and community support in safe environment" src="/assets/tikvot-general-service-service-5.webp" alt="תוכנית לנפגעי 7 באוקטובר">
           <h3>תוכנית לנפגעי 7 באוקטובר</h3>
           <p>תוכנית מיוחדת שפותחה במיוחד עבור נפגעי אירועי 7 באוקטובר. אנו מספקים תמיכה רגשית, פעילויות שיקום וקהילה תומכת למי שעברו את החוויות הקשות.</p>
         </div>
         <div class="special-card">
-          <img data-placeholder="service-6" data-context="Terror attack survivors participating in group sports activity, showing resilience and mutual support" src="assets/tikvot-general-service-service-6.webp" alt="שיקום נפגעי טרור">
+          <img data-placeholder="service-6" data-context="Terror attack survivors participating in group sports activity, showing resilience and mutual support" src="/assets/tikvot-general-service-service-6.webp" alt="שיקום נפגעי טרור">
           <h3>שיקום נפגעי טרור</h3>
           <p>תוכנית מקיפה לנפגעי פיגועי טרור הכוללת שיקום גופני ונפשי, טיפולים משלימים ותמיכה משפחתית. אנו מלווים את המשתתפים בכל שלב של תהליך ההחלמה.</p>
         </div>
@@ -420,7 +480,7 @@
           <p>התוכניות שלנו מותאמות לכל רמת יכולת ומאפשרות למשתתפים להתקדם בקצב שלהם, תוך קבלת תמיכה מקצועית ורגשית לאורך כל הדרך.</p>
         </div>
         <div class="impact-image">
-          <img data-placeholder="service-7" data-context="Before and after comparison showing IDF veteran's rehabilitation progress through sports, displaying physical and emotional transformation" src="assets/tikvot-general-service-service-7.webp" alt="השפעת הספורט על שיקום פצועי צהל">
+          <img data-placeholder="service-7" data-context="Before and after comparison showing IDF veteran's rehabilitation progress through sports, displaying physical and emotional transformation" src="/assets/tikvot-general-service-service-7.webp" alt="השפעת הספורט על שיקום פצועי צהל">
         </div>
       </div>
     </div>
@@ -444,7 +504,7 @@
           <a href="/contact" class="btn-primary">הצטרפו כמתנדבים</a>
         </div>
         <div class="volunteer-image">
-          <img data-placeholder="service-8" data-context="Volunteers working together with IDF veterans during sports rehabilitation session, showing teamwork and dedication" src="assets/tikvot-general-service-service-8.webp" alt="מתנדבים עוזרים בשיקום פצועי צהל">
+          <img data-placeholder="service-8" data-context="Volunteers working together with IDF veterans during sports rehabilitation session, showing teamwork and dedication" src="/assets/tikvot-general-service-service-8.webp" alt="מתנדבים עוזרים בשיקום פצועי צהל">
         </div>
       </div>
     </div>
@@ -554,7 +614,34 @@
       if (data.showAttribution) {
         var header = document.getElementById('zappy-attribution-header');
         if (header) {
-          header.style.display = 'block';
+          // Use dynamic announcement content if available
+          if (data.announcement && data.announcement.html) {
+            header.innerHTML = data.announcement.html;
+          }
+          // Apply fixed positioning styles inline (works for existing sites too)
+          header.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 99999 !important; display: flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; box-sizing: border-box !important;';
+          // Fix child elements that might have position: fixed from old CSS
+          var children = header.querySelectorAll('*');
+          for (var i = 0; i < children.length; i++) {
+            children[i].style.position = 'static';
+          }
+          // Get header height
+          var headerHeight = header.offsetHeight;
+          // Find and fix navbar to be fixed as well (prevents gap at top of page)
+          var navSelectors = ['nav', '.navbar', '.nav'];
+          var navbar = null;
+          for (var j = 0; j < navSelectors.length; j++) {
+            navbar = document.querySelector(navSelectors[j]);
+            if (navbar && navbar.id !== 'zappy-attribution-header') break;
+            navbar = null;
+          }
+          if (navbar) {
+            var navbarHeight = navbar.offsetHeight;
+            navbar.style.cssText += '; position: fixed !important; top: ' + headerHeight + 'px !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 99998 !important;';
+            document.body.style.paddingTop = (headerHeight + navbarHeight) + 'px';
+          } else {
+            document.body.style.paddingTop = headerHeight + 'px';
+          }
         }
       }
     })
@@ -564,5 +651,40 @@
 })();
 </script>
     <div data-integration="accessibility:toolbar"></div>
-    <script src="script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+    })();
+    </script>
+    <script src="/script.js"></script>
 </body></html>
