@@ -2,7 +2,11 @@
 # These rewrite rules show clean URLs to users while serving .html files
 
 /programs  /programs.html  200
-/about  /about.html  200
+/menu-group-1766306874186  /menu-group-1766306874186.html  200
+/about-the-association  /about-the-association.html  200
+/about-the-founder  /about-the-founder.html  200
+/our-activities  /our-activities.html  200
+/our-team  /our-team.html  200
 /contact  /contact.html  200
 
 # Legal pages - redirect old .html URLs to friendly URLs
