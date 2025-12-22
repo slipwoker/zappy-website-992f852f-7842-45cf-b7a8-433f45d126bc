@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zappy-site-992f852f-7842-45cf-b7a8.onrender.com/sitemap.xml
+Sitemap: https://tikvot.zappy5.app/sitemap.xml

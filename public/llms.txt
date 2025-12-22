@@ -1,0 +1,54 @@
+# Business — Generative Engine Optimization Map
+
+---
+
+## Pages
+
+### שיקום פצועי צהל והעצמה דרך ספורט — Tikvot
+https://tikvot.zappy5.app
+תקווה מציעה שיקום חיילים פצועי צה״ל ונפגעי טרור דרך ספורט. טיפול בסוסים, משלחות סקי וטריאתלון, תוכניות לוחמי מילואים.
+
+### תוכניות שיקום מקיפות לפצועי צהל — Tikvot
+https://tikvot.zappy5.app/programs
+תוכניות שיקום מקיפות לפצועי צהל ונפגעי טרור: טיפול בסוסים, משלחות סקי בינלאומיות, טריאתלון, מרוצים ותוכניות מיוחדות.
+
+### Page
+https://tikvot.zappy5.app/menu-group-1766306874186
+
+### אודות תקווה - 20 שנה של שיקום פצועי צהל — Tikvot
+https://tikvot.zappy5.app/about-the-association
+תקווה - 20 שנה של מצוינות בשיקום פצועי צהל ונפגעי טרור דרך ספורט. עמותה מבוססת מתנדבים המחזירה תקווה לחיילינו הגיבורים.
+
+### אודות המייסדת סימונה | עמותת תקוות
+https://tikvot.zappy5.app/about-the-founder
+הכירו את סימונה, המייסדת והרוח החיה מאחורי עמותת תקוות. סיפור של חזון, נתינה ומחויבות בלתי מתפשרת לשיקום פצועי צהל ונפגעי טרור.
+
+### צרו קשר עם תקווה - הצטרפו אלינו — Tikvot
+https://tikvot.zappy5.app/contact
+צרו קשר עם תקווה - הצטרפו כמשתתפים, מתנדבים או תומכים. נשמח לענות על כל שאלה ולסייע לכם בתהליך ההצטרפות.
+
+## Legal & Policy
+
+### Privacy Policy
+https://tikvot.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://tikvot.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://tikvot.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Business
+---
+
+# Additional Resources
+
+- **Sitemap**: https://tikvot.zappy5.app/sitemap.xml
+- **Robots.txt**: https://tikvot.zappy5.app/robots.txt
