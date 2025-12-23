@@ -325,8 +325,8 @@
             }
             
             /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
-            .nav-menu &amp;amp;gt; li &amp;amp;gt; .menu-group-title,
-            #navMenu &amp;amp;gt; li &amp;amp;gt; .menu-group-title {
+            .nav-menu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title,
+            #navMenu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -340,13 +340,13 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &amp;amp;gt; li &amp;amp;gt; .menu-group-title:hover,
-            #navMenu &amp;amp;gt; li &amp;amp;gt; .menu-group-title:hover {
+            .nav-menu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title:hover,
+            #navMenu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
             }
             
             /* Desktop: show submenu on Menu Group hover */
-            li:has(.menu-group-title):hover &amp;amp;gt; .sub-menu {
+            li:has(.menu-group-title):hover &amp;amp;amp;amp;amp;gt; .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -355,7 +355,7 @@
             
             /* Hide menu items marked as hidden (overrides hover states) */
             .zappy-hidden-menu-item,
-            li:has(.menu-group-title):hover &amp;amp;gt; .sub-menu .zappy-hidden-menu-item {
+            li:has(.menu-group-title):hover &amp;amp;amp;amp;amp;gt; .sub-menu .zappy-hidden-menu-item {
               display: none !important;
               opacity: 0 !important;
               visibility: hidden !important;
@@ -408,9 +408,9 @@
             }
             
             /* Show submenu on parent hover - more specific selectors */
-            .nav-menu li:hover &amp;amp;gt; .sub-menu,
-            nav li:hover &amp;amp;gt; .sub-menu,
-            .navbar li:hover &amp;amp;gt; .sub-menu {
+            .nav-menu li:hover &amp;amp;amp;amp;amp;gt; .sub-menu,
+            nav li:hover &amp;amp;amp;amp;amp;gt; .sub-menu,
+            .navbar li:hover &amp;amp;amp;amp;amp;gt; .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -448,8 +448,8 @@
             }
             
             /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
-            .nav-menu &amp;amp;gt; li &amp;amp;gt; .menu-group-title,
-            #navMenu &amp;amp;gt; li &amp;amp;gt; .menu-group-title {
+            .nav-menu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title,
+            #navMenu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -463,8 +463,8 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &amp;amp;gt; li &amp;amp;gt; .menu-group-title:hover,
-            #navMenu &amp;amp;gt; li &amp;amp;gt; .menu-group-title:hover {
+            .nav-menu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title:hover,
+            #navMenu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
               background-color: transparent !important;
             }
@@ -505,18 +505,18 @@
               }
               
               /* Disable hover behavior on mobile */
-              .nav-menu li:hover &amp;amp;gt; .sub-menu,
-              nav li:hover &amp;amp;gt; .sub-menu,
-              .navbar li:hover &amp;amp;gt; .sub-menu {
+              .nav-menu li:hover &amp;amp;amp;amp;amp;gt; .sub-menu,
+              nav li:hover &amp;amp;amp;amp;amp;gt; .sub-menu,
+              .navbar li:hover &amp;amp;amp;amp;amp;gt; .sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
               }
               
               /* Enable visibility for expanded submenus */
-              .nav-menu li &amp;amp;gt; .sub-menu.mobile-expanded,
-              nav li &amp;amp;gt; .sub-menu.mobile-expanded,
-              .navbar li &amp;amp;gt; .sub-menu.mobile-expanded {
+              .nav-menu li &amp;amp;amp;amp;amp;gt; .sub-menu.mobile-expanded,
+              nav li &amp;amp;amp;amp;amp;gt; .sub-menu.mobile-expanded,
+              .navbar li &amp;amp;amp;amp;amp;gt; .sub-menu.mobile-expanded {
                 opacity: 1 !important;
                 visibility: visible !important;
                 pointer-events: auto !important;
@@ -542,11 +542,11 @@
               }
               
               /* Parent link - takes most space, allows navigation */
-              .nav-menu li:has(.sub-menu) &amp;amp;gt; a,
-              nav li:has(.sub-menu) &amp;amp;gt; a,
-              .navbar li:has(.sub-menu) &amp;amp;gt; a,
-              .nav-menu &amp;amp;gt; li &amp;amp;gt; .menu-group-title,
-              #navMenu &amp;amp;gt; li &amp;amp;gt; .menu-group-title {
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;amp;amp;gt; a,
+              nav li:has(.sub-menu) &amp;amp;amp;amp;amp;gt; a,
+              .navbar li:has(.sub-menu) &amp;amp;amp;amp;amp;gt; a,
+              .nav-menu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title,
+              #navMenu &amp;amp;amp;amp;amp;gt; li &amp;amp;amp;amp;amp;gt; .menu-group-title {
                 flex: 1 !important;
               }
               
@@ -583,9 +583,9 @@
               }
               
               /* Submenu takes full width below parent */
-              .nav-menu li:has(.sub-menu) &amp;amp;gt; .sub-menu,
-              nav li:has(.sub-menu) &amp;amp;gt; .sub-menu,
-              .navbar li:has(.sub-menu) &amp;amp;gt; .sub-menu {
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;amp;amp;gt; .sub-menu,
+              nav li:has(.sub-menu) &amp;amp;amp;amp;amp;gt; .sub-menu,
+              .navbar li:has(.sub-menu) &amp;amp;amp;amp;amp;gt; .sub-menu {
                 flex-basis: 100 !important;
                 width: 100 !important;
               }
@@ -605,10 +605,10 @@
             (function() {
               function initMobileMenuToggles() {
                 // Only run on mobile
-                if (window.innerWidth &amp;amp;gt; 768) {
+                if (window.innerWidth &amp;amp;amp;amp;amp;gt; 768) {
                   // Remove any toggle buttons on desktop
-                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&amp;amp;gt; btn.remove());
-                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&amp;amp;gt; {
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&amp;amp;amp;amp;amp;gt; btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&amp;amp;amp;amp;amp;gt; {
                     menu.classList.remove('mobile-expanded');
                   });
                   console.log('[MOBILE MENU] Desktop mode - cleanup done');
@@ -631,7 +631,7 @@
                   }
                   
                   const submenu = li.querySelector('.sub-menu');
-                  const parentLink = li.querySelector(':scope &amp;amp;gt; a') || li.querySelector(':scope &amp;amp;gt; .menu-group-title');
+                  const parentLink = li.querySelector(':scope &amp;amp;amp;amp;amp;gt; a') || li.querySelector(':scope &amp;amp;amp;amp;amp;gt; .menu-group-title');
                   
                   if (!submenu || !parentLink) return;
                   
@@ -691,7 +691,7 @@
               // This handles cases where the mobile menu is hidden initially
               const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
-                  if (mutation.type === 'attributes' &amp;amp;amp;&amp;amp;amp; mutation.attributeName === 'class') {
+                  if (mutation.type === 'attributes' &amp;amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp;amp; mutation.attributeName === 'class') {
                     const target = mutation.target;
                     if (target.classList.contains('active') || target.style.display !== 'none') {
                       console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
@@ -713,7 +713,7 @@
 
 <!-- Zappy Attribution Header -->
 <div id="zappy-attribution-header" class="zappy-header" style="display: none;">
-  <p>Happily created by&amp;amp;amp;amp;nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link">Zappy</a></p>
+  <p>Happily created by&amp;amp;amp;amp;amp;amp;amp;nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link">Zappy</a></p>
 </div>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
@@ -751,7 +751,7 @@
   <section class="hero" style="; position: relative; overflow: hidden;">
 <div class="hero-video-background">
   <div class="hero-video-overlay"></div>
-  <iframe class="hero-video-iframe" src="https://www.youtube.com/embed/qA-stqDiaeo?autoplay=1&amp;amp;mute=1&amp;amp;loop=1&amp;amp;playlist=qA-stqDiaeo&amp;amp;controls=0&amp;amp;showinfo=0&amp;amp;modestbranding=1&amp;amp;rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  <iframe class="hero-video-iframe" src="https://www.youtube.com/embed/qA-stqDiaeo?autoplay=1&amp;amp;amp;amp;amp;mute=1&amp;amp;amp;amp;amp;loop=1&amp;amp;amp;amp;amp;playlist=qA-stqDiaeo&amp;amp;amp;amp;amp;controls=0&amp;amp;amp;amp;amp;showinfo=0&amp;amp;amp;amp;amp;modestbranding=1&amp;amp;amp;amp;amp;rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
   <img class="hero-video-fallback" src alt="Hero background" loading="lazy">
 </div>
 
@@ -759,10 +759,10 @@
     <div class="hero-overlay hero-original-overlay-hidden" style="; display: none !important;; display: none !important;"></div>
     <div class="hero-content">
       <h1><font color="#f5f5dc">שיקום והעצמת פצועי צה״ל ונפגעי טרור</font></h1>
-      <h3><font color="#f5f5dc"><font color="#f5f5dc"><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc"><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc" class style>19 שנה של מצוינות בשיקום דרך ספורט - מחזירים תקווה וכוח לחיילינו הגיבורים</font></font></font></font></font></font></font></font></font>&nbsp;</font>amp;nbspamp;nbsp;</h3>
+      <h3><font color="#f5f5dc"><font color="#f5f5dc"><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc"><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc" class style><font color="#f5f5dc" class style>19 שנה של מצוינות בשיקום דרך ספורט - מחזירים תקווה וכוח לחיילינו הגיבורים</font></font></font></font></font></font></font></font></font></font>&amp;amp;amp;nbsp;amp;nbspamp;nbsp;</h3>
       <div class="hero-cta">
         <a id="element-saved-1766397604316-td5x7x2010j" href="/programs" class="btn btn-primary" style="background-color: #CA2B2B; border: 2px solid #CA2B2B; color: #ffffff; padding: 12px 24px; border-radius: 6px; transition: all 0.3s; cursor: pointer !important; text-decoration: none; display: inline-block;" data-element-type="button">למידע על התוכניות</a>
-        <a id="element-saved-1766397551377-h7i0lpx0q4" href="/contact" class="btn btn-outline" style="color: #CA2B2B; border: 2px solid #CA2B2B; background-color: transparent; padding: 12px 24px; border-radius: 6px; transition: all 0.3s; cursor: pointer !important; text-decoration: none; display: inline-block;" data-element-type="button"><font color="#4a4a4a">הצטרפו כמתנדבים</font></a>
+        <a id="element-saved-1766397551377-h7i0lpx0q4" href="/contact" class="btn btn-outline" style="color: #CA2B2B; border: 2px solid #CA2B2B; background-color: transparent; padding: 12px 24px; border-radius: 6px; transition: all 0.3s; cursor: pointer !important; text-decoration: none; display: inline-block;" data-element-type="button"><font color="#4a4a4a"><font color="#4a4a4a">הצטרפו כמתנדבים</font></font></a>
       </div>
     </div>
   </section>
@@ -816,7 +816,7 @@
           <a href="/programs#international" class="btn-link">פרטים על המשלחות</a>
         </div>
         <div class="program-image">
-          <div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1766431461847-yyz5euuw6sa" src="assets/business-general-service-upload-1766431458745.webp" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%; object-fit: cover; object-position: 42% 58%;" data-element-type="image"></div>
+          <img id="element-saved-1766431461847-yyz5euuw6sa" src="assets/business-general-service-upload-1766431458745.webp" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%; object-fit: cover; object-position: 42% 58%;" data-element-type="image">
         </div>
       </div>
 
@@ -857,17 +857,17 @@
     </div>
   </section>
 
-  <section class="impact-section">
+  <section class="impact-section" id="zappy-section-4">
     <div class="container">
-      <h2>הכוח המרפא של הספורט</h2>
+      <h2 class="zappy-editable">הכוח המרפא של הספורט</h2>
       <div class="impact-content">
         <div class="impact-text">
-          <p>מחקרים רבים מוכיחים שספורט הוא אחד הכלים היעילים ביותר לשיקום גופני ונפשי. הפעילות הגופנית משחררת אנדורפינים, משפרת את מצב הרוח, מחזקת את הגוף ובונה ביטחון עצמי.</p>
-          <p>עבור פצועי צה״ל ונפגעי טרור, הספורט מספק לא רק שיקום פיזי אלא גם דרך להתמודד עם הטראומה, לבנות מחדש את תחושת השליטה בחיים ולהרגיש חלק מקהילה תומכת.</p>
-          <p>התוכניות שלנו מותאמות לכל רמת יכולת ומאפשרות למשתתפים להתקדם בקצב שלהם, תוך קבלת תמיכה מקצועית ורגשית לאורך כל הדרך.</p>
+          <p class="zappy-editable">מחקרים רבים מוכיחים שספורט הוא אחד הכלים היעילים ביותר לשיקום גופני ונפשי. הפעילות הגופנית משחררת אנדורפינים, משפרת את מצב הרוח, מחזקת את הגוף ובונה ביטחון עצמי.</p>
+          <p class="zappy-editable">עבור פצועי צה״ל ונפגעי טרור, הספורט מספק לא רק שיקום פיזי אלא גם דרך להתמודד עם הטראומה, לבנות מחדש את תחושת השליטה בחיים ולהרגיש חלק מקהילה תומכת.</p>
+          <p class="zappy-editable">התוכניות שלנו מותאמות לכל רמת יכולת ומאפשרות למשתתפים להתקדם בקצב שלהם, תוך קבלת תמיכה מקצועית ורגשית לאורך כל הדרך.</p><div class="zappy-inserted-element" style="margin: 20px 0; text-align: center; display: flex; justify-content: center;"><img id="element-saved-1766475577071-h9nl4bif43" src="https://api.zappy5.com/api/website/preview-fullscreen/992f852f-7842-45cf-b7a8-433f45d126bc/assets/tikvot-general-service-service-7.webp" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%; object-fit: cover; object-position: 50% 50%;" data-element-type="image"></div>
         </div>
         <div class="impact-image">
-          <img data-placeholder="service-7" data-context="Before and after comparison showing IDF veteran's rehabilitation progress through sports, displaying physical and emotional transformation" src="assets/tikvot-general-service-service-7.webp" alt="השפעת הספורט על שיקום פצועי צהל">
+          
         </div>
       </div>
     </div>
@@ -875,59 +875,43 @@
 
   
 
-<section class="volunteer-section-v1" dir="rtl" data-zappy-component="true" id="ai-section-1766415329318-pbzr4nk">
+
+
+
+
+
+
+
+
+  <section class="volunteer-section-v1" data-section-id="volunteer-v1" data-zappy-component="true" id="ai-section-1766475488968-ntj4rqu">
   <div class="volunteer-container">
     <div class="volunteer-content">
       <div class="volunteer-text">
         <h2 class="volunteer-title"><font color="#4a4a4a">הצטרפו כמתנדבים</font></h2>
-        <p class="volunteer-intro">
-          תקווה פועלת כולה על בסיס התנדבות. כל אחד מאיתנו תורם מזמנו, מכישוריו ומליבו כדי לעזור לחיילים הפצועים שלנו. אנו מחפשים מתנדבים בתחומים שונים:
-        </p>
+        <div class="volunteer-description">
+          <p class="intro-text">תקווה פועלת כולה על בסיס התנדבות. כל אחד מאיתנו תורם מזמנו, מכישוריו ומליבו כדי לעזור לחיילים הפצועים שלנו. אנו מחפשים מתנדבים בתחומים שונים:</p>
+          
+          <ul class="volunteer-roles">
+            <li>מדריכי ספורט ואימון אישי</li>
+            <li>מטפלים בסוסים ומדריכי רכיבה</li>
+            <li>מלווים אישיים למשתתפים</li>
+            <li>מארגני אירועים ומשלחות</li>
+            <li>תמיכה מנהלתית ולוגיסטית</li>
+            <li>גיוס תרומות ויחסי ציבור</li>
+          </ul>
+          
+          <p class="closing-text">אם יש לכם רצון לתרום ולהיות חלק ממשהו גדול מעצמכם, נשמח לשמוע מכם. כל תרומה, קטנה כגדולה, עושה הבדל אמיתי בחייהם של המשתתפים שלנו.</p>
+        </div>
         
-        <ul class="volunteer-roles">
-          <li class="role-item">
-            <span class="role-icon">🏃</span>
-            <span class="role-text">מדריכי ספורט ואימון אישי</span>
-          </li>
-          <li class="role-item">
-            <span class="role-icon">🐴</span>
-            <span class="role-text">מטפלים בסוסים ומדריכי רכיבה</span>
-          </li>
-          <li class="role-item">
-            <span class="role-icon">🤝</span>
-            <span class="role-text">מלווים אישיים למשתתפים</span>
-          </li>
-          <li class="role-item">
-            <span class="role-icon">🎯</span>
-            <span class="role-text">מארגני אירועים ומשלחות</span>
-          </li>
-          <li class="role-item">
-            <span class="role-icon">📋</span>
-            <span class="role-text">תמיכה מנהלתית ולוגיסטית</span>
-          </li>
-          <li class="role-item">
-            <span class="role-icon">💝</span>
-            <span class="role-text">גיוס תרומות ויחסי ציבור</span>
-          </li>
-        </ul>
-        
-        <p class="volunteer-closing">
-          אם יש לכם רצון לתרום ולהיות חלק ממשהו גדול מעצמכם, נשמח לשמוע מכם. כל תרומה, קטנה כגדולה, עושה הבדל אמיתי בחייהם של המשתתפים שלנו.
-        </p>
-        
-        <a href="/contact" class="volunteer-cta">צרו קשר והצטרפו</a>
+        <a href="#volunteer-form" class="volunteer-cta-button">הצטרפו עכשיו</a>
       </div>
       
-      <div class="volunteer-image">
-        <img id="element-saved-1766415355088-a8ixhqkj7ds" src="assets/tikvot-general-service-service-8.webp" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100; object-fit: cover; object-position: 50% 50%;" data-element-type="image">
+      <div class="volunteer-image-wrapper">
+        <img id="element-saved-1766475514312-vlt6i96wlpp" src="assets/tikvot-general-service-service-8.webp" alt="Image" style="width: auto; height: auto; border-radius: 8px; max-width: 100%; object-fit: cover; object-position: 50% 50%;" data-element-type="image">
       </div>
     </div>
   </div>
-</section>
-
-
-
-  <section class="testimonials-section">
+</section><section class="testimonials-section">
     <div class="container">
       <h2>סיפורי הצלחה - קולות המשתתפים שלנו</h2>
       <div class="testimonials-grid">
@@ -979,7 +963,11 @@
 
   
     <!-- Legal Footer -->
-    <footer class="legal-footer">
+    
+
+
+
+<footer class="legal-footer">
       <div class="container">
         <div class="footer-main">
           <div class="all-rights-reserved">
@@ -1032,14 +1020,14 @@
         var header = document.getElementById('zappy-attribution-header');
         if (header) {
           // Use dynamic announcement content if available
-          if (data.announcement &amp;amp;amp;amp;&amp;amp;amp;amp; data.announcement.html) {
+          if (data.announcement &amp;amp;amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp;amp;amp; data.announcement.html) {
             header.innerHTML = data.announcement.html;
           }
           // Apply fixed positioning styles inline (works for existing sites too)
           header.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100 !important; z-index: 99999 !important; display: flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; box-sizing: border-box !important;';
           // Fix child elements that might have position: fixed from old CSS
           var children = header.querySelectorAll('*');
-          for (var i = 0; i &amp;amp;amp;lt; children.length; i++) {
+          for (var i = 0; i &amp;amp;amp;amp;amp;amp;lt; children.length; i++) {
             children[i].style.position = 'static';
           }
           // Get header height
@@ -1047,9 +1035,9 @@
           // Find and fix navbar to be fixed as well (prevents gap at top of page)
           var navSelectors = ['nav', '.navbar', '.nav'];
           var navbar = null;
-          for (var j = 0; j &amp;amp;amp;lt; navSelectors.length; j++) {
+          for (var j = 0; j &amp;amp;amp;amp;amp;amp;lt; navSelectors.length; j++) {
             navbar = document.querySelector(navSelectors[j]);
-            if (navbar &amp;amp;amp;amp;&amp;amp;amp;amp; navbar.id !== 'zappy-attribution-header') break;
+            if (navbar &amp;amp;amp;amp;amp;amp;amp;&amp;amp;amp;amp;amp;amp;amp; navbar.id !== 'zappy-attribution-header') break;
             navbar = null;
           }
           if (navbar) {
