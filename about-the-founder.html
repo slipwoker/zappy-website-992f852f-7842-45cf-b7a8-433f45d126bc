@@ -243,6 +243,7 @@
         .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
         .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; }
         .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
         .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; background: transparent !important; border: none !important; cursor: pointer !important; }
         .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
         .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
@@ -264,13 +265,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <style>
 /* Zappy Attribution Header Styles */
 .zappy-header {
@@ -834,7 +835,7 @@ img[data-no-hero-position] { position: static !important; }
     <div class="container nav-container">
       <div class="nav-brand">
         <a href="/" class="logo-link">
-          <img src="assets/tikvot-general-logo.webp" alt="Tikvot" class="logo">
+          <img src="/assets/tikvot-general-logo.webp" alt="Tikvot" class="logo">
         </a>
       </div>
       
@@ -876,7 +877,7 @@ img[data-no-hero-position] { position: static !important; }
           </div>
         </div>
         <div>
-          <img data-placeholder="founder-portrait" data-context="Portrait of Simona, a kind looking middle-aged woman founder of a non-profit, professional photography, warm lighting" data-zappy-editable-image="true" src="assets/page-founder-portrait-1766308245768.webp" alt="סימונה המייסדת" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" class="generated-image">
+          <img data-placeholder="founder-portrait" data-context="Portrait of Simona, a kind looking middle-aged woman founder of a non-profit, professional photography, warm lighting" data-zappy-editable-image="true" src="/assets/page-founder-portrait-1766308245768.webp" alt="סימונה המייסדת" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" class="generated-image">
         </div>
       </div>
     </div>
@@ -963,7 +964,7 @@ img[data-no-hero-position] { position: static !important; }
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
         <div>
-          <img data-placeholder="simona-speaking" data-context="Simona giving a speech to soldiers, inspiring, candid photography" data-zappy-editable-image="true" src="assets/page-simona-speaking-1766308244702.webp" alt="סימונה נושאת דברים" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" data-no-hero-position="true" class="generated-image">
+          <img data-placeholder="simona-speaking" data-context="Simona giving a speech to soldiers, inspiring, candid photography" data-zappy-editable-image="true" src="/assets/page-simona-speaking-1766308244702.webp" alt="סימונה נושאת דברים" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" data-no-hero-position="true" class="generated-image">
         </div>
         <div style="color: #102030 !important;">
           <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #102030 !important;">"הפציעה היא לא סוף הסיפור, אלא התחלה של פרק חדש"</h2>
