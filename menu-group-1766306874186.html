@@ -289,8 +289,8 @@
             }
             
             /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
-            .nav-menu &amp;gt; li &amp;gt; .menu-group-title,
-            #navMenu &amp;gt; li &amp;gt; .menu-group-title {
+            .nav-menu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title,
+            #navMenu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -304,13 +304,13 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &amp;gt; li &amp;gt; .menu-group-title:hover,
-            #navMenu &amp;gt; li &amp;gt; .menu-group-title:hover {
+            .nav-menu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title:hover,
+            #navMenu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
             }
             
             /* Desktop: show submenu on Menu Group hover */
-            li:has(.menu-group-title):hover &amp;gt; .sub-menu {
+            li:has(.menu-group-title):hover &amp;amp;amp;gt; .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -319,7 +319,7 @@
             
             /* Hide menu items marked as hidden (overrides hover states) */
             .zappy-hidden-menu-item,
-            li:has(.menu-group-title):hover &amp;gt; .sub-menu .zappy-hidden-menu-item {
+            li:has(.menu-group-title):hover &amp;amp;amp;gt; .sub-menu .zappy-hidden-menu-item {
               display: none !important;
               opacity: 0 !important;
               visibility: hidden !important;
@@ -372,9 +372,9 @@
             }
             
             /* Show submenu on parent hover - more specific selectors */
-            .nav-menu li:hover &amp;gt; .sub-menu,
-            nav li:hover &amp;gt; .sub-menu,
-            .navbar li:hover &amp;gt; .sub-menu {
+            .nav-menu li:hover &amp;amp;amp;gt; .sub-menu,
+            nav li:hover &amp;amp;amp;gt; .sub-menu,
+            .navbar li:hover &amp;amp;amp;gt; .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -412,8 +412,8 @@
             }
             
             /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
-            .nav-menu &amp;gt; li &amp;gt; .menu-group-title,
-            #navMenu &amp;gt; li &amp;gt; .menu-group-title {
+            .nav-menu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title,
+            #navMenu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -427,8 +427,8 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &amp;gt; li &amp;gt; .menu-group-title:hover,
-            #navMenu &amp;gt; li &amp;gt; .menu-group-title:hover {
+            .nav-menu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title:hover,
+            #navMenu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
               background-color: transparent !important;
             }
@@ -469,18 +469,18 @@
               }
               
               /* Disable hover behavior on mobile */
-              .nav-menu li:hover &amp;gt; .sub-menu,
-              nav li:hover &amp;gt; .sub-menu,
-              .navbar li:hover &amp;gt; .sub-menu {
+              .nav-menu li:hover &amp;amp;amp;gt; .sub-menu,
+              nav li:hover &amp;amp;amp;gt; .sub-menu,
+              .navbar li:hover &amp;amp;amp;gt; .sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
               }
               
               /* Enable visibility for expanded submenus */
-              .nav-menu li &amp;gt; .sub-menu.mobile-expanded,
-              nav li &amp;gt; .sub-menu.mobile-expanded,
-              .navbar li &amp;gt; .sub-menu.mobile-expanded {
+              .nav-menu li &amp;amp;amp;gt; .sub-menu.mobile-expanded,
+              nav li &amp;amp;amp;gt; .sub-menu.mobile-expanded,
+              .navbar li &amp;amp;amp;gt; .sub-menu.mobile-expanded {
                 opacity: 1 !important;
                 visibility: visible !important;
                 pointer-events: auto !important;
@@ -506,23 +506,23 @@
               }
               
               /* Parent link - takes most space, allows navigation */
-              .nav-menu li:has(.sub-menu) &amp;gt; a,
-              nav li:has(.sub-menu) &amp;gt; a,
-              .navbar li:has(.sub-menu) &amp;gt; a,
-              .nav-menu &amp;gt; li &amp;gt; .menu-group-title,
-              #navMenu &amp;gt; li &amp;gt; .menu-group-title {
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;gt; a,
+              nav li:has(.sub-menu) &amp;amp;amp;gt; a,
+              .navbar li:has(.sub-menu) &amp;amp;amp;gt; a,
+              .nav-menu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title,
+              #navMenu &amp;amp;amp;gt; li &amp;amp;amp;gt; .menu-group-title {
                 flex: 1 !important;
               }
               
               /* HIDE EXISTING CHEVRONS/ARROWS from cloned sites to prevent duplicates */
-              .nav-menu li:has(.sub-menu) &amp;gt; a .fa-chevron-down,
-              .nav-menu li:has(.sub-menu) &amp;gt; a .fa-angle-down,
-              .nav-menu li:has(.sub-menu) &amp;gt; a [class*="chevron"],
-              .nav-menu li:has(.sub-menu) &amp;gt; a [class*="arrow"],
-              nav li:has(.sub-menu) &amp;gt; a [class*="chevron"],
-              nav li:has(.sub-menu) &amp;gt; a [class*="arrow"],
-              #navMenu li:has(.sub-menu) &amp;gt; a [class*="chevron"],
-              #navMenu li:has(.sub-menu) &amp;gt; a [class*="arrow"] {
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;gt; a .fa-chevron-down,
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;gt; a .fa-angle-down,
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;gt; a [class*="chevron"],
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;gt; a [class*="arrow"],
+              nav li:has(.sub-menu) &amp;amp;amp;gt; a [class*="chevron"],
+              nav li:has(.sub-menu) &amp;amp;amp;gt; a [class*="arrow"],
+              #navMenu li:has(.sub-menu) &amp;amp;amp;gt; a [class*="chevron"],
+              #navMenu li:has(.sub-menu) &amp;amp;amp;gt; a [class*="arrow"] {
                 display: none !important;
                 visibility: hidden !important;
               }
@@ -560,9 +560,9 @@
               }
               
               /* Submenu takes full width below parent */
-              .nav-menu li:has(.sub-menu) &amp;gt; .sub-menu,
-              nav li:has(.sub-menu) &amp;gt; .sub-menu,
-              .navbar li:has(.sub-menu) &amp;gt; .sub-menu {
+              .nav-menu li:has(.sub-menu) &amp;amp;amp;gt; .sub-menu,
+              nav li:has(.sub-menu) &amp;amp;amp;gt; .sub-menu,
+              .navbar li:has(.sub-menu) &amp;amp;amp;gt; .sub-menu {
                 flex-basis: 100% !important;
                 width: 100% !important;
               }
@@ -582,10 +582,10 @@
             (function() {
               function initMobileMenuToggles() {
                 // Only run on mobile
-                if (window.innerWidth &amp;gt; 768) {
+                if (window.innerWidth &amp;amp;amp;gt; 768) {
                   // Remove any toggle buttons on desktop
-                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&amp;gt; btn.remove());
-                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&amp;gt; {
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&amp;amp;amp;gt; btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&amp;amp;amp;gt; {
                     menu.classList.remove('mobile-expanded');
                   });
                   console.log('[MOBILE MENU] Desktop mode - cleanup done');
@@ -608,7 +608,7 @@
                   }
                   
                   const submenu = li.querySelector('.sub-menu');
-                  const parentLink = li.querySelector(':scope &amp;gt; a') || li.querySelector(':scope &amp;gt; .menu-group-title');
+                  const parentLink = li.querySelector(':scope &amp;amp;amp;gt; a') || li.querySelector(':scope &amp;amp;amp;gt; .menu-group-title');
                   
                   if (!submenu || !parentLink) return;
                   
@@ -668,7 +668,7 @@
               // This handles cases where the mobile menu is hidden initially
               const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
-                  if (mutation.type === 'attributes' &amp;amp;&amp;amp; mutation.attributeName === 'class') {
+                  if (mutation.type === 'attributes' &amp;amp;amp;amp;&amp;amp;amp;amp; mutation.attributeName === 'class') {
                     const target = mutation.target;
                     if (target.classList.contains('active') || target.style.display !== 'none') {
                       console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
@@ -781,7 +781,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&amp;amp;copy; 2024 Tikvot. All rights reserved.</p>
+                <p>&amp;amp;amp;amp;copy; 2024 Tikvot. All rights reserved.</p>
             </div>
         </div>
     </footer>
