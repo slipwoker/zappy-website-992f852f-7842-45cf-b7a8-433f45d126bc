@@ -703,7 +703,7 @@
         </svg>
       </button>
       
-      <ul class="nav-menu" id="navMenu"><li><a href="/programs">תוכניות שיקום</a></li><li class="menu-group-item"><span class="menu-group-title">אודות</span><ul class="sub-menu"><li><a href="/about-the-association">אודות העמותה</a></li><li><a href="/about-the-founder" class="nav-link">אודות המייסדת</a></li></ul></li><li><a href="/volunteer-recruitment">הצטרפו כמתנדבים</a></li></ul>
+      <ul class="nav-menu" id="navMenu"><li><a href="/programs">תוכניות שיקום</a></li><li class="menu-group-item"><span class="menu-group-title">אודות</span><ul class="sub-menu"><li><a href="/about-the-association">אודות העמותה</a></li><li><a href="/about-the-founder" class="nav-link">אודות המייסדת</a></li></ul></li><li><a href="/contact-and-donations">ליצירת קשר ותרומה</a></li></ul>
       
       <div class="nav-cta-container">
         <li class="nav-cta-item">
@@ -824,7 +824,7 @@
       <h2>תמיכה משפחתית</h2>
       <p>אנו מבינים שהמשפחה היא חלק בלתי נפרד מתהליך השיקום. לכן, אנו מציעים תוכניות תמיכה גם לבני משפחה של המשתתפים שלנו. סדנאות, קבוצות תמיכה ופעילויות משפחתיות משותפות מסייעות למשפחות להתמודד עם האתגרים ולתמוך ביקיריהם בצורה הטובה ביותר.</p>
       
-      <a href="/volunteer-recruitment" class="btn-primary">הצטרפו כמתנדבים</a>
+      <a href="/contact-and-donations" class="btn-primary">ליצירת קשר ותרומה</a>
     </div>
   </section>
 
@@ -833,7 +833,7 @@
       <h2>הצטרפו לתוכניות השיקום שלנו</h2>
       <p>אם אתם פצועי צה״ל, נפגעי טרור או בני משפחה - אנו כאן בשבילכם. צרו איתנו קשר כדי לקבל מידע נוסף על התוכניות, תהליך ההרשמה והתחלת המסע לקראת שיקום והעצמה.</p>
       <div class="join-buttons">
-        <a href="/volunteer-recruitment" class="btn-primary">הצטרפו כמתנדבים</a>
+        <a href="/contact-and-donations" class="btn-primary">ליצירת קשר ותרומה</a>
         <a href="/about-the-association" class="btn-secondary">אודות העמותה</a>
       </div>
     </div>
@@ -845,6 +845,14 @@
 
   
     <!-- Legal Footer -->
+    <!DOCTYPE >
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tikvot</title>
+</head>
+<body>
     <footer class="legal-footer">
       <div class="container">
         <div class="footer-main">
@@ -853,7 +861,8 @@
           </div>
           <div class="footer-social"><a href="https://facebook.com/tikvot" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 <a href="https://instagram.com/tikvot" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-<a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="display:none;"><i class="fab fa-whatsapp"></i></a></div>
+<a href="https://youtube.com/@tikvot" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-element-id="element-ai-1770737425937-y9t2k5" data-element-type="link"><i class="fab fa-youtube"></i></a>
+<a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="display:none;"><i class="fab fa-whatsapp"></i></a></div>
           <div class="footer-legal">
             <a href="privacy.html" aria-label="מדיניות פרטיות">
               מדיניות פרטיות
@@ -873,6 +882,60 @@
         </div>
       </div>
     </footer>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+    <script src="/script.js"></script>
+</body>
+</html>
 
 
 <!-- Zappy Attribution Header Script -->
@@ -934,56 +997,4 @@
 })();
 </script>
     <div data-integration="accessibility:toolbar"></div>
-
-    <script id="zappy-mobile-submenu-script">
-    (function() {
-      function initMobileSubmenuToggles() {
-        if (window.innerWidth > 768) {
-          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
-          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
-          return;
-        }
-        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
-        items.forEach(function(li) {
-          if (li.querySelector('.mobile-submenu-toggle')) return;
-          var submenu = li.querySelector('.sub-menu');
-          var parentLink = li.querySelector(':scope > a');
-          if (!submenu || !parentLink) return;
-          var toggleBtn = document.createElement('button');
-          toggleBtn.className = 'mobile-submenu-toggle';
-          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
-          toggleBtn.setAttribute('type', 'button');
-          parentLink.insertAdjacentElement('afterend', toggleBtn);
-          toggleBtn.addEventListener('click', function(e) {
-            e.preventDefault(); e.stopPropagation();
-            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
-              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
-            });
-            submenu.classList.toggle('mobile-expanded');
-            toggleBtn.classList.toggle('expanded');
-          });
-        });
-      }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
-      else { initMobileSubmenuToggles(); }
-      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
-      // Re-initialize when mobile menu becomes visible (MutationObserver)
-      var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'attributes') {
-            var target = mutation.target;
-            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
-              setTimeout(initMobileSubmenuToggles, 100);
-            }
-          }
-        });
-      });
-      setTimeout(function() {
-        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
-          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
-        });
-      }, 500);
-    })();
-    </script>
-    <script src="/script.js"></script>
 </body></html>
