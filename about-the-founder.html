@@ -929,137 +929,7 @@ img[data-no-hero-position] { position: static !important; }
   </section>
 
   <!-- Quote Banner -->
-  <section class="section quote-section" id="founder-quote" style="background-color: #116dff !important; padding: 60px 0; text-align: center;" data-zappy-section="true">
-    <div class="container">
-      <blockquote style="max-width: 900px; margin: 0 auto;">
-        <p style="font-size: 1.8rem; font-weight: bold; color: #ffffff !important; line-height: 1.4; margin-bottom: 20px;">
-          "אין דבר כזה 'אי אפשר'. יש רק 'איך עושים את זה'. כשאני רואה לוחם קטוע רגל גולש במדרונות השלג, אני יודעת שניצחנו."
-        </p>
-        <!DOCTYPE >
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>תקווה - עמותה לתמיכה בנשים</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">תקווה</div>
-            <ul class="nav-links">
-                <li><a href="#about">אודות</a></li>
-                <li><a href="#services">שירותים</a></li>
-                <li><a href="#contact">צור קשר</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>תקווה - כאן בשבילך</h1>
-            <p>עמותה לתמיכה ועזרה לנשים במצבי משבר</p>
-        </section>
-
-        <section id="about" class="about-section">
-            <h2>אודות העמותה</h2>
-            <p>עמותת תקווה הוקמה במטרה לתת מענה לנשים במצבי משבר ולהעניק להן תמיכה רגשית ומעשית.</p>
-        </section>
-
-        <section id="services" class="services-section">
-            <h2>השירותים שלנו</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>תמיכה רגשית</h3>
-                    <p>ליווי אישי ותמיכה רגשית בזמנים קשים</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>סיוע משפטי</h3>
-                    <p>ייעוץ וליווי משפטי במצבי משבר</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-home"></i>
-                    <h3>מקלט בטוח</h3>
-                    <p>מקום מגורים זמני ובטוח</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <h2>צרי קשר</h2>
-            <p>אנחנו כאן בשבילך 24/7</p>
-            <div class="contact-info">
-                <p><i class="fas fa-phone"></i> טלפון: 03-1234567</p>
-                <p><i class="fas fa-envelope"></i> אימייל: info@tikvot.org.il</p>
-            </div>
-            <div class="social-links">
-                <a href="https://youtube.com/@tikvot" target="_blank" rel="noopener noreferrer" aria-label="YouTube" data-element-id="element-ai-1770737425985-yt8k2m" data-element-type="social-link">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer style="color: #c0f0f0 !important; font-size: 1.2rem; margin-top: 10px;">— סימונה, מייסדת העמותה</footer>
-
-    <script id="zappy-mobile-submenu-script">
-    (function() {
-      function initMobileSubmenuToggles() {
-        if (window.innerWidth > 768) {
-          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
-          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
-          return;
-        }
-        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
-        items.forEach(function(li) {
-          if (li.querySelector('.mobile-submenu-toggle')) return;
-          var submenu = li.querySelector('.sub-menu');
-          var parentLink = li.querySelector(':scope > a');
-          if (!submenu || !parentLink) return;
-          var toggleBtn = document.createElement('button');
-          toggleBtn.className = 'mobile-submenu-toggle';
-          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
-          toggleBtn.setAttribute('type', 'button');
-          parentLink.insertAdjacentElement('afterend', toggleBtn);
-          toggleBtn.addEventListener('click', function(e) {
-            e.preventDefault(); e.stopPropagation();
-            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
-              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
-            });
-            submenu.classList.toggle('mobile-expanded');
-            toggleBtn.classList.toggle('expanded');
-          });
-        });
-      }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
-      else { initMobileSubmenuToggles(); }
-      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
-      // Re-initialize when mobile menu becomes visible (MutationObserver)
-      var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'attributes') {
-            var target = mutation.target;
-            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
-              setTimeout(initMobileSubmenuToggles, 100);
-            }
-          }
-        });
-      });
-      setTimeout(function() {
-        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
-          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
-        });
-      }, 500);
-    })();
-    </script>
-    <script src="/script.js"></script>
-</body>
-</html>
-      </blockquote>
-    </div>
-  </section>
+  
 
   <!-- Impact & Future Section -->
   <section class="section future-section" id="founder-future" style="background-color: #ffffff !important; padding: 80px 0;" data-zappy-section="true">
@@ -1194,4 +1064,56 @@ img[data-no-hero-position] { position: static !important; }
 })();
 </script>
     <div data-integration="accessibility:toolbar"></div>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+    <script src="/script.js"></script>
 </body></html>
