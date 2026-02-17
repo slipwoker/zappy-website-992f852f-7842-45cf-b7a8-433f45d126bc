@@ -1298,7 +1298,7 @@ html[dir="rtl"] body {
         </svg>
       </button>
       
-      <ul class="nav-menu" id="navMenu"><li><a href="/programs" data-i18n="home_nav_40">תוכניות שיקום</a></li><li class="menu-group-item"><span class="menu-group-title">אודות</span><ul class="sub-menu"><li><a href="/about-the-association" data-i18n="home_nav_41">אודות העמותה</a></li><li><a href="/about-the-founder" class="nav-link" data-i18n="home_nav_42">אודות המייסדת</a></li></ul></li><li><a href="/contact-and-donations" data-i18n="home_nav_43">ליצירת קשר ותרומה</a></li></ul>
+      <ul class="nav-menu" id="navMenu"><li><a href="/programs" data-i18n="home_nav_40">תוכניות שיקום</a></li><li class="menu-group-item"><span class="menu-group-title">about</span><ul class="sub-menu"><li><a href="/about-the-association" data-i18n="home_nav_41">אודות העמותה</a></li><li><a href="/about-the-founder" class="nav-link" data-i18n="home_nav_42">אודות המייסדת</a></li></ul></li><li><a href="/contact-and-donations" data-i18n="home_nav_43">ליצירת קשר ותרומה</a></li></ul>
       
       
 <div class="lang-switcher" data-no-icon-edit="true" data-icon-color="#5f6360" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
@@ -2838,6 +2838,8 @@ html[dir="rtl"] body {
       if (ctaContainer && el.parentElement === ctaContainer.parentElement) {
         // Move lang-switcher as first child of CTA container
         ctaContainer.insertBefore(el, ctaContainer.firstChild);
+        // Ensure vertical alignment when lang-switcher and CTA button are siblings
+        ctaContainer.style.setProperty('align-items', 'center', 'important');
       }
       // Clear any margin overrides
       el.style.removeProperty('margin-left');
