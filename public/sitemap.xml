@@ -92,22 +92,22 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/about-the-founder" />
   </url>
   <url>
-    <loc>https://tikvot.zappy5.app/contact-and-donations</loc>
+    <loc>https://tikvot.zappy5.app/contact</loc>
     <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/contact-and-donations" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/contact-and-donations" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/contact-and-donations" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/contact" />
   </url>
   <url>
-    <loc>https://tikvot.zappy5.app/en/contact-and-donations</loc>
+    <loc>https://tikvot.zappy5.app/en/contact</loc>
     <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/contact-and-donations" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/contact-and-donations" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/contact-and-donations" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/contact" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/privacy</loc>
