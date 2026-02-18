@@ -770,19 +770,13 @@ p {
     transform: translateY(-50%);
   }
   
-  html[dir="rtl"] .mobile-toggle,
+  .mobile-toggle,
   html[lang="he"] .mobile-toggle,
-  html[lang="ar"] .mobile-toggle {
-    right: 15px;
-    left: auto;
-  }
+  html[lang="ar"] .mobile-toggle{right: 15px;left: auto;}
   
-  html[dir="rtl"] .phone-header-btn,
+  .phone-header-btn,
   html[lang="he"] .phone-header-btn,
-  html[lang="ar"] .phone-header-btn {
-    left: 15px;
-    right: auto;
-  }
+  html[lang="ar"] .phone-header-btn{left: 15px;right: auto;}
   
   .nav-menu {
     display: none;
@@ -804,12 +798,9 @@ p {
     display: flex;
   }
   
-  html[dir="rtl"] .nav-menu,
+  .nav-menu,
   html[lang="he"] .nav-menu,
-  html[lang="ar"] .nav-menu {
-    right: 0;
-    left: auto;
-  }
+  html[lang="ar"] .nav-menu{right: 0;left: auto;}
   
   .nav-cta-container {
     display: none;
@@ -939,10 +930,7 @@ p {
   
   html[lang="he"] .whatsapp-float,
   html[lang="ar"] .whatsapp-float,
-  html[dir="rtl"] .whatsapp-float {
-    right: 20px;
-    left: auto;
-  }
+  .whatsapp-float{right: 20px;left: auto;}
 }
 /* CRITICAL: Ensure images are visible immediately (but don't interfere with accessibility toolbar) */
 img, picture, figure {
@@ -2033,15 +2021,9 @@ body > #navbar {
     width: 100%;
     text-align: center;
   }
-}
-
-/* Added Component Styles */
-.volunteer-section-v1 {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, var(--surface-color) 0%, var(--background-color) 100%);
-  direction: rtl;
-  font-family: system-ui, sans-serif;
-}
+}/* Added Component Styles */
+.volunteer-section-v1{padding: 80px 20px;background: linear-gradient(135deg, var(--surface-color) 0%, var(--background-color) 100%);font-family: system-ui, sans-serif;}html[dir="rtl"] /* Added Component Styles */
+.volunteer-section-v1{direction: rtl;}
 
 .volunteer-container {
   max-width: 1200px;
@@ -2192,12 +2174,11 @@ body > #navbar {
 /* ========== RTL MOBILE NAVBAR FIX (zappy-rtl-mobile-fix) ========== */
 /* High-specificity rules to ensure RTL positioning wins over any [lang="en"] conflicts */
 /* For RTL sites: hamburger on RIGHT, phone on LEFT (mirror of LTR layout) */
-/* NOTE: Includes both html[dir="rtl"] AND [dir="rtl"] selectors as fallback */
+/* NOTE: Includes both AND [dir="rtl"] selectors as fallback */
 /* because some pages may be wrapped with <html lang="en"> (missing dir="rtl" on html) */
 /* but still have dir="rtl" on <body> or other ancestor elements */
 
-@media (max-width: 768px) {
-  /* RTL Mobile Toggle (hamburger) - positioned on RIGHT */
+@media (max-width: 768px){/* RTL Mobile Toggle (hamburger) - positioned on RIGHT */
   /* Using multiple parent selectors for higher specificity */
   html[dir="rtl"] .navbar .mobile-toggle,
   html[dir="rtl"] nav .mobile-toggle,
@@ -2211,12 +2192,10 @@ body > #navbar {
   [dir="rtl"] .mobile-toggle,
   html[lang="he"] .mobile-toggle,
   html[lang="ar"] .mobile-toggle {
-    left: auto !important;
-    right: 15px !important;
-  }
+    left: auto !important;right: 15px !important;}
   
   /* RTL Phone Button - positioned on LEFT */
-  html[dir="rtl"] .navbar .phone-header-btn,
+  .navbar .phone-header-btn,
   html[dir="rtl"] nav .phone-header-btn,
   html[dir="rtl"] header .phone-header-btn,
   html[dir="rtl"] .nav-container .phone-header-btn,
@@ -2227,13 +2206,10 @@ body > #navbar {
   [dir="rtl"] .nav-container .phone-header-btn,
   [dir="rtl"] .phone-header-btn,
   html[lang="he"] .phone-header-btn,
-  html[lang="ar"] .phone-header-btn {
-    left: 15px !important;
-    right: auto !important;
-  }
+  html[lang="ar"] .phone-header-btn{left: 15px !important;right: auto !important;}
   
   /* RTL Mobile Menu - slides from RIGHT */
-  html[dir="rtl"] .navbar .nav-menu,
+  .navbar .nav-menu,
   html[dir="rtl"] nav .nav-menu,
   html[dir="rtl"] header .nav-menu,
   html[dir="rtl"] .nav-container .nav-menu,
@@ -2244,22 +2220,17 @@ body > #navbar {
   [dir="rtl"] .nav-container .nav-menu,
   [dir="rtl"] .nav-menu,
   html[lang="he"] .nav-menu,
-  html[lang="ar"] .nav-menu {
-    left: auto !important;
-    right: 0 !important;
-  }
+  html[lang="ar"] .nav-menu{left: auto !important;right: 0 !important;}
   
   /* RTL Mobile Menu Links - text align right */
-  html[dir="rtl"] .nav-menu a,
+  .nav-menu a,
   html[dir="rtl"] .nav-menu li,
   [dir="rtl"] .nav-menu a,
   [dir="rtl"] .nav-menu li,
   html[lang="he"] .nav-menu a,
   html[lang="he"] .nav-menu li,
   html[lang="ar"] .nav-menu a,
-  html[lang="ar"] .nav-menu li {
-    text-align: right !important;
-  }
+  html[lang="ar"] .nav-menu li{text-align: right !important;}
 }
 
 /* ========== END RTL MOBILE NAVBAR FIX ========== */
