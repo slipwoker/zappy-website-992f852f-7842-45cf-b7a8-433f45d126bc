@@ -4,7 +4,7 @@
     <meta name="robots" content="index, follow">
   <meta name="description" content="צרו קשר עם תקווה - הצטרפו כמשתתפים, מתנדבים או תומכים. נשמח לענות על כל שאלה ולסייע לכם בתהליך ההצטרפות.">
   <meta name="keywords" content="צור קשר, Tikvot, צהל, פצועי צהל, התנדבות, הצטרפות לתוכניות">
-  <title>צרו קשר עם תקווה - הצטרפו אלינו — Tikvot</title>
+  <title data-i18n="contact_us_page_title">צרו קשר</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Favicons -->
@@ -2744,6 +2744,574 @@ html[dir="rtl"] body {
 }
 
 </style>
+<style id="zappy-multilang-css">
+/* ============================================
+   DIRECTION OVERRIDE STYLES
+   Only set direction property, NOT text-align
+   This preserves centered elements
+   ============================================ */
+
+/* Base direction for LTR */
+html[dir="ltr"], html[dir="ltr"] body {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] main,
+html[dir="ltr"] article,
+html[dir="ltr"] section,
+html[dir="ltr"] .content,
+html[dir="ltr"] .container,
+html[dir="ltr"] .wrapper {
+  direction: ltr !important;
+}
+
+/* ONLY apply text-align to legal page content that needs LTR alignment */
+html[dir="ltr"] .legal-content,
+html[dir="ltr"] .terms-content,
+html[dir="ltr"] .privacy-content,
+html[dir="ltr"] .legal-content p,
+html[dir="ltr"] .terms-content p,
+html[dir="ltr"] .privacy-content p,
+html[dir="ltr"] .legal-content li,
+html[dir="ltr"] .terms-content li,
+html[dir="ltr"] .privacy-content li {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Base direction for RTL */
+html[dir="rtl"], html[dir="rtl"] body {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] main,
+html[dir="rtl"] article,
+html[dir="rtl"] section,
+html[dir="rtl"] .content,
+html[dir="rtl"] .container,
+html[dir="rtl"] .wrapper {
+  direction: rtl !important;
+}
+
+/* ONLY apply text-align to legal page content that needs RTL alignment */
+html[dir="rtl"] .legal-content,
+html[dir="rtl"] .terms-content,
+html[dir="rtl"] .privacy-content,
+html[dir="rtl"] .legal-content p,
+html[dir="rtl"] .terms-content p,
+html[dir="rtl"] .privacy-content p,
+html[dir="rtl"] .legal-content li,
+html[dir="rtl"] .terms-content li,
+html[dir="rtl"] .privacy-content li {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+
+/* ============================================
+   V2 NAVIGATION FIX
+   CRITICAL: For V2 sites created in RTL (Hebrew), the nav elements
+   inherit direction:rtl from the body. This reverses how flex order
+   is interpreted. For LTR pages, we MUST set direction:ltr on nav
+   containers to make the flex order work correctly.
+   
+   This section is ONLY included for V2 sites (detected by nav-right-group
+   or nav-cta-container classes) to avoid affecting V1 site layouts.
+   ============================================ */
+
+/* Fix V2 navbar layout for LTR pages */
+/* Direction must apply to all screen sizes, but flex-direction: row is desktop-only */
+html[dir="ltr"] header,
+html[dir="ltr"] nav,
+html[dir="ltr"] .navbar,
+html[dir="ltr"] .nav-container {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .nav-right-group {
+  direction: ltr !important;
+  order: -1 !important;
+}
+
+html[dir="ltr"] .nav-cta-container {
+  direction: ltr !important;
+  order: 1 !important;
+  margin-left: auto !important;
+}
+
+html[dir="ltr"] .nav-menu,
+html[dir="ltr"] #navMenu {
+  direction: ltr !important;
+}
+
+html[dir="ltr"] .nav-brand {
+  direction: ltr !important;
+  order: -1 !important;
+}
+
+/* DESKTOP ONLY: Horizontal flex layout for navbar elements */
+@media (min-width: 769px) {
+  html[dir="ltr"] header,
+  html[dir="ltr"] nav,
+  html[dir="ltr"] .navbar,
+  html[dir="ltr"] .nav-container {
+    flex-direction: row !important;
+  }
+  
+  html[dir="ltr"] .nav-right-group,
+  html[dir="ltr"] .nav-cta-container {
+    flex-direction: row !important;
+  }
+  
+  html[dir="ltr"] .nav-menu,
+  html[dir="ltr"] #navMenu {
+    flex-direction: row !important;
+  }
+}
+
+
+/* Language Switcher Container - Fixed Position */
+.zappy-lang-switcher-container {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* RTL: Move to left side */
+html[dir="rtl"] .zappy-lang-switcher-container {
+  right: auto;
+  left: 12px;
+}
+
+/* Language Switcher Styles */
+.lang-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Language switcher positioning - minimal, only gap spacing */
+/* NOTE: Removed margin-left:auto rules that broke V2 layouts */
+/* V2 layouts handle positioning via flexbox, we just add small gap */
+header .lang-switcher,
+nav .lang-switcher,
+.navbar .lang-switcher {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.lang-switcher-current {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.lang-switcher-current:hover {
+  opacity: 0.7;
+}
+
+/* ===========================================
+   LANGUAGE DROPDOWN POSITIONING
+   CRITICAL: position: absolute !important overrides any
+   mobile responsive CSS that resets absolute positioning
+   to relative. The dropdown MUST be absolutely positioned
+   relative to its parent .lang-switcher.
+   
+   HIGH SPECIFICITY SELECTORS needed to override:
+   [style*="position: absolute"]:not(...) { position: relative !important }
+   That selector has specificity ~0,4,0 so we need 0,5,0+ to win
+   =========================================== */
+.lang-switcher-dropdown,
+.lang-switcher .lang-switcher-dropdown,
+div.lang-switcher-dropdown,
+.nav-cta-container .lang-switcher .lang-switcher-dropdown,
+.navbar .nav-cta-container .lang-switcher-dropdown {
+  position: absolute !important;
+  top: 100% !important;
+  /* Default LTR: align dropdown's left edge to switcher's left edge */
+  left: 0;
+  right: auto;
+  margin-top: 6px;
+  min-width: 150px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  overflow: hidden;
+  z-index: 1002 !important;
+}
+
+/* Ultra-high specificity override for problematic mobile responsive CSS */
+/* The problematic rule [style*="position: absolute"]:not():not():not() has specificity 0,4,0 */
+/* We need 0,5,0+ to win, so we add extra class/attribute selectors */
+.lang-switcher .lang-switcher-dropdown[style*="position: absolute"],
+.lang-switcher .lang-switcher-dropdown[style*="position:absolute"],
+.nav-cta-container .lang-switcher .lang-switcher-dropdown[style],
+.navbar .nav-cta-container .lang-switcher-dropdown[style],
+div.lang-switcher > div.lang-switcher-dropdown[style] {
+  position: absolute !important;
+  top: 100% !important;
+  /* Default LTR: align to left */
+  left: 0;
+  right: auto;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.15s ease;
+}
+
+html[dir="rtl"] .lang-option {
+  text-align: right;
+}
+
+/* RTL: align dropdown's right edge to switcher's right edge */
+html[dir="rtl"] .lang-switcher-dropdown,
+html[lang="he"] .lang-switcher-dropdown,
+html[lang="ar"] .lang-switcher-dropdown {
+  right: 0;
+  left: auto;
+}
+
+.lang-option:hover {
+  background: #f5f5f5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  /* Hide desktop lang-switcher on mobile - hamburger menu handles it */
+  /* High specificity needed to override stored CSS: .nav-cta-container .lang-switcher { display: flex !important } */
+  .lang-switcher,
+  .nav-cta-container .lang-switcher,
+  .nav-container .lang-switcher,
+  .navbar .lang-switcher,
+  .navbar .nav-cta-container .lang-switcher,
+  .nav-icons-left .lang-switcher,
+  .nav-ecommerce-icons .lang-switcher {
+    display: none !important;
+  }
+  
+  .zappy-lang-switcher-container {
+    display: none !important;
+  }
+  
+  /* ===========================================
+     MOBILE LANGUAGE SUBMENU (inside hamburger)
+     =========================================== */
+  .mobile-lang-menu {
+    width: 100%;
+    border-top: 1px solid rgba(128, 128, 128, 0.15);
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+  
+  .mobile-lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 500;
+    color: inherit;
+    text-align: left;
+  }
+  
+  html[dir="rtl"] .mobile-lang-toggle {
+    text-align: right;
+  }
+  
+  .mobile-lang-chevron {
+    margin-left: auto;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  
+  html[dir="rtl"] .mobile-lang-chevron {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  
+  .mobile-lang-options {
+    display: none;
+    flex-direction: column;
+    padding: 0 0 8px 0;
+  }
+  
+  .mobile-lang-options.open {
+    display: flex !important;
+  }
+  
+  .mobile-lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 30px 12px 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    color: inherit;
+    text-align: left;
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
+  }
+  
+  html[dir="rtl"] .mobile-lang-option {
+    text-align: right;
+    padding: 12px 50px 12px 30px;
+  }
+  
+  .mobile-lang-option:hover,
+  .mobile-lang-option:active {
+    opacity: 1;
+  }
+  
+  .mobile-lang-option img {
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+}
+
+/* ===========================================
+   RTL MOBILE HORIZONTAL OVERFLOW FIX
+   Prevents left whitespace gap in RTL mobile
+   caused by elements extending past viewport
+   =========================================== */
+
+/* Prevent horizontal scroll on RTL pages */
+/* Using 'clip' instead of 'hidden' to avoid breaking position:sticky */
+/* 'hidden' causes overflow-y to compute as 'auto', creating a scroll container */
+html[dir="rtl"],
+html[dir="rtl"] body {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+
+/* Ensure carousel containers clip overflow to prevent horizontal scroll */
+.zappy-carousel-container,
+.zappy-carousel-wrapper,
+.benefits-section,
+.testimonials-section,
+[class*="carousel"] {
+  overflow-x: hidden !important;
+}
+
+/* Ensure lang-switcher parent clips its positioned children */
+.lang-switcher {
+  overflow: visible; /* Keep visible for dropdown to show */
+}
+
+/* ===========================================
+   MOBILE NAV BUTTON POSITIONING
+   CSS handles positioning based on html[dir] attribute.
+   This allows dynamic RTL/LTR switching without inline styles.
+   
+   LTR (default): hamburger LEFT (20px), phone RIGHT (20px)
+   RTL: hamburger RIGHT (20px), phone LEFT (20px) - mirrored
+   =========================================== */
+@media (max-width: 768px) {
+  /* Base positioning and visibility for mobile nav buttons */
+  /* CRITICAL: display: flex overrides any desktop display: none rules */
+  .mobile-toggle,
+  html:not([data-zappy-site-type="ecommerce"]) .phone-header-btn {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 1001 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+  
+  /* Phone button color - use accent color for visibility */
+  html:not([data-zappy-site-type="ecommerce"]) .phone-header-btn {
+    color: var(--accent, #f59e0b) !important;
+  }
+  
+  html:not([data-zappy-site-type="ecommerce"]) .phone-header-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: currentColor !important;
+  }
+  
+  /* LTR positioning (default) - hamburger LEFT, phone RIGHT */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+  html[dir="ltr"] .mobile-toggle {
+    left: 20px !important;
+    right: auto !important;
+  }
+  
+  html:not([data-zappy-site-type="ecommerce"]):not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+  html:not([data-zappy-site-type="ecommerce"])[dir="ltr"] .phone-header-btn {
+    right: 20px !important;
+    left: auto !important;
+  }
+  
+  /* LTR mobile menu slides from LEFT */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu,
+  html[dir="ltr"] .nav-menu {
+    left: 0 !important;
+    right: auto !important;
+  }
+  
+  /* ===========================================
+     MOBILE NAV MENU - VERTICAL LAYOUT FIX
+     CRITICAL: Override any desktop flex-direction: row rules
+     The mobile menu MUST stack vertically (column), not horizontally (row)
+     =========================================== */
+  html[dir="ltr"] .nav-menu,
+  html[dir="ltr"] .nav-menu.active,
+  html[dir="ltr"] #navMenu,
+  html[dir="ltr"] #navMenu.active,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu.active {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  /* RTL mobile menu - also vertical layout */
+  html[dir="rtl"] .nav-menu,
+  html[dir="rtl"] .nav-menu.active,
+  html[dir="rtl"] #navMenu,
+  html[dir="rtl"] #navMenu.active,
+  html[lang="he"] .nav-menu,
+  html[lang="he"] .nav-menu.active,
+  html[lang="ar"] .nav-menu,
+  html[lang="ar"] .nav-menu.active {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  /* LTR mobile menu text alignment - left aligned */
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu li,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-menu a,
+  html[dir="ltr"] .nav-menu li,
+  html[dir="ltr"] .nav-menu a {
+    text-align: left !important;
+  }
+  
+  /* ===========================================
+     LTR MOBILE NAV-CONTAINER LAYOUT FIX
+     V2 sites have nav-container with flex-direction: row-reverse
+     for RTL. For LTR, we need flex-direction: row and centered logo.
+     =========================================== */
+  html[dir="ltr"] .nav-container,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-container {
+    flex-direction: row !important;
+    justify-content: center !important;
+  }
+  
+  /* LTR: Center the logo/nav-brand in mobile navbar */
+  html[dir="ltr"] .nav-brand,
+  html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .nav-brand {
+    order: 0 !important;
+    margin: 0 auto !important;
+  }
+  
+  /* RTL: Center the logo/nav-brand in mobile navbar */
+  html[dir="rtl"] .nav-brand,
+  html[lang="he"] .nav-brand,
+  html[lang="ar"] .nav-brand {
+    order: 0 !important;
+    margin: 0 auto !important;
+  }
+  
+  /* RTL lang-switcher dropdown constraint */
+  html[dir="rtl"] .lang-switcher {
+    position: relative;
+  }
+  
+  html[dir="rtl"] .lang-switcher-dropdown {
+    left: auto !important;
+    right: 0 !important;
+    max-width: calc(100vw - 20px);
+  }
+  
+  /* ===========================================
+     RTL MOBILE NAV BUTTON POSITIONING
+     In RTL: hamburger RIGHT, phone LEFT (mirror of LTR)
+     =========================================== */
+  html[dir="rtl"] .mobile-toggle,
+  html[lang="he"] .mobile-toggle,
+  html[lang="ar"] .mobile-toggle {
+    left: auto !important;
+    right: 20px !important;
+  }
+  
+  html[dir="rtl"]:not([data-zappy-site-type="ecommerce"]) .phone-header-btn,
+  html[lang="he"]:not([data-zappy-site-type="ecommerce"]) .phone-header-btn,
+  html[lang="ar"]:not([data-zappy-site-type="ecommerce"]) .phone-header-btn {
+    left: 20px !important;
+    right: auto !important;
+  }
+
+  /* Explicitly hide phone button on e-commerce sites (cleaner than fighting with e-commerce CSS). */
+  html[data-zappy-site-type="ecommerce"] .phone-header-btn {
+    display: none !important;
+  }
+  
+  /* RTL mobile menu slides from RIGHT */
+  html[dir="rtl"] .nav-menu,
+  html[lang="he"] .nav-menu,
+  html[lang="ar"] .nav-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+  
+  /* ===========================================
+     MOBILE LANGUAGE SWITCHER
+     Desktop lang-switcher is hidden on mobile.
+     Language selection is handled by the hamburger
+     menu submenu (.mobile-lang-menu) instead.
+     High specificity to override stored CSS.
+     =========================================== */
+  .lang-switcher,
+  .nav-cta-container .lang-switcher,
+  .nav-container .lang-switcher,
+  .navbar .lang-switcher,
+  .navbar .nav-cta-container .lang-switcher,
+  .nav-icons-left .lang-switcher,
+  .nav-ecommerce-icons .lang-switcher {
+    display: none !important;
+  }
+}
+
+</style>
 <!-- Zappy Analytics -->
 <script>
 (function() {
@@ -2977,13 +3545,13 @@ html[dir="rtl"] body {
 
 <!-- Zappy Attribution Header -->
 <div id="zappy-attribution-header" class="zappy-header" style="display: none;">
-  <p>Happily created by&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link">Zappy</a></p>
+  <p data-i18n="contact_us_p_19">Happily created by&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link" data-i18n="contact_us_link_36">Zappy</a></p>
 </div>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
       <div class="nav-brand">
         <a href="/" class="logo-link">
-          <img src="/assets/tikvot-general-logo.webp" alt="Tikvot" class="logo">
+          <img src="/assets/tikvot-general-logo.webp" alt="Tikvot" class="logo" data-i18n-alt="contact_us_alt_61">
         </a>
       </div>
       
@@ -3002,15 +3570,23 @@ html[dir="rtl"] body {
         </svg>
       </button>
       
-      <ul class="nav-menu" id="navMenu"><li><a href="/programs">תוכניות שיקום</a></li><li class="menu-group-item"><span class="menu-group-title">אודות</span><ul class="sub-menu"><li><a href="/about-the-association">אודות העמותה</a></li><li><a href="/about-the-founder" class="nav-link">אודות המייסדת</a></li></ul></li><li><a href="/contact-us">צרו קשר</a></li></ul>
+      <ul class="nav-menu" id="navMenu"><li><a href="/programs" data-i18n="contact_us_nav_55">תוכניות שיקום</a></li><li class="menu-group-item"><span class="menu-group-title" data-i18n="contact_us_nav_56">אודות</span><ul class="sub-menu"><li><a href="/about-the-association" data-i18n="contact_us_nav_57">אודות העמותה</a></li><li><a href="/about-the-founder" class="nav-link" data-i18n="contact_us_nav_58">אודות המייסדת</a></li></ul></li><li><a href="/contact-us" data-i18n="contact_us_nav_59">צרו קשר</a></li></ul>
       
       
 
 
 
-<div class="nav-cta-container">
+
+<div class="lang-switcher" data-no-icon-edit="true" data-icon-color="#5f6360" style="position:relative;display:inline-flex;align-items:center;z-index:1000;margin:0 4px;">
+  <button class="lang-switcher-current" aria-haspopup="true" aria-expanded="false" data-no-icon-edit="true" style="display:flex;align-items:center;padding:8px;background:transparent;border:none;border-radius:6px;cursor:pointer;color:#5f6360;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="#5f6360" style="flex-shrink:0;" data-no-icon-edit="true"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"></path></svg>
+  </button>
+  <div class="lang-switcher-dropdown" role="menu" style="position:absolute;top:100%;right:0;margin-top:4px;min-width:140px;background:white;border:1px solid rgba(128,128,128,0.2);border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.2s ease;z-index:1001;">
+    <button class="lang-option" data-lang="en" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;"><img src="https://api.iconify.design/circle-flags/us.svg" width="20" height="20" alt="" style="display:inline-block;vertical-align:middle;border-radius:50%;"> English</button>
+  </div>
+</div><div class="nav-cta-container">
         <li class="nav-cta-item">
-          <a href="https://www.jgive.com/new/he/ils/collect/donation-targets/70332/amount" class="nav-cta-btn" data-original-href="https://www.jgive.com/new/he/ils/collect/donation-targets/70332/amount">לתרומות</a>
+          <a href="https://www.jgive.com/new/he/ils/collect/donation-targets/70332/amount" class="nav-cta-btn" data-original-href="https://www.jgive.com/new/he/ils/collect/donation-targets/70332/amount" data-i18n="contact_us_nav_60">לתרומות</a>
         </li>
       </div>
     </div>
@@ -3018,8 +3594,8 @@ html[dir="rtl"] body {
 
   <section class="page-header">
     <div class="container">
-      <h1>צרו קשר עם תקווה - נשמח לשמוע מכם</h1>
-      <h3>בין אם אתם מעוניינים להצטרף כמשתתפים, מתנדבים או תומכים - אנו כאן בשבילכם</h3>
+      <h1 data-i18n="contact_us_h1_1">צרו קשר עם תקווה - נשמח לשמוע מכם</h1>
+      <h3 data-i18n="contact_us_h3_7">בין אם אתם מעוניינים להצטרף כמשתתפים, מתנדבים או תומכים - אנו כאן בשבילכם</h3>
     </div>
   </section>
 
@@ -3027,27 +3603,27 @@ html[dir="rtl"] body {
     <div class="container">
       <div class="contact-grid zappy-preserve-css-grid" data-original-item-width="656" data-original-gap="48px" style="grid-template-columns: 656px 656px;" id="zappy-auto-grid-1770737516658-hadiqh" data-zappy-auto-grid="true">
         <div class="contact-form-container" data-grid-item-index="0">
-          <h2>שלחו לנו הודעה</h2>
-          <p>מלאו את הטופס ונחזור אליכם בהקדם האפשרי</p>
+          <h2 data-i18n="contact_us_h2_2">שלחו לנו הודעה</h2>
+          <p data-i18n="contact_us_p_20">מלאו את הטופס ונחזור אליכם בהקדם האפשרי</p>
           
           <form class="contact-form" id="contactForm">
             <div class="form-group">
-              <label for="name">שם מלא *</label>
+              <label for="name" data-i18n="contact_us_label_49">שם מלא *</label>
               <input type="text" id="name" name="name" required="">
             </div>
             
             <div class="form-group">
-              <label for="email">כתובת אימייל *</label>
+              <label for="email" data-i18n="contact_us_label_50">כתובת אימייל *</label>
               <input type="email" id="email" name="email" required="">
             </div>
             
             <div class="form-group">
-              <label for="phone">טלפון *</label>
+              <label for="phone" data-i18n="contact_us_label_51">טלפון *</label>
               <input type="tel" id="phone" name="phone" required="">
             </div>
             
             <div class="form-group">
-              <label for="interest">אני מעוניין/ת ב:</label>
+              <label for="interest" data-i18n="contact_us_label_52">אני מעוניין/ת ב:</label>
               <select id="interest" name="interest" class="zappy-editable-dropdown">
                 <option value="participant">הצטרפות כמשתתף/ת</option>
                 <option value="volunteer">התנדבות</option>
@@ -3059,29 +3635,29 @@ html[dir="rtl"] body {
             </div>
             
             <div class="form-group">
-              <label for="message">הודעה</label>
+              <label for="message" data-i18n="contact_us_label_53">הודעה</label>
               <textarea id="message" name="message" rows="5"></textarea>
             </div>
             
             <div class="form-group checkbox-group">
               <input type="checkbox" id="terms" name="terms" required="">
-              <label for="terms">אני מסכים/ה לתנאי השימוש ומדיניות הפרטיות</label>
+              <label for="terms" data-i18n="contact_us_label_54">אני מסכים/ה לתנאי השימוש ומדיניות הפרטיות</label>
             </div>
             
-            <button type="submit" class="btn-primary" data-element-type="button" data-element-id="btn-1770737382890-m8devbasy" data-native-element="true">שלח הודעה</button>
+            <button type="submit" class="btn-primary" data-element-type="button" data-element-id="btn-1770737382890-m8devbasy" data-native-element="true" data-i18n="contact_us_btn_48">שלח הודעה</button>
           </form>
         </div>
         
         <div class="contact-info-container" data-grid-item-index="1">
-          <h2>פרטי התקשרות</h2>
+          <h2 data-i18n="contact_us_h2_3">פרטי התקשרות</h2>
           
           <div class="contact-info-item">
             <div class="contact-icon">
               <i class="fas fa-envelope" data-element-type="icon" data-element-id="icon-1770737382893-7pmz3yd8z" data-icon-type="fontawesome" style="pointer-events: auto; cursor: pointer;"></i>
             </div>
             <div class="contact-details">
-              <h3>אימייל</h3>
-              <a href="mailto:TikvotSports@gmail.com">TikvotSports@gmail.com</a>
+              <h3 data-i18n="contact_us_h3_8">אימייל</h3>
+              <a href="mailto:TikvotSports@gmail.com" data-i18n="contact_us_link_37">TikvotSports@gmail.com</a>
             </div>
           </div>
           
@@ -3090,7 +3666,7 @@ html[dir="rtl"] body {
               <i class="fas fa-phone" data-element-type="icon" data-element-id="icon-1770737382893-5dwz1ya6u" data-icon-type="fontawesome" style="pointer-events: auto; cursor: pointer;"></i>
             </div>
             <div class="contact-details">
-              <h3 style="">טלפון</h3>
+              <h3 style="" data-i18n="contact_us_h3_9">טלפון</h3>
               <a href="+972 - 45 - 1856546" class="btn btn-ghost" data-native-element="true" data-element-id="btn-1770737383943-okxr8aj8p" data-element-type="button" style="outline: none; border-color: transparent !important; color: var(--primary-color, #8B0000) !important; background-color: transparent !important; background-image: none !important;">456-58154 - 972+</a>
             </div>
           </div>
@@ -3106,21 +3682,21 @@ html[dir="rtl"] body {
           </div>
           
           <div class="contact-ways">
-            <h2>דרכים נוספות ליצירת קשר</h2>
-            <p>אנו זמינים בערוצים שונים - בחרו את הדרך הנוחה לכם ביותר:</p>
+            <h2 data-i18n="contact_us_h2_4">דרכים נוספות ליצירת קשר</h2>
+            <p data-i18n="contact_us_p_21">אנו זמינים בערוצים שונים - בחרו את הדרך הנוחה לכם ביותר:</p>
             
             <div class="contact-channels">
-              <a href="https://wa.me/" class="channel-btn whatsapp" target="_blank" rel="noopener noreferrer" style="display:none;" data-element-type="button" data-element-id="btn-1770737382890-0m1898l2h" data-native-element="true">
+              <a href="https://wa.me/" class="channel-btn whatsapp" target="_blank" rel="noopener noreferrer" style="display:none;" data-element-type="button" data-element-id="btn-1770737382890-0m1898l2h" data-native-element="true" data-i18n="contact_us_link_38">
                 <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
+                <span data-i18n="contact_us_span_33">WhatsApp</span>
               </a>
-              <a href="tel:+972 - 54 - 6456581" class="channel-btn phone" data-element-type="button" data-element-id="btn-1770737382890-6ii9mokc0" data-native-element="true">
+              <a href="tel:+972 - 54 - 6456581" class="channel-btn phone" data-element-type="button" data-element-id="btn-1770737382890-6ii9mokc0" data-native-element="true" data-i18n="contact_us_link_39">
                 <i class="fas fa-phone" data-element-type="icon" data-icon-type="fontawesome" data-element-id="icon-1770737383677-u32vqc3m6" style="pointer-events: auto; cursor: pointer;"></i>
-                <span>התקשרו אלינו</span>
+                <span data-i18n="contact_us_span_34">התקשרו אלינו</span>
               </a>
-              <a href="mailto:TikvotSports@gmail.com" class="channel-btn email" data-element-type="button" data-element-id="btn-1770737382890-zhzitzuol" data-native-element="true">
+              <a href="mailto:TikvotSports@gmail.com" class="channel-btn email" data-element-type="button" data-element-id="btn-1770737382890-zhzitzuol" data-native-element="true" data-i18n="contact_us_link_40">
                 <i class="fas fa-envelope" data-element-type="icon" data-icon-type="fontawesome" data-element-id="icon-1770737383677-zr0j3zojb" style="pointer-events: auto; cursor: pointer;"></i>
-                <span>שלחו אימייל</span>
+                <span data-i18n="contact_us_span_35">שלחו אימייל</span>
               </a>
             </div>
           </div>
@@ -3131,37 +3707,37 @@ html[dir="rtl"] body {
 
   <section class="faq-section">
     <div class="container">
-      <h2>שאלות נפוצות</h2>
+      <h2 data-i18n="contact_us_h2_5">שאלות נפוצות</h2>
       
       <div class="faq-grid">
         <div class="faq-item">
-          <h3>איך אני יכול/ה להצטרף לתוכניות השיקום?</h3>
-          <p>פצועי צה״ל ונפגעי טרור מוזמנים ליצור איתנו קשר דרך הטופס, בטלפון או בווטסאפ. נערוך שיחת היכרות, נבין את הצרכים שלכם ונמצא את התוכנית המתאימה ביותר. התהליך כולל הערכה ראשונית, בניית תוכנית אישית והתחלת הפעילות.</p>
+          <h3 data-i18n="contact_us_h3_10">איך אני יכול/ה להצטרף לתוכניות השיקום?</h3>
+          <p data-i18n="contact_us_p_22">פצועי צה״ל ונפגעי טרור מוזמנים ליצור איתנו קשר דרך הטופס, בטלפון או בווטסאפ. נערוך שיחת היכרות, נבין את הצרכים שלכם ונמצא את התוכנית המתאימה ביותר. התהליך כולל הערכה ראשונית, בניית תוכנית אישית והתחלת הפעילות.</p>
         </div>
         
         <div class="faq-item">
-          <h3>האם יש עלות להשתתפות בתוכניות?</h3>
-          <p>לא! כל התוכניות שלנו ניתנות ללא עלות למשתתפים. תקווה היא עמותה ללא מטרות רווח שפועלת על בסיס תרומות והתנדבות. אנו מאמינים שכל פצוע צה״ל ונפגע טרור ראוי לקבל תמיכה ללא תלות ביכולת כלכלית.</p>
+          <h3 data-i18n="contact_us_h3_11">האם יש עלות להשתתפות בתוכניות?</h3>
+          <p data-i18n="contact_us_p_23">לא! כל התוכניות שלנו ניתנות ללא עלות למשתתפים. תקווה היא עמותה ללא מטרות רווח שפועלת על בסיס תרומות והתנדבות. אנו מאמינים שכל פצוע צה״ל ונפגע טרור ראוי לקבל תמיכה ללא תלות ביכולת כלכלית.</p>
         </div>
         
         <div class="faq-item">
-          <h3>איך אני יכול/ה להתנדב בתקווה?</h3>
-          <p>נשמח לקבל אתכם! צרו איתנו קשר ונסביר על האפשרויות השונות להתנדבות - מדריכי ספורט, מלווים אישיים, תמיכה מנהלתית ועוד. נקיים פגישת היכרות, נבין את הכישורים והזמינות שלכם, ונמצא את התפקיד המתאים.</p>
+          <h3 data-i18n="contact_us_h3_12">איך אני יכול/ה להתנדב בתקווה?</h3>
+          <p data-i18n="contact_us_p_24">נשמח לקבל אתכם! צרו איתנו קשר ונסביר על האפשרויות השונות להתנדבות - מדריכי ספורט, מלווים אישיים, תמיכה מנהלתית ועוד. נקיים פגישת היכרות, נבין את הכישורים והזמינות שלכם, ונמצא את התפקיד המתאים.</p>
         </div>
         
         <div class="faq-item">
-          <h3>האם בני משפחה יכולים להשתתף בפעילויות?</h3>
-          <p>בהחלט! אנו מאמינים שהמשפחה היא חלק בלתי נפרד מתהליך השיקום. רבות מהפעילויות שלנו כוללות בני משפחה, ואנו מציעים גם תוכניות תמיכה ייעודיות למשפחות.</p>
+          <h3 data-i18n="contact_us_h3_13">האם בני משפחה יכולים להשתתף בפעילויות?</h3>
+          <p data-i18n="contact_us_p_25">בהחלט! אנו מאמינים שהמשפחה היא חלק בלתי נפרד מתהליך השיקום. רבות מהפעילויות שלנו כוללות בני משפחה, ואנו מציעים גם תוכניות תמיכה ייעודיות למשפחות.</p>
         </div>
         
         <div class="faq-item">
-          <h3>איך אפשר לתמוך בעמותה?</h3>
-          <p>ישנן דרכים רבות לתמוך - תרומה כספית, תרומת ציוד ספורט, ארגון אירועי גיוס כספים, שיתופי פעולה עסקיים ועוד. כל תרומה, קטנה כגדולה, עוזרת לנו להמשיך ולפעול ולהחזיר תקווה לפצועי צה״ל.</p>
+          <h3 data-i18n="contact_us_h3_14">איך אפשר לתמוך בעמותה?</h3>
+          <p data-i18n="contact_us_p_26">ישנן דרכים רבות לתמוך - תרומה כספית, תרומת ציוד ספורט, ארגון אירועי גיוס כספים, שיתופי פעולה עסקיים ועוד. כל תרומה, קטנה כגדולה, עוזרת לנו להמשיך ולפעול ולהחזיר תקווה לפצועי צה״ל.</p>
         </div>
         
         <div class="faq-item">
-          <h3>מה הזמנים והמיקומים של הפעילויות?</h3>
-          <p>הפעילויות שלנו מתקיימות במקומות שונים ברחבי הארץ ובזמנים מגוונים. כל תוכנית מותאמת לצרכים של המשתתפים. צרו איתנו קשר לקבלת מידע מפורט על הפעילויות הקרובות.</p>
+          <h3 data-i18n="contact_us_h3_15">מה הזמנים והמיקומים של הפעילויות?</h3>
+          <p data-i18n="contact_us_p_27">הפעילויות שלנו מתקיימות במקומות שונים ברחבי הארץ ובזמנים מגוונים. כל תוכנית מותאמת לצרכים של המשתתפים. צרו איתנו קשר לקבלת מידע מפורט על הפעילויות הקרובות.</p>
         </div>
       </div>
     </div>
@@ -3169,34 +3745,34 @@ html[dir="rtl"] body {
 
   <section class="join-options-section">
     <div class="container">
-      <h2>דרכים להצטרף לתקווה</h2>
+      <h2 data-i18n="contact_us_h2_6">דרכים להצטרף לתקווה</h2>
       
       <div class="join-options-grid">
         <div class="join-option-card">
           <div class="join-icon">
             <i class="fas fa-user-plus"></i>
           </div>
-          <h3>הצטרפו כמשתתפים</h3>
-          <p>פצועי צה״ל ונפגעי טרור מוזמנים להצטרף לתוכניות השיקום שלנו. נמצא יחד את התוכנית המתאימה לכם ונלווה אתכם בכל שלב.</p>
-          <a href="#contactForm" class="btn-link">מלאו טופס יצירת קשר</a>
+          <h3 data-i18n="contact_us_h3_16">הצטרפו כמשתתפים</h3>
+          <p data-i18n="contact_us_p_28">פצועי צה״ל ונפגעי טרור מוזמנים להצטרף לתוכניות השיקום שלנו. נמצא יחד את התוכנית המתאימה לכם ונלווה אתכם בכל שלב.</p>
+          <a href="#contactForm" class="btn-link" data-i18n="contact_us_link_41">מלאו טופס יצירת קשר</a>
         </div>
         
         <div class="join-option-card">
           <div class="join-icon">
             <i class="fas fa-hands-helping"></i>
           </div>
-          <h3>התנדבו איתנו</h3>
-          <p>הצטרפו לצוות המתנדבים שלנו ותרמו מזמנכם, מכישוריכם ומליבכם. ההתנדבות בתקווה היא חוויה משמעותית ומעשירה.</p>
-          <a href="#contactForm" class="btn-link">למידע על התנדבות</a>
+          <h3 data-i18n="contact_us_h3_17">התנדבו איתנו</h3>
+          <p data-i18n="contact_us_p_29">הצטרפו לצוות המתנדבים שלנו ותרמו מזמנכם, מכישוריכם ומליבכם. ההתנדבות בתקווה היא חוויה משמעותית ומעשירה.</p>
+          <a href="#contactForm" class="btn-link" data-i18n="contact_us_link_42">למידע על התנדבות</a>
         </div>
         
         <div class="join-option-card">
           <div class="join-icon">
             <i class="fas fa-heart"></i>
           </div>
-          <h3>תמכו בנו</h3>
-          <p>תרומתכם מאפשרת לנו להמשיך ולפעול ולהחזיר תקווה לפצועי צה״ל. כל תרומה עושה הבדל אמיתי.</p>
-          <a href="#contactForm" class="btn-link">למידע על תרומה</a>
+          <h3 data-i18n="contact_us_h3_18">תמכו בנו</h3>
+          <p data-i18n="contact_us_p_30">תרומתכם מאפשרת לנו להמשיך ולפעול ולהחזיר תקווה לפצועי צה״ל. כל תרומה עושה הבדל אמיתי.</p>
+          <a href="#contactForm" class="btn-link" data-i18n="contact_us_link_43">למידע על תרומה</a>
         </div>
       </div>
     </div>
@@ -3212,28 +3788,28 @@ html[dir="rtl"] body {
       <div class="container">
         <div class="footer-main">
           <div class="all-rights-reserved">
-            <p>© 2025 Tikvot. כל הזכויות שמורות.</p>
+            <p data-i18n="contact_us_p_31">© 2025 Tikvot. כל הזכויות שמורות.</p>
           </div>
           <div class="footer-social"><a href="https://facebook.com/tikvot" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 <a href="https://instagram.com/tikvot" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 <a href="https://youtube.com/@tikvot" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
 <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="display:none;"><i class="fab fa-whatsapp"></i></a></div>
           <div class="footer-legal">
-            <a href="privacy.html" aria-label="מדיניות פרטיות">
+            <a href="privacy.html" aria-label="מדיניות פרטיות" data-i18n="contact_us_link_44">
               מדיניות פרטיות
             </a>
             <span class="separator">|</span>
-            <a href="accessibility.html" aria-label="נגישות">
+            <a href="accessibility.html" aria-label="נגישות" data-i18n="contact_us_link_45">
               נגישות
             </a>
             <span class="separator">|</span>
-            <a href="terms.html" aria-label="תנאי שימוש">
+            <a href="terms.html" aria-label="תנאי שימוש" data-i18n="contact_us_link_46">
               תנאי שימוש
             </a>
           </div>
         </div>
         <div class="zappy-attribution">
-          <p>נוצר באמצעות <a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Zappy</a></p>
+          <p data-i18n="contact_us_p_32">נוצר באמצעות <a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;" data-i18n="contact_us_link_47">Zappy</a></p>
         </div>
       </div>
     </footer>
@@ -3310,6 +3886,1829 @@ html[dir="rtl"] body {
 
 
 
+
+<!-- i18next Multi-Language Support -->
+<script>
+(function() {
+  // Language resources (inline to avoid CDN dependency)
+  const resources = {
+  "he": {
+    "translation": {
+      "home_h1_1": "שיקום והעצמת פצועי צה״ל ונפגעי טרור",
+      "home_h2_2": "המשימה שלנו: החזרת תקוות דרך ספורט",
+      "home_h2_3": "אימוני טריאתלון",
+      "home_h2_4": "חדר כושר ואימוני כושר",
+      "home_h2_5": "טיפול בסוסים",
+      "home_h2_6": "תוכניות מיוחדות לקהלים ספציפיים",
+      "home_h2_7": "סיפורי הצלחה - קולות המשתתפים שלנו",
+      "home_h2_8": "הצטרפו אלינו במסע השיקום",
+      "home_h3_9": "19 שנה של מצוינות בשיקום דרך ספורט - מחזירים תקוות וכוח לחיילינו הגיבורים",
+      "home_p_13": "Happily created by Zappy",
+      "home_p_14": "תקוות היא עמותה ללא מטרות רווח המוקדשת לשיקום פצועי צה״ל ונפגעי טרור דרך משפחות שכולות באמצעות הספורט המרפא.  במשך 19 שנה, אנחנו מאמינים שספורט הוא לא רק פעילות גופנית - זה כלי עוצמתי לריפוי הנפש, בניית ביטחון עצמי, וחיבור מחדש לחיים.",
+      "home_p_15": "מ2007 אנו מאמינים שהתקווה לחיים טובים יותר איננה חלום, אלא מטרה מציאותית וברת השגה. דרך תכניות ספורט מותאמות אישית, המעצימה לפצועי צה״ל, נפגעי טרור דרך ומשפחות שכולות באמצעות ספורטאנו מעניקים למשתתפים מסלול חדש לחיים, מסלול של חוסן , הישגיות ושייכות.\nהעמותה פועלת ללא מטרוח רווח.",
+      "home_p_16": "במעבר מפציעה לאתגר ספורטיבי\nנולדת דרך חדשה. באמצעות אימון וליווי מקצועי, המשתתפים יוצאים למסע הדרגתי שבו\nהגוף והנפש לומדים לפעול יחד מחדש. זהו תהליך שאינו עוסק בפריצת גבולות בכוח, אלא\nבהיכרות מחודשת עם היכולת, בקצב אישי, ובבניית אמון לאורך הדרך.\n\n\n\nהתוכנית מפתחת סיבולת, משמעת\nוכוח מנטלי, אך מעל הכול היא מעצימה דרך התמדה, אמונה ועבודה משותפת. ההתקדמות\nאינה נמדדת רק בהישגים ספורטיביים, אלא ביכולת להחזיק מאמץ, להתמודד עם קושי\nולהרגיש שייכות - תזכורת לכך שהכוח האמיתי נבנה לאט, מבפנים",
+      "home_p_17": "עבור רבים ממשתתפי תקוות,\nהכניסה לחדר הכושר היא צעד משמעותי הרבה מעבר לאימון גופני. זהו מרחב שבו מתאפשרת\nחזרה הדרגתית לשליטה בגוף, לתחושת יכולת ולבניית זהות חדשה בתוך מציאות שהשתנתה.\nהעבודה הפיזית אינה מנותקת מהנפש, אלא מהווה עוגן יומיומי של יציבות, התמדה וחיבור\nלעצמי.\n\n\n\nבאמצעות אימונים מותאמים\nאישית, אנו מלווים את המשתתפים בתהליך שמטרתו לחזק את הרווחה הגופנית והנפשית\nכאחד. כל תנועה, חזרה והתקדמות קטנה תורמות לבניית ביטחון עצמי מחודש ולתחושה\nשהגוף יכול להיות מקור של כוח - לא רק של פגיעה",
+      "home_p_18": "טיפול בעזרת רכיבה על סוסים מסייע לנפגעי\nפוסט־טראומה באמצעות ויסות מערכת העצבים, חיבור עדין לגוף ויצירת תחושת ביטחון\nשאינה מילולית. התנועה הקצבית של הסוס מרגיעה דריכות וחרדה, מאפשרת נוכחות \"כאן\nועכשיו\" ומחזירה תחושת שליטה. הקשר עם הסוס הוא קשר לא שיפוטי, המבוסס על תגובה\nלרגש ולא למילים, וכך נוצר מרחב בטוח לאמון, חיזוק תחושת מסוגלות וחוויה מתקנת של\nהשפעה, הובלה וקיום.",
+      "home_p_19": "תוכנית ייעודית ללוחמי מילואים המתמודדים עם אתגרים פיזיים ונפשיים לאחר השירות. התוכנית מספקת כלים להתמודדות, תמיכה קהילתית ופעילויות ספורט מותאמות.",
+      "home_p_20": "תוכנית מיוחדת שפותחה במיוחד עבור נפגעי אירועי 7 באוקטובר. אנו מספקים תמיכה רגשית, פעילויות שיקום וקהילה תומכת למי שעברו את החוויות הקשות.",
+      "home_p_21": "תוכנית מקיפה לנפגעי פיגועי טרור הכוללת שיקום גופני ונפשי, טיפולים משלימים ותמיכה משפחתית. אנו מלווים את המשתתפים בכל שלב של תהליך ההחלמה.",
+      "home_p_22": "\"אחרי הפציעה שלי בצה״ל, חשבתי שהחיים שלי נגמרו. תקווה הראתה לי שיש תקווה אמיתית. הטיפול בסוסים והמשלחת לאולימפיאדת הסקי שינו את החיים שלי לחלוטין. היום אני מרגיש חזק, מסוגל ומלא מטרה.\"",
+      "home_p_23": "\"כנפגע פיגוע, התמודדתי עם טראומה קשה שלא נתנה לי לחיות. הצוות של תקווה, המתנדבים המדהימים והקהילה התומכת עזרו לי למצוא את עצמי מחדש. הספורט הפך להיות הדרך שלי להתמודד ולהחלים.\"",
+      "home_p_24": "\"ההשתתפות בטריאתלון הייתה חוויה שמעולם לא חשבתי שאוכל לעבור. תקווה נתנה לי את הכלים, האימון והתמיכה להגיע לקו הסיום. זה לא רק שיקום גופני - זה שיקום של הנפש והרוח.\"",
+      "home_p_25": "בין אם אתם פצועי צה״ל, נפגעי טרור, בני משפחה או מתנדבים פוטנציאליים - יש לנו מקום בשבילכם",
+      "home_p_26": "© 1925 Tikvot. כל הזכויות שמורות.",
+      "home_p_27": "נוצר באמצעות Zappy",
+      "home_h3_10": "תוכנית ללוחמי מילואים",
+      "home_h3_11": "תוכנית לנפגעי 7 באוקטובר",
+      "home_h3_12": "שיקום נפגעי טרור",
+      "home_alt_55": "Tikvot",
+      "home_alt_56": "Hero background",
+      "home_alt_57": "פצועי צהל משתתפים בפעילויות ספורט שיקומיות",
+      "home_alt_58": "תיאור תמונה",
+      "home_alt_59": "תיאור תמונה",
+      "home_alt_60": "תיאור תמונה",
+      "home_alt_61": "תוכנית ללוחמי מילואים",
+      "home_alt_62": "תוכנית לנפגעי 7 באוקטובר",
+      "home_alt_63": "שיקום נפגעי טרור",
+      "home_div_40": "שנות פעילות",
+      "home_div_41": "משתתפים",
+      "home_div_42": "מתנדבים",
+      "home_div_43": "יוסי כהן",
+      "home_div_44": "משתתף בתוכנית השיקום",
+      "home_div_45": "דנה לוי",
+      "home_div_46": "נפגעת טרור",
+      "home_div_47": "רון אברהם",
+      "home_div_48": "משתתף בתוכניות הספורט",
+      "home_nav_49": "תוכניות שיקום",
+      "home_nav_50": "אודות",
+      "home_nav_51": "אודות העמותה",
+      "home_nav_52": "אודות המייסדת",
+      "home_nav_53": "צרו קשר",
+      "home_nav_54": "לתרומות",
+      "home_link_31": "Zappy",
+      "home_link_32": "למידע על התוכניות",
+      "home_link_33": "צרו קשר",
+      "home_link_34": "למידע על התוכניות",
+      "home_link_35": "צרו קשר",
+      "home_link_36": "מדיניות פרטיות",
+      "home_link_37": "נגישות",
+      "home_link_38": "תנאי שימוש",
+      "home_link_39": "Zappy",
+      "home_span_28": "המשימה שלנו: החזרת תקוות דרך ספורט",
+      "home_span_29": "המשימה שלנו: החזרת תקוות דרך ספורט",
+      "home_span_30": "המשימה שלנו: החזרת תקוות דרך ספורט",
+      "programs_h1_1": "תוכניות השיקום שלנו לפצועי צה״ל ונפגעי טרור",
+      "programs_h2_2": "סקי",
+      "programs_h2_3": "אימוני טריאתלון",
+      "programs_h2_4": "חדר כושר ואימוני כושר",
+      "programs_h2_5": "טיפול בסוסים",
+      "programs_h2_6": "קארטינג",
+      "programs_h2_7": "תוכניות מיוחדות לקהלים ספציפיים",
+      "programs_h2_8": "תוכנית ללוחמי מילואים",
+      "programs_h2_9": "תוכנית לנפגעי אירועי 7 באוקטובר",
+      "programs_p_14": "Happily created by Zappy",
+      "programs_p_15": "כבר 18 שנה שמסעות הסקי של עמותת תקוות עבור פצועי צה״ל ונפגעי טרור הם מרחב של התמודדות, לא של בריחה. המפגש עם ההר המושלג מזמין את הגוף והנפש להיות נוכחים, להרגיש, ולזוז מחדש בתוך מציאות מאתגרת אך בטוחה. הגלישה אינה חופשה - היא תהליך של חיבור לגוף, ליכולת, ולרגע שבו מתאפשר שוב לסמוך על עצמך.",
+      "programs_p_16": "במעבר מפציעה לאתגר ספורטיבי נולדת דרך חדשה. באמצעות אימון וליווי מקצועי, המשתתפים יוצאים למסע הדרגתי שבו הגוף והנפש לומדים לפעול יחד מחדש. זהו תהליך שאינו עוסק בפריצת גבולות בכוח, אלא בהיכרות מחודשת עם היכולת, בקצב אישי, ובבניית אמון לאורך הדרך.\n\nהתוכנית מפתחת סיבולת, משמעת וכוח מנטלי, אך מעל הכול היא מעצימה דרך התמדה, אמונה ועבודה משותפת. ההתקדמות אינה נמדדת רק בהישגים ספורטיביים, אלא ביכולת להחזיק מאמץ, להתמודד עם קושי ולהרגיש שייכות - תזכורת לכך שהכוח האמיתי נבנה לאט, מבפנים",
+      "programs_p_17": "עבור רבים ממשתתפי תקוות, הכניסה לחדר הכושר היא צעד משמעותי הרבה מעבר לאימון גופני. זהו מרחב שבו מתאפשרת חזרה הדרגתית לשליטה בגוף, לתחושת יכולת ולבניית זהות חדשה בתוך מציאות שהשתנתה. העבודה הפיזית אינה מנותקת מהנפש, אלא מהווה עוגן יומיומי של יציבות, התמדה וחיבור לעצמי.\n\nבאמצעות אימונים מותאמים אישית, אנו מלווים את המשתתפים בתהליך שמטרתו לחזק את הרווחה הגופנית והנפשית כאחד. כל תנועה, חזרה והתקדמות קטנה תורמות לבניית ביטחון עצמי מחודש ולתחושה שהגוף יכול להיות מקור של כוח - לא רק של פגיעה",
+      "programs_p_18": "טיפול בעזרת רכיבה על סוסים מסייע לנפגעי פוסט־טראומה באמצעות ויסות מערכת העצבים, חיבור עדין לגוף ויצירת תחושת ביטחון שאינה מילולית. התנועה הקצבית של הסוס מרגיעה דריכות וחרדה, מאפשרת נוכחות \"כאן ועכשיו\" ומחזירה תחושת שליטה. \nהקשר עם הסוס הוא קשר לא שיפוטי, המבוסס על תגובה לרגש ולא למילים, וכך נוצר מרחב בטוח לאמון, חיזוק תחושת מסוגלות וחוויה מתקנת של השפעה, הובלה וקיום.",
+      "programs_p_19": "חוויית הקארטינג מציעה מפגש מדויק עם תנועה, ריכוז ושליטה, המותאם לצרכים הפיזיים והרגשיים של המשתתפים. עבור פצועי צה״ל ונפגעי טרור, אלו אינן רק שעות של הפוגה משגרת השיקום, אלא מרחב שבו הגוף והנפש נפגשים מחדש בתוך אתגר בטוח ומוגדר. המסלול מחייב נוכחות מלאה, קבלת החלטות בזמן אמת וקשב לעצמי ולסביבה.",
+      "programs_p_20": "מעבר לתוכניות הכלליות, אנו מציעים תוכניות ייעודיות המותאמות לצרכים הספציפיים של קבוצות שונות:",
+      "programs_p_21": "תוכנית מיוחדת ללוחמי מילואים המתמודדים עם אתגרים פיזיים ונפשיים לאחר תקופות שירות ארוכות. התוכנית כוללת פעילויות ספורט קבוצתיות, סדנאות לניהול מתח והתמודדות, ותמיכה קהילתית.",
+      "programs_p_22": "אנו מבינים את האתגרים הייחודיים של לוחמי המילואים - המעבר בין החיים האזרחיים לשירות, הקושי להשתלב מחדש לאחר תקופות שירות ממושכות, והצורך בתמיכה מתמשכת. התוכנית שלנו מספקת מענה מקיף לכל הצרכים האלה.",
+      "programs_p_23": "תוכנית שיקום מיוחדת שפותחה במיוחד עבור נפגעי אירועי 7 באוקטובר. התוכנית מספקת תמיכה רגשית, פעילויות שיקום מותאמות אישית, טיפולים משלימים וקהילה תומכת של אנשים שעברו חוויות דומות.",
+      "programs_p_24": "אנו מבינים שהחוויות שעברו נפגעי האירועים הקשים הללו דורשות גישה רגישה, מקצועית ומותאמת אישית. הצוות שלנו עבר הכשרה מיוחדת ועובד בשיתוף פעולה עם גורמים מקצועיים כדי לספק את המענה הטוב ביותר.",
+      "programs_p_25": "תוכנית מקיפה לנפגעי פיגועי טרור הכוללת שיקום גופני ונפשי, טיפולים משלימים כמו טיפול בסוסים, פעילויות ספורט מותאמות ותמיכה משפחתית. אנו מלווים את המשתתפים בכל שלב של תהליך ההחלמה ומספקים תמיכה ארוכת טווח.",
+      "programs_p_26": "נפגעי טרור מתמודדים עם אתגרים ייחודיים - טראומה פיזית ונפשית, קשיים בתפקוד היומיומי, פחדים וחרדות. התוכנית שלנו מתמקדת בבניית חוסן, החזרת תחושת השליטה והביטחון, ויצירת קהילה תומכת.",
+      "programs_p_27": "אנו מבינים שהמשפחה היא חלק בלתי נפרד מתהליך השיקום. לכן, אנו מציעים תוכניות תמיכה גם לבני משפחה של המשתתפים שלנו. סדנאות, קבוצות תמיכה ופעילויות משפחתיות משותפות מסייעות למשפחות להתמודד עם האתגרים ולתמוך ביקיריהם בצורה הטובה ביותר.",
+      "programs_p_28": "אם אתם פצועי צה״ל, נפגעי טרור או בני משפחה - אנו כאן בשבילכם. צרו איתנו קשר כדי לקבל מידע נוסף על התוכניות, תהליך ההרשמה והתחלת המסע לקראת שיקום והעצמה.",
+      "programs_p_29": "© 2025 Tikvot. כל הזכויות שמורות.",
+      "programs_p_30": "נוצר באמצעות Zappy",
+      "programs_h2_10": "תוכנית לנפגעי פיגועי טרור",
+      "programs_h2_11": "תמיכה משפחתית",
+      "programs_h2_12": "הצטרפו לתוכניות השיקום שלנו",
+      "programs_h3_13": "מגוון פתרונות שיקום מותאמים אישית המשלבים ספורט, טיפול ותמיכה קהילתית",
+      "contact_us_h1_1": "צרו קשר עם תקווה - נשמח לשמוע מכם",
+      "contact_us_h2_2": "שלחו לנו הודעה",
+      "contact_us_h2_3": "פרטי התקשרות",
+      "contact_us_h2_4": "דרכים נוספות ליצירת קשר",
+      "contact_us_h2_5": "שאלות נפוצות",
+      "contact_us_h2_6": "דרכים להצטרף לתקווה",
+      "contact_us_h3_7": "בין אם אתם מעוניינים להצטרף כמשתתפים, מתנדבים או תומכים - אנו כאן בשבילכם",
+      "contact_us_h3_8": "אימייל",
+      "contact_us_h3_9": "טלפון",
+      "contact_us_p_19": "Happily created by Zappy",
+      "contact_us_p_20": "מלאו את הטופס ונחזור אליכם בהקדם האפשרי",
+      "contact_us_p_21": "אנו זמינים בערוצים שונים - בחרו את הדרך הנוחה לכם ביותר:",
+      "contact_us_p_22": "פצועי צה״ל ונפגעי טרור מוזמנים ליצור איתנו קשר דרך הטופס, בטלפון או בווטסאפ. נערוך שיחת היכרות, נבין את הצרכים שלכם ונמצא את התוכנית המתאימה ביותר. התהליך כולל הערכה ראשונית, בניית תוכנית אישית והתחלת הפעילות.",
+      "contact_us_p_23": "לא! כל התוכניות שלנו ניתנות ללא עלות למשתתפים. תקווה היא עמותה ללא מטרות רווח שפועלת על בסיס תרומות והתנדבות. אנו מאמינים שכל פצוע צה״ל ונפגע טרור ראוי לקבל תמיכה ללא תלות ביכולת כלכלית.",
+      "contact_us_p_24": "נשמח לקבל אתכם! צרו איתנו קשר ונסביר על האפשרויות השונות להתנדבות - מדריכי ספורט, מלווים אישיים, תמיכה מנהלתית ועוד. נקיים פגישת היכרות, נבין את הכישורים והזמינות שלכם, ונמצא את התפקיד המתאים.",
+      "contact_us_p_25": "בהחלט! אנו מאמינים שהמשפחה היא חלק בלתי נפרד מתהליך השיקום. רבות מהפעילויות שלנו כוללות בני משפחה, ואנו מציעים גם תוכניות תמיכה ייעודיות למשפחות.",
+      "contact_us_p_26": "ישנן דרכים רבות לתמוך - תרומה כספית, תרומת ציוד ספורט, ארגון אירועי גיוס כספים, שיתופי פעולה עסקיים ועוד. כל תרומה, קטנה כגדולה, עוזרת לנו להמשיך ולפעול ולהחזיר תקווה לפצועי צה״ל.",
+      "contact_us_p_27": "הפעילויות שלנו מתקיימות במקומות שונים ברחבי הארץ ובזמנים מגוונים. כל תוכנית מותאמת לצרכים של המשתתפים. צרו איתנו קשר לקבלת מידע מפורט על הפעילויות הקרובות.",
+      "contact_us_p_28": "פצועי צה״ל ונפגעי טרור מוזמנים להצטרף לתוכניות השיקום שלנו. נמצא יחד את התוכנית המתאימה לכם ונלווה אתכם בכל שלב.",
+      "contact_us_p_29": "הצטרפו לצוות המתנדבים שלנו ותרמו מזמנכם, מכישוריכם ומליבכם. ההתנדבות בתקווה היא חוויה משמעותית ומעשירה.",
+      "contact_us_p_30": "תרומתכם מאפשרת לנו להמשיך ולפעול ולהחזיר תקווה לפצועי צה״ל. כל תרומה עושה הבדל אמיתי.",
+      "contact_us_p_31": "© 2025 Tikvot. כל הזכויות שמורות.",
+      "contact_us_p_32": "נוצר באמצעות Zappy",
+      "home_page_title": "שיקום פצועי צהל והעצמה דרך ספורט — TikvotTikvot",
+      "programs_alt_45": "Tikvot",
+      "programs_alt_46": "תיאור תמונה",
+      "programs_alt_47": "תיאור תמונה",
+      "programs_alt_48": "תיאור תמונה",
+      "programs_alt_49": "תיאור תמונה",
+      "programs_nav_39": "תוכניות שיקום",
+      "programs_nav_40": "אודות",
+      "programs_nav_41": "אודות העמותה",
+      "programs_nav_42": "אודות המייסדת",
+      "programs_nav_43": "צרו קשר",
+      "programs_nav_44": "לתרומות",
+      "contact_us_h3_10": "איך אני יכול/ה להצטרף לתוכניות השיקום?",
+      "contact_us_h3_11": "האם יש עלות להשתתפות בתוכניות?",
+      "contact_us_h3_12": "איך אני יכול/ה להתנדב בתקווה?",
+      "contact_us_h3_13": "האם בני משפחה יכולים להשתתף בפעילויות?",
+      "contact_us_h3_14": "איך אפשר לתמוך בעמותה?",
+      "contact_us_h3_15": "מה הזמנים והמיקומים של הפעילויות?",
+      "contact_us_h3_16": "הצטרפו כמשתתפים",
+      "contact_us_h3_17": "התנדבו איתנו",
+      "contact_us_h3_18": "תמכו בנו",
+      "legal_terms_h1_1": "תנאי שימוש",
+      "legal_terms_h2_2": "1. הגדרות",
+      "legal_terms_h2_3": "2. תיאור השירותים",
+      "legal_terms_h2_4": "3. תנאי השימוש",
+      "legal_terms_h2_5": "4. חובות המשתמש",
+      "legal_terms_h2_6": "5. מדיניות תשלומים והחזרים",
+      "legal_terms_h2_7": "6. הגבלת אחריות",
+      "legal_terms_h2_8": "7. זכויות יוצרים וקניין רוחני",
+      "legal_terms_h2_9": "8. פרטיות",
+      "legal_terms_p_15": "[business_name] מספקת שירותים כלליים דרך האתר. השירותים כפופים לתנאים המפורטים במסמך זה \n            ועשויים להשתנות מעת לעת.",
+      "legal_terms_p_16": "השימוש באתר מותנה בעמידה בתנאים הבאים:",
+      "legal_terms_p_17": "במידה והשירותים כוללים תשלום:",
+      "legal_terms_p_18": "השירותים ניתנים \"כפי שהם\" ללא אחריות מכל סוג. החברה לא תהיה אחראית לנזקים עקיפים, \n            תוצאתיים או מיוחדים הנובעים משימוש באתר, למעט במקרים בהם החוק קובע אחרת.",
+      "legal_terms_p_19": "כל התכנים באתר, כולל טקסטים, תמונות, עיצוב וקוד, מוגנים בזכויות יוצרים השייכות ל[business_name]. \n            אסור לשכפל, להפיץ או לעשות שימוש מסחרי בתכנים ללא אישור בכתב.",
+      "legal_terms_p_20": "איסוף ושימוש במידע אישי כפופים למדיניות הפרטיות שלנו. השימוש באתר מהווה הסכמה \n            למדיניות הפרטיות כפי שמפורט בנפרד.",
+      "legal_terms_p_21": "החברה רשאית לשנות תנאי שימוש אלה בכל עת. שינויים מהותיים יפורסמו באתר עם הודעה מוקדמת \n            של 30 יום. המשך השימוש לאחר השינוי מהווה הסכמה לתנאים החדשים.",
+      "legal_terms_p_22": "החברה רשאית להפסיק או להגביל את השירות בכל עת, לרבות במקרה של הפרת תנאי השימוש. \n            במקרה של סיום השירות, יישמרו הוראות הסעיפים הרלוונטיים.",
+      "legal_terms_p_23": "תנאי שימוש אלה כפופים לחוקי מדינת ישראל. כל סכסוך יידון בבתי המשפט המוסמכים בישראל, \n            תוך מתן עדיפות לבוררות או גישור במידת האפשר.",
+      "legal_terms_p_24": "לשאלות או הבהרות בנוגע לתנאי השימוש:",
+      "programs_link_31": "Zappy",
+      "programs_link_32": "צרו קשר",
+      "programs_link_33": "צרו קשר",
+      "programs_link_34": "אודות העמותה",
+      "programs_link_35": "מדיניות פרטיות",
+      "programs_link_36": "נגישות",
+      "programs_link_37": "תנאי שימוש",
+      "programs_link_38": "Zappy",
+      "contact_us_alt_61": "Tikvot",
+      "contact_us_btn_48": "שלח הודעה",
+      "contact_us_nav_55": "תוכניות שיקום",
+      "contact_us_nav_56": "אודות",
+      "contact_us_nav_57": "אודות העמותה",
+      "contact_us_nav_58": "אודות המייסדת",
+      "contact_us_nav_59": "צרו קשר",
+      "contact_us_nav_60": "לתרומות",
+      "legal_terms_h2_10": "9. שינוי תנאי השימוש",
+      "legal_terms_h2_11": "10. סיום השירות",
+      "legal_terms_h2_12": "11. דין חל ויישוב סכסוכים",
+      "legal_terms_h2_13": "12. הוראות כלליות",
+      "legal_terms_h2_14": "13. פרטי יצירת קשר",
+      "legal_terms_li_28": "\"החברה\" - [business_name]",
+      "legal_terms_li_29": "\"המשתמש\" - כל מי שגולש או משתמש באתר",
+      "legal_terms_li_30": "\"השירותים\" - שירותים כלליים הניתנים דרך האתר",
+      "legal_terms_li_31": "השימוש באתר למטרות חוקיות בלבד",
+      "legal_terms_li_32": "אי-הפרעה לפעילות האתר או משתמשים אחרים",
+      "legal_terms_li_33": "אי-העלאת תוכן פוגעני, לא חוקי או מזיק",
+      "legal_terms_li_34": "כיבוד זכויות יוצרים וקניין רוחני",
+      "legal_terms_li_35": "אי-ביצוע פעולות שעלולות לפגוע באבטחת האתר",
+      "legal_terms_li_36": "מתן מידע נכון ומדויק בעת הרשמה או הזמנה",
+      "legal_terms_li_37": "שמירה על סודיות פרטי הגישה לחשבון",
+      "legal_terms_li_38": "הודעה מיידית על כל שימוש לא מורשה בחשבון",
+      "legal_terms_li_39": "עדכון מידע אישי במידת הצורך",
+      "legal_terms_li_40": "התשלומים מבוצעים דרך מערכות בטוחות ומוצפנות",
+      "legal_terms_li_41": "המחירים כוללים מע\"ם כנדרש בחוק",
+      "legal_terms_li_42": "זכות ביטול עסקה תעמוד בהתאם לחוק הגנת הצרכן",
+      "legal_terms_li_43": "החזרים יבוצעו תוך 14 ימי עסקים מאישור הביטול",
+      "legal_terms_li_44": "אם חלק מהתנאים יוכרז כבלתי תקף, יישארו שאר התנאים בתוקף",
+      "legal_terms_li_45": "אי-אכיפה של זכות לא תחשב כוויתור עליה",
+      "legal_terms_li_46": "תנאי השימוש מהווים את מלוא ההסכם בין הצדדים",
+      "legal_terms_li_47": "חברה: [business_name]",
+      "legal_terms_li_48": "אימייל: [business_email]",
+      "legal_terms_li_49": "טלפון: [business_phone]",
+      "legal_terms_li_50": "כתובת: [business_address]",
+      "contact_us_link_36": "Zappy",
+      "contact_us_link_37": "TikvotSports@gmail.com",
+      "contact_us_link_38": "WhatsApp",
+      "contact_us_link_39": "התקשרו אלינו",
+      "contact_us_link_40": "שלחו אימייל",
+      "contact_us_link_41": "מלאו טופס יצירת קשר",
+      "contact_us_link_42": "למידע על התנדבות",
+      "contact_us_link_43": "למידע על תרומה",
+      "contact_us_link_44": "מדיניות פרטיות",
+      "contact_us_link_45": "נגישות",
+      "contact_us_link_46": "תנאי שימוש",
+      "contact_us_link_47": "Zappy",
+      "contact_us_span_33": "WhatsApp",
+      "contact_us_span_34": "התקשרו אלינו",
+      "contact_us_span_35": "שלחו אימייל",
+      "legal_privacy_h1_1": "מדיניות פרטיות",
+      "legal_privacy_h2_2": "1. איסוף מידע",
+      "legal_privacy_h2_3": "2. שימוש במידע",
+      "legal_privacy_h2_4": "3. שיתוף מידע",
+      "legal_privacy_h2_5": "4. זכויות המשתמש",
+      "legal_privacy_h2_6": "5. עוגיות (Cookies)",
+      "legal_privacy_h2_7": "6. אבטחת מידע",
+      "legal_privacy_h2_8": "7. שינויים במדיניות",
+      "legal_privacy_h2_9": "8. יצירת קשר",
+      "legal_privacy_p_10": "[business_name] (\"החברה\", \"אנו\", \"שלנו\") מחויבת להגן על פרטיותכם. מדיניות פרטיות זו מסבירה כיצד אנו אוספים, \n            משתמשים ומגינים על המידע שלכם בעת השימוש באתר www.company.com (\"השירות\").",
+      "legal_privacy_p_11": "אנו עשויים לאסוף את סוגי המידע הבאים:",
+      "legal_privacy_p_12": "אנו משתמשים במידע שנאסף למטרות הבאות:",
+      "legal_privacy_p_13": "אנו לא נמכור, נחכיר או נשתף את המידע האישי שלכם עם צדדים שלישיים, למעט במקרים הבאים:",
+      "legal_privacy_p_14": "בהתאם לחוק הגנת הפרטיות התשמ\"א-1981, יש לכם הזכויות הבאות:",
+      "legal_privacy_p_15": "אתרנו משתמש בעוגיות לשיפור חוויית השימוש. ניתן לנהל את העוגיות דרך הגדרות הדפדפן שלכם. \n            השבתת עוגיות עלולה להשפיע על פונקציונליות האתר.",
+      "legal_privacy_p_16": "אנו נוקטים באמצעי אבטחה סבירים להגנה על המידע שלכם, כולל הצפנה, חומות אש ובקרת גישה מוגבלת. \n            עם זאת, אף שיטת העברה או אחסון אינה בטוחה ב-100%.",
+      "legal_privacy_p_17": "אנו עשויים לעדכן מדיניות פרטיות זו מעת לעת. שינויים מהותיים יפורסמו באתר עם הודעה מוקדמת של 30 יום.",
+      "legal_privacy_p_18": "לשאלות או בקשות בנוגע למדיניות פרטיות זו, ניתן לפנות אלינו:",
+      "legal_privacy_p_19": "רשם מאגרי המידע: לתלונות ניתן לפנות לרשם מאגרי המידע במשרד המשפטים",
+      "legal_terms_div_51": "עדכון אחרון: 10.2.2026",
+      "legal_terms_div_52": "השימוש באתר זה מהווה הסכמה לתנאי השימוש המפורטים להלן. אנא קראו בעיון לפני השימוש.",
+      "contact_us_label_49": "שם מלא *",
+      "contact_us_label_50": "כתובת אימייל *",
+      "contact_us_label_51": "טלפון *",
+      "contact_us_label_52": "אני מעוניין/ת ב:",
+      "contact_us_label_53": "הודעה",
+      "contact_us_label_54": "אני מסכים/ה לתנאי השימוש ומדיניות הפרטיות",
+      "legal_privacy_li_23": "מידע אישי: שם, כתובת אימייל, מספר טלפון וכתובת",
+      "legal_privacy_li_24": "מידע טכני: כתובת IP, סוג דפדפן, מערכת הפעלה ונתוני שימוש באתר",
+      "legal_privacy_li_25": "עוגיות: מידע הנשמר במחשבכם לשיפור חוויית השימוש",
+      "legal_privacy_li_26": "מתן השירותים המבוקשים",
+      "legal_privacy_li_27": "שיפור השירות וחוויית המשתמש",
+      "legal_privacy_li_28": "יצירת קשר עמכם בנוגע לשירותינו",
+      "legal_privacy_li_29": "עמידה בדרישות חוקיות",
+      "legal_privacy_li_30": "בהסכמתכם המפורשת",
+      "legal_privacy_li_31": "כאשר נדרש על פי חוק",
+      "legal_privacy_li_32": "להגנה על זכויותינו או בטחון משתמשינו",
+      "legal_privacy_li_33": "עם ספקי שירות המסייעים בהפעלת השירות (תחת הסכמי סודיות)",
+      "legal_privacy_li_34": "זכות עיון במידע האישי השמור עליכם",
+      "legal_privacy_li_35": "זכות לתיקון מידע שגוי או לא מדויק",
+      "legal_privacy_li_36": "זכות למחיקת מידע אישי בנסיבות מסוימות",
+      "legal_privacy_li_37": "זכות להתנגד לעיבוד מידע למטרות שיווק",
+      "legal_privacy_li_38": "זכות להגשת תלונה לרשם מאגרי המידע",
+      "legal_privacy_li_39": "חברה: [business_name]",
+      "legal_privacy_li_40": "אימייל: [business_email]",
+      "legal_privacy_li_41": "טלפון: [business_phone]",
+      "legal_privacy_li_42": "כתובת: [business_address]",
+      "legal_terms_link_25": "[business_email]",
+      "legal_terms_link_26": "[business_phone]",
+      "legal_terms_link_27": "← חזרה לאתר",
+      "programs_page_title": "תוכניות שיקום מקיפות לפצועי צהל — TikvotTikvot",
+      "legal_privacy_div_43": "עדכון אחרון: 10.2.2026",
+      "contact_us_page_title": "צרו קשר",
+      "home_meta_description": "תקווה מציעה שיקום חיילים פצועי צה״ל ונפגעי טרור דרך ספורט. טיפול בסוסים, משלחות סקי וטריאתלון, תוכניות לוחמי מילואים.",
+      "legal_privacy_link_20": "[business_email]",
+      "legal_privacy_link_21": "[business_phone]",
+      "legal_privacy_link_22": "← חזרה לאתר",
+      "about_the_founder_h1_1": "סימונה: הלב הפועם מאחורי השיקום של פצועי צה\"ל",
+      "about_the_founder_h2_2": "סיפור של שליחות ונתינה",
+      "about_the_founder_h2_3": "עקרונות הברזל של סימונה",
+      "about_the_founder_h2_4": "\"הפציעה היא לא סוף הסיפור, אלא התחלה של פרק חדש\"",
+      "about_the_founder_h2_5": "מביטים קדימה: החזון לעתיד",
+      "about_the_founder_h3_6": "שיקום דרך אתגר",
+      "about_the_founder_h3_7": "משפחה אחת גדולה",
+      "about_the_founder_h3_8": "ציונות הלכה למעשה",
+      "about_the_founder_h3_9": "הצטרפו לחזון של סימונה",
+      "about_the_founder_p_10": "Happily created by Zappy",
+      "about_the_founder_p_11": "כבר למעלה משני עשורים שסימונה מקדישה את חייה למטרה אחת ויחידה: החזרת התקווה לחייהם של אלו שהקריבו את גופם ונפשם למען ביטחון המדינה. החזון שלה הפך למציאות משנה חיים עבור מאות לוחמים.",
+      "about_the_founder_p_12": "הסיפור של עמותת תקוות שזור באופן בלתי נפרד בסיפור חייה של סימונה. כמי שגדלה בבית שבו ערכי הציונות ואהבת הארץ היו נר לרגליהם, החיבור לצה\"ל ולכוחות הביטחון היה טבעי עבורה מגיל צעיר. אולם, היה זה אירוע מכונן אחד, מפגש מקרי בבית חולים שיקומי עם קבוצת פצועי צה\"ל צעירים, ששינה את מסלול חייה לנצח.",
+      "about_the_founder_p_13": "הסיפור של עמותת תקוות שזור באופן בלתי נפרד בסיפור חייה של סימונה. כמי שגדלה בבית שבו ערכי הציונות ואהבת הארץ היו נר לרגליהם, החיבור לצה\"ל ולכוחות הביטחון היה טבעי עבורה מגיל צעיר. אולם, היה זה אירוע מכונן אחד, מפגש מקרי בבית חולים שיקומי עם קבוצת פצועי צה\"ל צעירים, ששינה את מסלול חייה לנצח.",
+      "about_the_founder_p_14": "באותו מפגש, סימונה זיהתה פער עצום וכואב. בעוד שהמערכת הרפואית העניקה טיפול פיזי מצוין, הנפש של הלוחמים נותרה פעמים רבות מדממת. היא הבינה ששיקום אמיתי של פצועי צה\"ל אינו מסתיים באיחוי העצמות או בריפוי הצלקות הפיזיות, אלא דורש בנייה מחדש של תחושת המסוגלות, הביטחון העצמי והתקווה לעתיד. ההבנה הזו היתה הניצוץ שהוביל להקמת הארגון.",
+      "about_the_founder_p_15": "מאז ועד היום, סימונה מובילה את העמותה ביד רמה אך ברגישות אין-קץ. היא מאמינה כי הספורט האתגרי הוא כלי שיקומי מהמעלה הראשונה. דרך פעילויות כמו סקי, טיפוס הרים, ורכיבה על אופניים, היא מאפשרת לנפגעי טרור ולוחמים משוקמים לגלות מחדש את הכוחות הטמונים בהם. עבורה, כל חיוך של לוחם שחזר לעמוד על הרגליים (תרתי משמע) הוא עולם ומלואו.",
+      "about_the_founder_p_16": "האמונה כי אין גבול ליכולת האנושית. סימונה דוחפת את פצועי צה\"ל להתמודד עם אתגרים פיזיים מורכבים, לא כספורט בלבד, אלא כדרך לשיקום הביטחון העצמי שנפגע בעקבות הפציעה.",
+      "about_the_founder_p_17": "עבור סימונה, העמותה היא לא מוסד אלא בית. כל לוחם וכל נפגעת טרור שמצטרפים לפעילות הופכים לחלק ממשפחה תומכת, מחבקת ומבינה, שמלווה אותם לאורך כל הדרך.",
+      "about_the_founder_p_18": "אהבת הארץ והוקרת התודה למי שמגן עליה הם הבסיס לכל הפעילות. החיבור העמוק לערכי צה\"ל ולמורשת הקרב הישראלית נוכח בכל פעילות ובכל מפגש של העמותה.",
+      "about_the_founder_p_19": "משפט זה, השגור בפיה של סימונה, מהווה את המוטו המרכזי של פעילותה. היא רואה בכל אחד מפצועי צה\"ל גיבור שזקוק לכלים הנכונים כדי לחזור ולנצח – הפעם בזירת החיים האזרחיים.",
+      "about_the_founder_p_20": "הגישה הייחודית שפיתחה משלבת בין דרישות בלתי מתפשרות למצוינות לבין חיבוק חם ואוהב. היא יודעת מתי לדחוף את הלוחמים לקצה גבול היכולת כדי שיוכיחו לעצמם שהם מסוגלים, ומתי להעניק את התמיכה השקטה והמכילה ברגעים הקשים.",
+      "about_the_founder_p_21": "מעבר לשיקום הפיזי, סימונה שמה דגש רב על שילובם של נפגעי טרור ופצועים חזרה בחברה, בלימודים ובמעגל העבודה. היא פועלת ללא לאות מול גורמים ממשלתיים ופרטיים כדי לפתוח דלתות עבור אלו ששילמו מחיר כה יקר.",
+      "about_the_founder_p_22": "גם אחרי שנים של עשייה ברוכה, סימונה לא נחה לרגע. המציאות הישראלית המורכבת ממשיכה לייצר אתגרים חדשים, ומשפחת פצועי צה\"ל לצערנו ממשיכה להתרחב. החזון שלה לשנים הקרובות כולל את הרחבת מרכז הפעילות, הקמת קבוצות תמיכה נוספות למשפחות הפצועים, והעמקת שיתופי הפעולה עם יחידות צה\"ל השונות.",
+      "about_the_founder_p_23": "היא פועלת להעלאת המודעות הציבורית לחשיבות השיקום הנפשי לצד הפיזי, ומובילה קמפיינים להכרה בזכויותיהם של נפגעי טרור ולוחמים. עבור סימונה, כל עוד ישנו חייל שזקוק לעזרה כדי לחזור לחייך, המשימה טרם הושלמה.",
+      "about_the_founder_p_24": "העשייה של סימונה ושל עמותת תקוות מתאפשרת בזכות אנשים טובים שמבינים את גודל השעה. אנו מזמינים אתכם לקחת חלק במסע המופלא הזה ולהיות שותפים לדרך.",
+      "about_the_founder_p_25": "© 2025 Tikvot. כל הזכויות שמורות.",
+      "about_the_founder_p_26": "נוצר באמצעות Zappy",
+      "legal_terms_page_title": "תנאי שימוש - [business_name]",
+      "legal_accessibility_p_9": "[business_name] מחויבת להנגיש את השירותים לכלל הציבור. אנו פועלים ליישם את הנחיות התקן הישראלי \n            (ת\"י 5568) המבוסס על הנחיות WCAG 2.1 ברמת AA.",
+      "about_the_founder_alt_46": "Tikvot",
+      "about_the_founder_alt_47": "סימונה המייסדת",
+      "about_the_founder_alt_48": "סימונה נושאת דברים",
+      "about_the_founder_div_37": "💪",
+      "about_the_founder_div_38": "🤝",
+      "about_the_founder_div_39": "🇮🇱",
+      "about_the_founder_nav_40": "תוכניות שיקום",
+      "about_the_founder_nav_41": "אודות",
+      "about_the_founder_nav_42": "אודות העמותה",
+      "about_the_founder_nav_43": "אודות המייסדת",
+      "about_the_founder_nav_44": "צרו קשר",
+      "about_the_founder_nav_45": "לתרומות",
+      "legal_accessibility_h1_1": "הצהרת נגישות",
+      "legal_accessibility_h2_2": "1. מדיניות הנגישות",
+      "legal_accessibility_h2_3": "2. הסדרי הנגישות באתר",
+      "legal_accessibility_h2_4": "3. טכנולוגיות מסייעות נתמכות",
+      "legal_accessibility_h2_5": "4. בדיקות נגישות",
+      "legal_accessibility_h2_6": "5. שיפורים מתמשכים",
+      "legal_accessibility_h2_7": "6. יצירת קשר ומשוב",
+      "legal_accessibility_h3_8": "תאימות לתקן WCAG 2.1",
+      "legal_accessibility_p_10": "אנו מאמינים בשוויון זכויות ובזכותו של כל אדם לקבל מידע ושירותים בצורה עצמאית ושוויונית. \n            אתר זה תוכנן ונבנה תוך מתן דגש מיוחד על נגישות לאנשים עם מוגבלויות.",
+      "legal_accessibility_p_11": "האתר תואם לרמת AA של תקן WCAG 2.1, הכולל:",
+      "legal_accessibility_p_12": "האתר נבדק באמצעות:",
+      "legal_accessibility_p_13": "אנו עובדים באופן מתמשך לשיפור נגישות האתר ומעדכנים אותו בהתאם להתפתחויות טכנולוגיות ולמשוב מהמשתמשים.",
+      "legal_accessibility_p_14": "אם נתקלתם בבעיית נגישות באתר או זקוקים לסיוע, אנא פנו אלינו:",
+      "legal_accessibility_p_15": "זמני מענה: נענה לפניות בנושא נגישות תוך 3 ימי עסקים ונפעל לפתרון תוך 10 ימי עסקים.",
+      "legal_accessibility_p_16": "תלונות: ניתן להגיש תלונה למשרד המשפטים - הנציבות לשוויון זכויות לאנשים עם מוגבלות",
+      "legal_privacy_page_title": "מדיניות פרטיות - [business_name]",
+      "about_the_founder_link_30": "Zappy",
+      "about_the_founder_link_31": "צרו קשר",
+      "about_the_founder_link_32": "תמכו בפעילות העמותה",
+      "about_the_founder_link_33": "מדיניות פרטיות",
+      "about_the_founder_link_34": "נגישות",
+      "about_the_founder_link_35": "תנאי שימוש",
+      "about_the_founder_link_36": "Zappy",
+      "about_the_founder_span_27": "💪",
+      "about_the_founder_span_28": "🤝",
+      "about_the_founder_span_29": "🇮🇱",
+      "legal_accessibility_li_20": "תמיכה בניווט באמצעות מקלדת",
+      "legal_accessibility_li_21": "תמיכה בקוראי מסך",
+      "legal_accessibility_li_22": "ניגודיות צבעים מתאימה",
+      "legal_accessibility_li_23": "גדלי פונט גמישים וניתנים להגדלה",
+      "legal_accessibility_li_24": "תיאורי תמונות (Alt text) מפורטים",
+      "legal_accessibility_li_25": "כותרות מובנות היררכית",
+      "legal_accessibility_li_26": "קישורים תיאוריים וברורים",
+      "legal_accessibility_li_27": "תמיכה בזום עד 200% ללא אובדן תוכן",
+      "legal_accessibility_li_28": "נתפס (Perceivable): המידע מוצג בדרכים שמשתמשים יכולים לתפוס",
+      "legal_accessibility_li_29": "פעיל (Operable): רכיבי הממשק ניתנים להפעלה",
+      "legal_accessibility_li_30": "מובן (Understandable): המידע וממשק המשתמש מובנים",
+      "legal_accessibility_li_31": "חזק (Robust): התוכן יכול להיות מפוענח על ידי מגוון טכנולוגיות",
+      "legal_accessibility_li_32": "NVDA (Windows)",
+      "legal_accessibility_li_33": "JAWS (Windows)",
+      "legal_accessibility_li_34": "VoiceOver (Mac/iOS)",
+      "legal_accessibility_li_35": "TalkBack (Android)",
+      "legal_accessibility_li_36": "Dragon NaturallySpeaking",
+      "legal_accessibility_li_37": "Switch navigation",
+      "legal_accessibility_li_38": "כלים אוטומטיים לבדיקת נגישות",
+      "legal_accessibility_li_39": "בדיקות ידניות עם קוראי מסך",
+      "legal_accessibility_li_40": "ניווט באמצעות מקלדת בלבד",
+      "legal_accessibility_li_41": "בדיקת ניגודיות צבעים",
+      "legal_accessibility_li_42": "בדיקה עם משתמשים עם מוגבלויות",
+      "legal_accessibility_li_43": "חברה: [business_name]",
+      "legal_accessibility_li_44": "אימייל: [business_email]",
+      "legal_accessibility_li_45": "טלפון: [business_phone]",
+      "programs_meta_description": "תוכניות שיקום מקיפות לפצועי צהל ונפגעי טרור: טיפול בסוסים, משלחות סקי בינלאומיות, טריאתלון, מרוצים ותוכניות מיוחדות.",
+      "about_the_association_h1_1": "אודות עמותת תקוות - 19 שנה של שיקום פצועי צה״ל",
+      "about_the_association_h2_2": "הסיפור שלנו",
+      "about_the_association_h2_3": "הערכים שלנו",
+      "about_the_association_h2_4": "הצוות והמתנדבים שלנו",
+      "about_the_association_h2_5": "הנהלה וניהול",
+      "about_the_association_h2_6": "מדריכי ספורט ומאמנים",
+      "about_the_association_h2_7": "מטפלים ואנשי מקצוע",
+      "about_the_association_h2_8": "מלווים ותומכים",
+      "about_the_association_h2_9": "הצטרפו אלינו כמתנדבים",
+      "about_the_association_p_23": "Happily created by Zappy",
+      "about_the_association_p_24": "עמותת תקוות היא עמותה ללא מטרות רווח\nאשר פועלת לשיקום פצועי צה״ל פצועי פעולות טרור ומשפחות השכול באמצעות ספורט\nועשייה. מטרתינו להפוך את  הטראומה\nלניצחון, ולהשיב לאלו שנפצעו תקווה ובטחון.\n\nהעמותה, שנוסדה בשנת 2007, טיפלה עד\nהיום בלמעלה מ-14,000 פצועים. היא מלווה את פצועי צה״ל ושורדי הטרור מרגע הפציעה,\nלאורך תהליך השיקום ועד להחלמה.\n\nהכלים הטיפוליים שאנו מעניקים : סקי מים, רכיבה\nעל סוסים, קארטינג, אימונים והשתתפות בתחרויות\nטריאתלון, אופניים, גלישת גלי ועוד. \n\nפעמיים\nבשנה העמותה יוצאת לפעילות סקי וסנואובורד באתרי סקי בעולם עם מדריכים מוסמכים\nוצוות רפואי . \n\nהמשלחת\nבנויה מפצועים שמאושרים רפואית ליציאה לפעילות ספורט אתגרי שכזה. פעילות זו מוכיחה\nלהם שוב - אין פסגה שאי אפשר לכבוש.\n\nאירועי ה-7 באוקטובר הותירו חותם עמוק\nומתמשך על החברה הישראלית. חיילים ואזרחים רבים נלחמו למען ישראל ועכשיו אנחנו\nנלחמים למען השיקום שלהם.amp;  הטראומה\nלניצחון, ולהשיב לאלו שנפצעו תקווה ובטחון.\n\nהעמותה, שנוסדה בשנת 2007, טיפלה עד\nהיום בלמעלה מ-14,000 פצועים. היא מלווה את פצועי צה״ל ושורדי הטרור מרגע הפציעה,\nלאורך תהליך השיקום ועד להחלמה.\n\nהכלים הטיפוליים שאנו מעניקים : סקי מים, רכיבה\nעל סוסים, קארטינג, אימונים והשתתפות בתחרויות\nטריאתלון, אופניים, גלישת גלים ועוד.\nפעמיים\nבשנה העמותה יוצאת לפעילות סקי וסנואובורד באתרי סקי בעולם עם מדריכים מוסמכים\nוצוות רפואי .\nהמשלחת\nבנויה מפצועים שמאושרים רפואית ליציאה לפעילות ספורט אתגרי שכזה. פעילות זו מוכיחה\nלהם שוב - אין פסגה שאי אפשר לכבוש.\n\nאירועי ה-7 באוקטובר הותירו חותם עמוק\nומתמשך על החברה הישראלית. חיילים ואזרחים רבים נלחמו למען ישראל ועכשיו אנחנו\nנלחמים למען השיקום שלהם.",
+      "about_the_association_p_25": "אנו מחויבים לספק את השירות הטוב ביותר לפצועי צה״ל ונפגעי טרור. כל החלטה שאנו מקבלים מונחית על ידי שאלה אחת: מה הכי טוב למשתתפים שלנו?",
+      "about_the_association_p_26": "אנו מאמינים בכוח של קהילה. המשתתפים שלנו לא רק מקבלים שירותים - הם הופכים לחלק ממשפחה גדולה ותומכת שנשארת איתם לאורך זמן.",
+      "about_the_association_p_27": "אנו שואפים למצוינות בכל מה שאנו עושים. הצוות והמתנדבים שלנו מקבלים הכשרה מקצועית ועובדים לפי הסטנדרטים הגבוהים ביותר.",
+      "about_the_association_p_28": "תקווה פועלת על בסיס התנדבותי מלא. אנו מאמינים שנתינה מלב מביאה לתוצאות הטובות ביותר ומחזקת את הקשר בין המתנדבים למשתתפים.",
+      "about_the_association_p_29": "אנו מאמינים שכל אדם הוא ייחודי ודורש גישה מותאמת אישית. אנו משקיעים בפיתוח תוכניות חדשניות ומתאימים אותן לצרכים הספציפיים של כל משתתף.",
+      "about_the_association_p_30": "השם שלנו, תקווה, משקף את הליבה של מה שאנו עושים - אנו מחזירים תקווה לאנשים שעברו חוויות קשות ומעצימים אותם להאמין ביכולות שלהם.",
+      "about_the_association_p_31": "תקוות פועלת בזכות מאות מתנדבים מסורים המשקיעים מזמנם, מכישוריהם ומליבם. הצוות שלנו כולל:",
+      "about_the_association_p_32": "צוות ההנהלה שלנו מורכב ממתנדבים בעלי ניסיון עשיר בניהול ארגונים ללא מטרות רווח, עבודה עם אוכלוסיות מיוחדות ופיתוח תוכניות שיקום. הם מובילים את החזון של תקוות ומוודאים שאנו ממשיכים לספק שירות ברמה הגבוהה ביותר.",
+      "about_the_association_p_33": "המדריכים שלנו הם מקצוענים מוסמכים ומנוסים בתחומי הספורט השונים - סקי, טריאתלון, שחייה, רכיבה ועוד. כולם עברו הכשרה מיוחדת בעבודה עם אוכלוסיות מיוחדות ומבינים את האתגרים הייחודיים של פצועי צה״ל ונפגעי טרור.",
+      "about_the_association_p_34": "הצוות הטיפולי שלנו כולל פסיכולוגים, מטפלים בסוסים, פיזיותרפיסטים ואנשי מקצוע נוספים. כולם מתנדבים מזמנם ומספקים שירותים מקצועיים ברמה הגבוהה ביותר.",
+      "about_the_association_p_35": "מאות מתנדבים נוספים מלווים את המשתתפים שלנו באירועים, מסייעים בארגון פעילויות, מספקים תמיכה רגשית ויוצרים את הקהילה החמה והתומכת שהיא הלב של תקוות.",
+      "about_the_association_p_36": "אנו תמיד מחפשים מתנדבים נוספים שרוצים להיות חלק מהמשימה שלנו. בין אם יש לכם כישורים מקצועיים ספציפיים או פשוט רצון לעזור ולתרום - יש לנו מקום בשבילכם. ההתנדבות בתקוות היא חוויה מעשירה ומשמעותית שמשנה חיים - הן של המשתתפים והן של המתנדבים עצמם.",
+      "about_the_association_p_37": "לאורך 20 שנות הפעילות שלנו, השגנו הרבה. אבל ההישג הכי גדול שלנו אינו מדיד במספרים - זה השינוי שאנו רואים בחיים של המשתתפים שלנו.",
+      "about_the_association_p_38": "תקוות זכתה להכרה והוקרה מגופים רבים, כולל צה״ל, משרד הביטחון, ארגונים בינלאומיים לספורט פראלימפי ועוד. אבל ההוקרה הכי משמעותית עבורנו מגיעה מהמשתתפים ומשפחותיהם - הסיפורים שלהם, ההישגים שלהם והשינוי שהם עוברים.",
+      "about_the_association_p_39": "תקוות פועלת בשיתוף פעולה עם ארגונים וגופים רבים שתומכים במשימה שלנו ומסייעים לנו לספק את השירות הטוב ביותר למשתתפים:",
+      "about_the_association_p_40": "אנו מודים לכל השותפים והתומכים שלנו על האמון והתמיכה. בלעדיכם, לא היינו יכולים להמשיך ולפעול ולהחזיר תקווה לחיילינו הגיבורים.",
+      "about_the_association_p_41": "אנו מסתכלים קדימה עם תקווה ונחישות. המטרה שלנו היא להמשיך ולהרחיב את הפעילות שלנו, להגיע ליותר פצועי צה״ל ונפגעי טרור, ולפתח תוכניות חדשות ומתקדמות.",
+      "about_the_association_p_42": "אנו מאמינים שכל פצוע צה״ל ונפגע טרור ראוי לקבל את התמיכה והכלים להחזיר את החיים לתפקוד מלא ומשמעותי. תקוות תמשיך לפעול ללא לאות כדי להפוך חזון זה למציאות.",
+      "about_the_association_p_43": "בין אם אתם מעוניינים להצטרף כמשתתפים, כמתנדבים או כתומכים - נשמח לשמוע מכם",
+      "about_the_association_p_44": "© 2025 Tikvot. כל הזכויות שמורות.",
+      "about_the_association_p_45": "נוצר באמצעות Zappy",
+      "legal_accessibility_div_46": "עדכון אחרון: 10.2.2026",
+      "legal_accessibility_div_47": "רמת נגישות: AA (תקן ישראלי ת\"י 5568)",
+      "about_the_association_h2_10": "ההישגים שלנו",
+      "about_the_association_h2_11": "הכרה והוקרה",
+      "about_the_association_h2_12": "שותפים ותומכים",
+      "about_the_association_h2_13": "החזון שלנו לעתיד",
+      "about_the_association_h2_14": "מטרות לשנים הקרובות:",
+      "about_the_association_h2_15": "הצטרפו אלינו במסע",
+      "about_the_association_h3_16": "הסיפור שלנו, הערכים שלנו והמחויבות שלנו לחיילינו הגיבורים",
+      "about_the_association_h3_17": "מחויבות ללא פשרות",
+      "about_the_association_h3_18": "קהילה ותמיכה",
+      "about_the_association_h3_19": "מצוינות ומקצועיות",
+      "about_the_association_h3_20": "התנדבות ונתינה",
+      "about_the_association_h3_21": "חדשנות והתאמה אישית",
+      "about_the_association_h3_22": "תקווה והעצמה",
+      "about_the_association_li_73": "צה״ל ומשרד הביטחון - שיתוף פעולה בזיהוי מועמדים ותמיכה בתוכניות",
+      "about_the_association_li_74": "ארגונים בינלאומיים לספורט פראלימפי - תמיכה במשלחות והשתתפות בתחרויות",
+      "about_the_association_li_75": "מרכזי שיקום ובתי חולים - שיתוף פעולה מקצועי ותמיכה טיפולית",
+      "about_the_association_li_76": "חברות ותורמים פרטיים - תמיכה כספית ולוגיסטית",
+      "about_the_association_li_77": "מדריכי ספורט ומאמנים מקצועיים - התנדבות והכשרה",
+      "about_the_association_li_78": "הרחבת תוכניות הטיפול בסוסים והקמת מרכז טיפול ייעודי",
+      "about_the_association_li_79": "ארגון משלחות נוספות לתחרויות בינלאומיות ואולימפיאדות פראלימפיות",
+      "about_the_association_li_80": "פיתוח תוכניות חדשות לקהלים ספציפיים, כולל נשים ונוער",
+      "about_the_association_li_81": "הרחבת הצוות והמתנדבים כדי להגיע ליותר משתתפים",
+      "about_the_association_li_82": "שיתופי פעולה בינלאומיים והעברת הידע והניסיון שלנו לארגונים אחרים",
+      "about_the_association_li_83": "מחקר ופיתוח של שיטות שיקום חדשניות דרך ספורט",
+      "contact_us_meta_description": "צרו קשר עם תקווה - הצטרפו כמשתתפים, מתנדבים או תומכים. נשמח לענות על כל שאלה ולסייע לכם בתהליך ההצטרפות.",
+      "legal_accessibility_link_17": "[business_email]",
+      "legal_accessibility_link_18": "[business_phone]",
+      "legal_accessibility_link_19": "← חזרה לאתר",
+      "about_the_association_alt_96": "Tikvot",
+      "about_the_association_div_84": "שנות פעילות רציפה",
+      "about_the_association_div_85": "משתתפים לאורך השנים",
+      "about_the_association_div_86": "משלחות בינלאומיות",
+      "about_the_association_div_87": "מתנדבים פעילים",
+      "about_the_association_div_88": "מדליות בתחרויות בינלאומיות",
+      "about_the_association_div_89": "התנדבות - אפס שכר",
+      "about_the_association_nav_90": "תוכניות שיקום",
+      "about_the_association_nav_91": "אודות",
+      "about_the_association_nav_92": "אודות העמותה",
+      "about_the_association_nav_93": "אודות המייסדת",
+      "about_the_association_nav_94": "צרו קשר",
+      "about_the_association_nav_95": "לתרומות",
+      "about_the_founder_page_title": "אודות המייסדת",
+      "about_the_association_link_65": "Zappy",
+      "about_the_association_link_66": "צרו קשר",
+      "about_the_association_link_67": "צרו קשר",
+      "about_the_association_link_68": "למידע על התוכניות",
+      "about_the_association_link_69": "מדיניות פרטיות",
+      "about_the_association_link_70": "נגישות",
+      "about_the_association_link_71": "תנאי שימוש",
+      "about_the_association_link_72": "Zappy",
+      "about_the_association_span_46": "עמותת תקוות היא עמותה ללא מטרות רווח\nאשר פועלת לשיקום פצועי צה״ל פצועי פעולות טרור ומשפחות השכול באמצעות ספורט\nועשייה. מטרתינו להפוך את  הטראומה\nלניצחון, ולהשיב לאלו שנפצעו תקווה ובטחון",
+      "about_the_association_span_47": "העמותה, שנוסדה בשנת 2007, טיפלה עד\nהיום בלמעלה מ-14,000 פצועים. היא מלווה את פצועי צה״ל ושורדי הטרור מרגע הפציעה,\nלאורך תהליך השיקום ועד להחלמה",
+      "about_the_association_span_48": "כלים הטיפוליים שאנו מעניקים : סקי מים, רכיבה\nעל סוסים, קארטינג, אימונים והשתתפות בתחרויות\nטריאתלון, אופניים, גלישת גלי ועוד.",
+      "about_the_association_span_49": "כלים הטיפוליים שאנו מעניקים : סקי",
+      "about_the_association_span_50": "מים, רכיבה\nעל סוסים, קארטינג, אימונים והשתתפות בתחרויות\nטריאתלון, אופניים, גלישת גלי ועוד.",
+      "about_the_association_span_51": "פעמיים\nבשנה העמותה יוצאת לפעילות סקי וסנואובורד באתרי סקי בעולם עם מדריכים מוסמכים\nוצוות רפואי .",
+      "about_the_association_span_52": "פעמיים\nבשנה העמותה יוצאת לפעילות סקי וסנואובורד באתרי סקי בעולם עם מדריכים מוסמכים\nוצוות רפואי .",
+      "about_the_association_span_53": "המשלחת\nבנויה מפצועים שמאושרים רפואית ליציאה לפעילות ספורט אתגרי שכזה. פעילות זו מוכיחה\nלהם שוב - אין פסגה שאי אפשר לכבוש.",
+      "about_the_association_span_54": "המשלחת\nבנויה מפצועים שמאושרים רפואית ליציאה לפעילות ספורט אתגרי שכזה. פעילות זו מוכיחה\nלהם שוב - אין פסגה שאי אפשר לכבוש.",
+      "about_the_association_span_55": "אירועי ה-7 באוקטובר הותירו חותם עמוק\nומתמשך על החברה הישראלית. חיילים ואזרחים רבים נלחמו למען ישראל ועכשיו אנחנו\nנלחמים למען השיקום שלהם",
+      "about_the_association_span_56": "העמותה, שנוסדה בשנת 2007, טיפלה עד\nהיום בלמעלה מ-14,000 פצועים. היא מלווה את פצועי צה״ל ושורדי הטרור מרגע הפציעה,\nלאורך תהליך השיקום ועד להחלמה",
+      "about_the_association_span_57": "כלים הטיפוליים שאנו מעניקים : סקי מים, רכיבה\nעל סוסים, קארטינג, אימונים והשתתפות בתחרויות\nטריאתלון, אופניים, גלישת גלים ועוד.",
+      "about_the_association_span_58": "כלים הטיפוליים שאנו מעניקים : סקי",
+      "about_the_association_span_59": "מים, רכיבה\nעל סוסים, קארטינג, אימונים והשתתפות בתחרויות\nטריאתלון, אופניים, גלישת גלים ועוד.",
+      "about_the_association_span_60": "פעמיים\nבשנה העמותה יוצאת לפעילות סקי וסנואובורד באתרי סקי בעולם עם מדריכים מוסמכים\nוצוות רפואי .",
+      "about_the_association_span_61": "פעמיים\nבשנה העמותה יוצאת לפעילות סקי וסנואובורד באתרי סקי בעולם עם מדריכים מוסמכים\nוצוות רפואי .",
+      "about_the_association_span_62": "המשלחת\nבנויה מפצועים שמאושרים רפואית ליציאה לפעילות ספורט אתגרי שכזה. פעילות זו מוכיחה\nלהם שוב - אין פסגה שאי אפשר לכבוש.",
+      "about_the_association_span_63": "המשלחת\nבנויה מפצועים שמאושרים רפואית ליציאה לפעילות ספורט אתגרי שכזה. פעילות זו מוכיחה\nלהם שוב - אין פסגה שאי אפשר לכבוש.",
+      "about_the_association_span_64": "אירועי ה-7 באוקטובר הותירו חותם עמוק\nומתמשך על החברה הישראלית. חיילים ואזרחים רבים נלחמו למען ישראל ועכשיו אנחנו\nנלחמים למען השיקום שלהם",
+      "menu_group_1766306874186_h1_1": "Tikvot",
+      "menu_group_1766306874186_h2_2": "Welcome to Tikvot",
+      "menu_group_1766306874186_h2_3": "About Us",
+      "menu_group_1766306874186_h2_4": "Our Services",
+      "menu_group_1766306874186_h2_5": "Contact Us",
+      "menu_group_1766306874186_h3_6": "Web Development",
+      "menu_group_1766306874186_h3_7": "Mobile Apps",
+      "menu_group_1766306874186_h3_8": "Digital Marketing",
+      "menu_group_1766306874186_h3_9": "Tikvot",
+      "menu_group_1766306874186_p_12": "Your trusted partner in excellence",
+      "menu_group_1766306874186_p_13": "We are dedicated to providing exceptional services and solutions to our clients.",
+      "menu_group_1766306874186_p_14": "Custom websites tailored to your needs",
+      "menu_group_1766306874186_p_15": "Native and cross-platform applications",
+      "menu_group_1766306874186_p_16": "Grow your online presence",
+      "menu_group_1766306874186_p_17": "Excellence in every project",
+      "menu_group_1766306874186_p_18": "&copy; 2024 Tikvot. All rights reserved.",
+      "legal_accessibility_page_title": "הצהרת נגישות - [business_name]",
+      "menu_group_1766306874186_h4_10": "Quick Links",
+      "menu_group_1766306874186_h4_11": "Follow Us",
+      "menu_group_1766306874186_li_25": "Home",
+      "menu_group_1766306874186_li_26": "About",
+      "menu_group_1766306874186_li_27": "Services",
+      "menu_group_1766306874186_li_28": "Contact",
+      "menu_group_1766306874186_btn_24": "Send Message",
+      "menu_group_1766306874186_nav_29": "תוכניות שיקום",
+      "menu_group_1766306874186_nav_30": "אודות",
+      "menu_group_1766306874186_nav_31": "אודות העמותה",
+      "menu_group_1766306874186_nav_32": "אודות המייסדת",
+      "menu_group_1766306874186_nav_33": "צור קשר",
+      "about_the_association_page_title": "אודות העמותה",
+      "menu_group_1766306874186_link_19": "Get Started",
+      "menu_group_1766306874186_link_20": "Home",
+      "menu_group_1766306874186_link_21": "About",
+      "menu_group_1766306874186_link_22": "Services",
+      "menu_group_1766306874186_link_23": "Contact",
+      "about_the_founder_meta_description": "הכירו את סימונה, המייסדת והרוח החיה מאחורי עמותת תקוות. סיפור של חזון, נתינה ומחויבות בלתי מתפשרת לשיקום פצועי צהל ונפגעי טרור.",
+      "menu_group_1766306874186_page_title": "Tikvot - Home",
+      "about_the_association_meta_description": "תקווה - 20 שנה של מצוינות בשיקום פצועי צהל ונפגעי טרור דרך ספורט. עמותה מבוססת מתנדבים המחזירה תקווה לחיילינו הגיבורים.",
+      "menu_group_1766306874186_placeholder_34": "Your Name",
+      "menu_group_1766306874186_placeholder_35": "Your Email",
+      "menu_group_1766306874186_placeholder_36": "Your Message"
+    }
+  },
+  "en": {
+    "translation": {
+      "home_h1_1": "Rehabilitation and Empowerment of IDF Wounded and Terror Victims",
+      "home_h2_2": "Our Mission: Restoring Hope Through Sport",
+      "home_h2_3": "Triathlon Training",
+      "home_h2_4": "Gym and Fitness Training",
+      "home_h2_5": "Equine Therapy",
+      "home_h2_6": "Special Programs for Specific Populations",
+      "home_h2_7": "Success Stories - Voices of Our Participants",
+      "home_h2_8": "Join Us on the Rehabilitation Journey",
+      "home_h3_9": "19 Years of Excellence in Rehabilitation Through Sport - Restoring Hope and Strength to Our Hero Soldiers",
+      "home_p_13": "Happily created by Zappy",
+      "home_p_14": "Tikvot is a non-profit organization dedicated to rehabilitating IDF wounded and terror victims through bereaved families using therapeutic sport. For 19 years, we believe that sport is not just physical activity - it's a powerful tool for healing the soul, building self-confidence, and reconnecting to life.",
+      "home_p_15": "Since 2007, we believe that hope for a better life is not a dream, but a realistic and achievable goal. Through personalized sport programs that empower IDF wounded, terror victims and bereaved families through sport, we provide participants with a new path to life, a path of resilience, achievement and belonging.\nThe organization operates as a non-profit.",
+      "home_p_16": "In the transition from injury to athletic challenge\na new path is born. Through professional training and guidance, participants embark on a gradual journey where\nthe body and mind learn to work together again. This is a process that doesn't deal with breaking boundaries by force, but\nwith renewed acquaintance with ability, at a personal pace, and building trust along the way.\n\n\n\nThe program develops endurance, discipline\nand mental strength, but above all it empowers through perseverance, faith and collaborative work. Progress\nis not measured only by athletic achievements, but by the ability to sustain effort, cope with difficulty\nand feel belonging - a reminder that true strength is built slowly, from within",
+      "home_p_17": "For many Tikvot participants,\nentering the gym is a significant step far beyond physical training. This is a space where gradual return to body control, sense of capability and building a new identity within a changed reality becomes possible.\nPhysical work is not disconnected from the mind, but serves as a daily anchor of stability, perseverance and self-connection.\n\n\n\nThrough personalized training\nwe accompany participants in a process aimed at strengthening both physical and mental well-being.\nEvery movement, repetition and small progress contributes to building renewed self-confidence and a feeling\nthat the body can be a source of strength - not just injury",
+      "home_p_18": "Equine-assisted therapy helps post-trauma victims through nervous system regulation, gentle body connection and creating a sense of security that is non-verbal. The rhythmic movement of the horse calms tension and anxiety, enables \"here and now\" presence and restores a sense of control. The relationship with the horse is non-judgmental, based on response to emotion rather than words, thus creating a safe space for trust, strengthening sense of capability and a corrective experience of influence, leadership and existence.",
+      "home_p_19": "A dedicated program for reserve fighters dealing with physical and mental challenges after service. The program provides coping tools, community support and adapted sports activities.",
+      "home_p_20": "A special program developed specifically for victims of October 7th events. We provide emotional support, rehabilitation activities and a supportive community for those who experienced the difficult experiences.",
+      "home_p_21": "A comprehensive program for terror attack victims including physical and mental rehabilitation, complementary treatments and family support. We accompany participants at every stage of the recovery process.",
+      "home_p_22": "\"After my injury in the IDF, I thought my life was over. Tikvot showed me there is real hope. The equine therapy and the ski Olympics delegation completely changed my life. Today I feel strong, capable and full of purpose.\"",
+      "home_p_23": "\"As a terror attack victim, I dealt with severe trauma that wouldn't let me live. The Tikvot team, the amazing volunteers and the supportive community helped me find myself again. Sport became my way to cope and heal.\"",
+      "home_p_24": "\"Participating in the triathlon was an experience I never thought I could go through. Tikvot gave me the tools, training and support to reach the finish line. It's not just physical rehabilitation - it's rehabilitation of the soul and spirit.\"",
+      "home_p_25": "Whether you are IDF wounded, terror victims, family members or potential volunteers - we have a place for you",
+      "home_p_26": "© 1925 Tikvot. All rights reserved.",
+      "home_p_27": "Created using Zappy",
+      "home_h3_10": "Program for Reserve Fighters",
+      "home_h3_11": "Program for October 7th Victims",
+      "home_h3_12": "Terror Victims Rehabilitation",
+      "home_alt_55": "Tikvot",
+      "home_alt_56": "Hero background",
+      "home_alt_57": "IDF wounded veterans participating in rehabilitative sports activities",
+      "home_alt_58": "Image description",
+      "home_alt_59": "Image description",
+      "home_alt_60": "Image description",
+      "home_alt_61": "Reserve fighters program",
+      "home_alt_62": "October 7th victims program",
+      "home_alt_63": "Terror victims rehabilitation",
+      "home_div_40": "Years of Activity",
+      "home_div_41": "Participants",
+      "home_div_42": "Volunteers",
+      "home_div_43": "Yossi Cohen",
+      "home_div_44": "Rehabilitation Program Participant",
+      "home_div_45": "Dana Levy",
+      "home_div_46": "Terror Victim",
+      "home_div_47": "Ron Abraham",
+      "home_div_48": "Sports Program Participant",
+      "home_nav_49": "Rehabilitation Programs",
+      "home_nav_50": "About",
+      "home_nav_51": "About the Organization",
+      "home_nav_52": "About the Founder",
+      "home_nav_53": "Contact Us",
+      "home_nav_54": "Donations",
+      "home_link_31": "Zappy",
+      "home_link_32": "Learn About Programs",
+      "home_link_33": "Contact Us",
+      "home_link_34": "Learn About Programs",
+      "home_link_35": "Contact Us",
+      "home_link_36": "Privacy Policy",
+      "home_link_37": "Accessibility",
+      "home_link_38": "Terms of Use",
+      "home_link_39": "Zappy",
+      "home_span_28": "Our Mission: Restoring Hope Through Sport",
+      "home_span_29": "Our Mission: Restoring Hope Through Sport",
+      "home_span_30": "Our Mission: Restoring Hope Through Sport",
+      "programs_h1_1": "Our Rehabilitation Programs for IDF Wounded and Terror Victims",
+      "programs_h2_2": "Skiing",
+      "programs_h2_3": "Triathlon Training",
+      "programs_h2_4": "Gym and Fitness Training",
+      "programs_h2_5": "Equine Therapy",
+      "programs_h2_6": "Go-Karting",
+      "programs_h2_7": "Special Programs for Specific Populations",
+      "programs_h2_8": "Reserve Fighters Program",
+      "programs_h2_9": "October 7th Events Victims Program",
+      "programs_p_14": "Happily created by Zappy",
+      "programs_p_15": "For 18 years, the ski expeditions of Tikvot organization for IDF wounded and terror victims have been a space of confrontation, not escape. The encounter with the snowy mountain invites the body and soul to be present, to feel, and to move again within a challenging yet safe reality. Skiing is not a vacation - it is a process of reconnecting with the body, with capability, and with the moment when it becomes possible again to trust yourself.",
+      "programs_p_16": "In the transition from injury to athletic challenge, a new path is born. Through training and professional guidance, participants embark on a gradual journey where body and soul learn to function together again. This is a process that is not about forcefully breaking boundaries, but about renewed acquaintance with capability, at a personal pace, and building trust along the way.\n\nThe program develops endurance, discipline and mental strength, but above all it empowers through perseverance, faith and collaborative work. Progress is not measured only in athletic achievements, but in the ability to sustain effort, cope with difficulty and feel belonging - a reminder that true strength is built slowly, from within",
+      "programs_p_17": "For many Tikvot participants, entering the gym is a significant step far beyond physical training. This is a space where gradual return to body control, sense of capability and building a new identity within a changed reality becomes possible. Physical work is not disconnected from the soul, but serves as a daily anchor of stability, perseverance and self-connection.\n\nThrough personalized training, we accompany participants in a process aimed at strengthening both physical and mental well-being. Every movement, repetition and small progress contribute to building renewed self-confidence and the feeling that the body can be a source of strength - not just injury",
+      "programs_p_18": "Equine-assisted therapy helps post-trauma victims through nervous system regulation, gentle body connection and creating a sense of security that is non-verbal. The rhythmic movement of the horse calms tension and anxiety, enables \"here and now\" presence and restores a sense of control.\nThe connection with the horse is a non-judgmental relationship, based on response to emotion rather than words, thus creating a safe space for trust, strengthening sense of capability and a corrective experience of influence, leadership and existence.",
+      "programs_p_19": "The go-karting experience offers a precise encounter with movement, concentration and control, adapted to the physical and emotional needs of participants. For IDF wounded and terror victims, these are not just hours of respite from rehabilitation routine, but a space where body and soul meet again within a safe and defined challenge. The track demands full presence, real-time decision making and attention to self and environment.",
+      "programs_p_20": "Beyond general programs, we offer dedicated programs adapted to the specific needs of different groups:",
+      "programs_p_21": "A special program for reserve fighters dealing with physical and mental challenges after long service periods. The program includes group sports activities, stress management and coping workshops, and community support.",
+      "programs_p_22": "We understand the unique challenges of reserve fighters - the transition between civilian life and service, the difficulty of reintegrating after extended service periods, and the need for ongoing support. Our program provides a comprehensive response to all these needs.",
+      "programs_p_23": "A special rehabilitation program developed specifically for October 7th events victims. The program provides emotional support, personalized rehabilitation activities, complementary therapies and a supportive community of people who have experienced similar experiences.",
+      "programs_p_24": "We understand that the experiences endured by victims of these difficult events require a sensitive, professional and personally adapted approach. Our team has undergone special training and works in collaboration with professional bodies to provide the best possible response.",
+      "programs_p_25": "A comprehensive program for terror attack victims including physical and mental rehabilitation, complementary therapies such as equine therapy, adapted sports activities and family support. We accompany participants at every stage of the recovery process and provide long-term support.",
+      "programs_p_26": "Terror victims face unique challenges - physical and mental trauma, difficulties in daily functioning, fears and anxieties. Our program focuses on building resilience, restoring sense of control and security, and creating a supportive community.",
+      "programs_p_27": "We understand that family is an integral part of the rehabilitation process. Therefore, we offer support programs for family members of our participants as well. Workshops, support groups and joint family activities help families cope with challenges and support their loved ones in the best way possible.",
+      "programs_p_28": "If you are IDF wounded, terror victims or family members - we are here for you. Contact us to receive additional information about the programs, registration process and beginning the journey toward rehabilitation and empowerment.",
+      "programs_p_29": "© 2025 Tikvot. All rights reserved.",
+      "programs_p_30": "Created using Zappy",
+      "programs_h2_10": "Terror Attack Victims Program",
+      "programs_h2_11": "Family Support",
+      "programs_h2_12": "Join Our Rehabilitation Programs",
+      "programs_h3_13": "A variety of personalized rehabilitation solutions combining sports, therapy and community support",
+      "contact_us_h1_1": "Contact Tikvot - We'd Love to Hear from You",
+      "contact_us_h2_2": "Send Us a Message",
+      "contact_us_h2_3": "Contact Information",
+      "contact_us_h2_4": "Additional Ways to Contact Us",
+      "contact_us_h2_5": "Frequently Asked Questions",
+      "contact_us_h2_6": "Ways to Join Tikvot",
+      "contact_us_h3_7": "Whether you're interested in joining as participants, volunteers, or supporters - we're here for you",
+      "contact_us_h3_8": "Email",
+      "contact_us_h3_9": "Phone",
+      "contact_us_p_19": "Happily created by Zappy",
+      "contact_us_p_20": "Fill out the form and we'll get back to you as soon as possible",
+      "contact_us_p_21": "We're available through various channels - choose the most convenient way for you:",
+      "contact_us_p_22": "IDF wounded veterans and terror victims are invited to contact us through the form, by phone, or via WhatsApp. We'll conduct an introductory conversation, understand your needs, and find the most suitable program. The process includes an initial assessment, building a personal plan, and starting activities.",
+      "contact_us_p_23": "No! All our programs are provided free of charge to participants. Tikvot is a non-profit organization that operates based on donations and volunteering. We believe that every IDF wounded veteran and terror victim deserves support regardless of financial ability.",
+      "contact_us_p_24": "We'd be happy to have you! Contact us and we'll explain the various volunteering opportunities - sports instructors, personal companions, administrative support, and more. We'll hold an introductory meeting, understand your skills and availability, and find the right role.",
+      "contact_us_p_25": "Absolutely! We believe that family is an integral part of the rehabilitation process. Many of our activities include family members, and we also offer dedicated support programs for families.",
+      "contact_us_p_26": "There are many ways to support - financial donations, sports equipment donations, organizing fundraising events, business partnerships, and more. Every donation, small or large, helps us continue to operate and restore hope to IDF wounded veterans.",
+      "contact_us_p_27": "Our activities take place in various locations throughout the country and at different times. Each program is tailored to the participants' needs. Contact us for detailed information about upcoming activities.",
+      "contact_us_p_28": "IDF wounded veterans and terror victims are invited to join our rehabilitation programs. We'll find the right program for you together and accompany you at every step.",
+      "contact_us_p_29": "Join our volunteer team and contribute your time, skills, and heart. Volunteering with Tikvot is a meaningful and enriching experience.",
+      "contact_us_p_30": "Your donation enables us to continue operating and restore hope to IDF wounded veterans. Every donation makes a real difference.",
+      "contact_us_p_31": "© 2025 Tikvot. All rights reserved.",
+      "contact_us_p_32": "Created with Zappy",
+      "home_page_title": "IDF Wounded Rehabilitation and Empowerment Through Sports — TikvotTikvot",
+      "programs_alt_45": "Tikvot",
+      "programs_alt_46": "Image description",
+      "programs_alt_47": "Image description",
+      "programs_alt_48": "Image description",
+      "programs_alt_49": "Image description",
+      "programs_nav_39": "Rehabilitation Programs",
+      "programs_nav_40": "About",
+      "programs_nav_41": "About the Organization",
+      "programs_nav_42": "About the Founder",
+      "programs_nav_43": "Contact Us",
+      "programs_nav_44": "Donations",
+      "contact_us_h3_10": "How can I join the rehabilitation programs?",
+      "contact_us_h3_11": "Is there a cost to participate in the programs?",
+      "contact_us_h3_12": "How can I volunteer with Tikvot?",
+      "contact_us_h3_13": "Can family members participate in activities?",
+      "contact_us_h3_14": "How can I support the organization?",
+      "contact_us_h3_15": "What are the times and locations of activities?",
+      "contact_us_h3_16": "Join as Participants",
+      "contact_us_h3_17": "Volunteer with Us",
+      "contact_us_h3_18": "Support Us",
+      "legal_terms_h1_1": "Terms of Use",
+      "legal_terms_h2_2": "1. Definitions",
+      "legal_terms_h2_3": "2. Service Description",
+      "legal_terms_h2_4": "3. Terms of Use",
+      "legal_terms_h2_5": "4. User Obligations",
+      "legal_terms_h2_6": "5. Payment and Refund Policy",
+      "legal_terms_h2_7": "6. Limitation of Liability",
+      "legal_terms_h2_8": "7. Copyright and Intellectual Property",
+      "legal_terms_h2_9": "8. Privacy",
+      "legal_terms_p_15": "[business_name] provides general services through the website. The services are subject to the terms detailed in this document \n            and may change from time to time.",
+      "legal_terms_p_16": "Use of the website is conditional upon compliance with the following terms:",
+      "legal_terms_p_17": "If the services include payment:",
+      "legal_terms_p_18": "The services are provided \"as is\" without warranty of any kind. The company will not be liable for indirect, \n            consequential or special damages arising from use of the website, except in cases where the law provides otherwise.",
+      "legal_terms_p_19": "All content on the website, including texts, images, design and code, is protected by copyrights owned by [business_name]. \n            It is prohibited to copy, distribute or make commercial use of the content without written permission.",
+      "legal_terms_p_20": "Collection and use of personal information is subject to our privacy policy. Use of the website constitutes agreement \n            to the privacy policy as detailed separately.",
+      "legal_terms_p_21": "The company may change these terms of use at any time. Material changes will be published on the website with 30 days' advance notice. \n            Continued use after the change constitutes agreement to the new terms.",
+      "legal_terms_p_22": "The company may discontinue or restrict the service at any time, including in case of violation of the terms of use. \n            In case of service termination, the provisions of the relevant sections will remain in effect.",
+      "legal_terms_p_23": "These terms of use are subject to the laws of the State of Israel. Any dispute will be heard in the competent courts in Israel, \n            with preference given to arbitration or mediation where possible.",
+      "legal_terms_p_24": "For questions or clarifications regarding the terms of use:",
+      "programs_link_31": "Zappy",
+      "programs_link_32": "Contact Us",
+      "programs_link_33": "Contact Us",
+      "programs_link_34": "About the Organization",
+      "programs_link_35": "Privacy Policy",
+      "programs_link_36": "Accessibility",
+      "programs_link_37": "Terms of Use",
+      "programs_link_38": "Zappy",
+      "contact_us_alt_61": "Tikvot",
+      "contact_us_btn_48": "Send Message",
+      "contact_us_nav_55": "Rehabilitation Programs",
+      "contact_us_nav_56": "About",
+      "contact_us_nav_57": "About the Organization",
+      "contact_us_nav_58": "About the Founder",
+      "contact_us_nav_59": "Contact Us",
+      "contact_us_nav_60": "Donations",
+      "legal_terms_h2_10": "9. Modification of Terms of Use",
+      "legal_terms_h2_11": "10. Service Termination",
+      "legal_terms_h2_12": "11. Applicable Law and Dispute Resolution",
+      "legal_terms_h2_13": "12. General Provisions",
+      "legal_terms_h2_14": "13. Contact Information",
+      "legal_terms_li_28": "\"The Company\" - [business_name]",
+      "legal_terms_li_29": "\"The User\" - anyone who browses or uses the website",
+      "legal_terms_li_30": "\"The Services\" - general services provided through the website",
+      "legal_terms_li_31": "Using the website for legal purposes only",
+      "legal_terms_li_32": "Not interfering with the website's operation or other users",
+      "legal_terms_li_33": "Not uploading offensive, illegal or harmful content",
+      "legal_terms_li_34": "Respecting copyright and intellectual property rights",
+      "legal_terms_li_35": "Not performing actions that could harm the website's security",
+      "legal_terms_li_36": "Providing correct and accurate information during registration or ordering",
+      "legal_terms_li_37": "Maintaining confidentiality of account access details",
+      "legal_terms_li_38": "Immediate notification of any unauthorized use of the account",
+      "legal_terms_li_39": "Updating personal information as needed",
+      "legal_terms_li_40": "Payments are processed through secure and encrypted systems",
+      "legal_terms_li_41": "Prices include VAT as required by law",
+      "legal_terms_li_42": "Right of transaction cancellation will stand in accordance with Consumer Protection Law",
+      "legal_terms_li_43": "Refunds will be processed within 14 business days from cancellation approval",
+      "legal_terms_li_44": "If part of the terms are declared invalid, the remaining terms will remain in effect",
+      "legal_terms_li_45": "Non-enforcement of a right will not be considered as waiving it",
+      "legal_terms_li_46": "The terms of use constitute the entire agreement between the parties",
+      "legal_terms_li_47": "Company: [business_name]",
+      "legal_terms_li_48": "Email: [business_email]",
+      "legal_terms_li_49": "Phone: [business_phone]",
+      "legal_terms_li_50": "Address: [business_address]",
+      "contact_us_link_36": "Zappy",
+      "contact_us_link_37": "TikvotSports@gmail.com",
+      "contact_us_link_38": "WhatsApp",
+      "contact_us_link_39": "Call Us",
+      "contact_us_link_40": "Send Email",
+      "contact_us_link_41": "Fill Contact Form",
+      "contact_us_link_42": "For Volunteering Information",
+      "contact_us_link_43": "For Donation Information",
+      "contact_us_link_44": "Privacy Policy",
+      "contact_us_link_45": "Accessibility",
+      "contact_us_link_46": "Terms of Use",
+      "contact_us_link_47": "Zappy",
+      "contact_us_span_33": "WhatsApp",
+      "contact_us_span_34": "Call Us",
+      "contact_us_span_35": "Send Email",
+      "legal_privacy_h1_1": "Privacy Policy",
+      "legal_privacy_h2_2": "1. Information Collection",
+      "legal_privacy_h2_3": "2. Use of Information",
+      "legal_privacy_h2_4": "3. Information Sharing",
+      "legal_privacy_h2_5": "4. User Rights",
+      "legal_privacy_h2_6": "5. Cookies",
+      "legal_privacy_h2_7": "6. Information Security",
+      "legal_privacy_h2_8": "7. Policy Changes",
+      "legal_privacy_h2_9": "8. Contact",
+      "legal_privacy_p_10": "[business_name] (\"the Company\", \"we\", \"our\") is committed to protecting your privacy. This privacy policy explains how we collect, \n            use and protect your information when using the website www.company.com (\"the Service\").",
+      "legal_privacy_p_11": "We may collect the following types of information:",
+      "legal_privacy_p_12": "We use the collected information for the following purposes:",
+      "legal_privacy_p_13": "We will not sell, rent or share your personal information with third parties, except in the following cases:",
+      "legal_privacy_p_14": "In accordance with the Privacy Protection Law 5741-1981, you have the following rights:",
+      "legal_privacy_p_15": "Our website uses cookies to improve user experience. You can manage cookies through your browser settings. \n            Disabling cookies may affect website functionality.",
+      "legal_privacy_p_16": "We take reasonable security measures to protect your information, including encryption, firewalls and restricted access control. \n            However, no method of transmission or storage is 100% secure.",
+      "legal_privacy_p_17": "We may update this privacy policy from time to time. Material changes will be published on the website with 30 days advance notice.",
+      "legal_privacy_p_18": "For questions or requests regarding this privacy policy, you can contact us:",
+      "legal_privacy_p_19": "Database Registrar: For complaints, you can contact the Database Registrar at the Ministry of Justice",
+      "legal_terms_div_51": "Last updated: 10.2.2026",
+      "legal_terms_div_52": "Use of this website constitutes agreement to the terms of use detailed below. Please read carefully before use.",
+      "contact_us_label_49": "Full Name *",
+      "contact_us_label_50": "Email Address *",
+      "contact_us_label_51": "Phone *",
+      "contact_us_label_52": "I am interested in:",
+      "contact_us_label_53": "Message",
+      "contact_us_label_54": "I agree to the terms of use and privacy policy",
+      "legal_privacy_li_23": "Personal information: name, email address, phone number and address",
+      "legal_privacy_li_24": "Technical information: IP address, browser type, operating system and website usage data",
+      "legal_privacy_li_25": "Cookies: information stored on your computer to improve user experience",
+      "legal_privacy_li_26": "Providing requested services",
+      "legal_privacy_li_27": "Improving service and user experience",
+      "legal_privacy_li_28": "Contacting you regarding our services",
+      "legal_privacy_li_29": "Compliance with legal requirements",
+      "legal_privacy_li_30": "With your explicit consent",
+      "legal_privacy_li_31": "When required by law",
+      "legal_privacy_li_32": "To protect our rights or the security of our users",
+      "legal_privacy_li_33": "With service providers who assist in operating the service (under confidentiality agreements)",
+      "legal_privacy_li_34": "Right to access personal information stored about you",
+      "legal_privacy_li_35": "Right to correct incorrect or inaccurate information",
+      "legal_privacy_li_36": "Right to delete personal information under certain circumstances",
+      "legal_privacy_li_37": "Right to object to information processing for marketing purposes",
+      "legal_privacy_li_38": "Right to file a complaint with the Data Protection Authority",
+      "legal_privacy_li_39": "Company: [business_name]",
+      "legal_privacy_li_40": "Email: [business_email]",
+      "legal_privacy_li_41": "Phone: [business_phone]",
+      "legal_privacy_li_42": "Address: [business_address]",
+      "legal_terms_link_25": "[business_email]",
+      "legal_terms_link_26": "[business_phone]",
+      "legal_terms_link_27": "← Back to website",
+      "programs_page_title": "Comprehensive Rehabilitation Programs for IDF Wounded — TikvotTikvot",
+      "legal_privacy_div_43": "Last updated: 10.2.2026",
+      "contact_us_page_title": "Contact Us",
+      "home_meta_description": "Tikvot offers rehabilitation for IDF wounded soldiers and terror victims through sports. Equine therapy, ski expeditions and triathlon, reserve fighters programs.",
+      "legal_privacy_link_20": "[business_email]",
+      "legal_privacy_link_21": "[business_phone]",
+      "legal_privacy_link_22": "← Back to website",
+      "about_the_founder_h1_1": "Simona: The Beating Heart Behind IDF Wounded Rehabilitation",
+      "about_the_founder_h2_2": "A Story of Mission and Giving",
+      "about_the_founder_h2_3": "Simona's Iron Principles",
+      "about_the_founder_h2_4": "\"The injury is not the end of the story, but the beginning of a new chapter\"",
+      "about_the_founder_h2_5": "Looking Forward: The Vision for the Future",
+      "about_the_founder_h3_6": "Rehabilitation Through Challenge",
+      "about_the_founder_h3_7": "One Big Family",
+      "about_the_founder_h3_8": "Practical Zionism",
+      "about_the_founder_h3_9": "Join Simona's Vision",
+      "about_the_founder_p_10": "Happily created by Zappy",
+      "about_the_founder_p_11": "For over two decades, Simona has dedicated her life to one single purpose: restoring hope to the lives of those who sacrificed their body and soul for the security of the state. Her vision has become a life-changing reality for hundreds of fighters.",
+      "about_the_founder_p_12": "The story of Tikvot Association is inseparably woven with Simona's life story. Growing up in a home where Zionist values and love of the land were guiding principles, the connection to the IDF and security forces was natural for her from a young age. However, it was one defining event, a chance encounter at a rehabilitation hospital with a group of young IDF wounded, that changed the course of her life forever.",
+      "about_the_founder_p_13": "The story of Tikvot Association is inseparably woven with Simona's life story. Growing up in a home where Zionist values and love of the land were guiding principles, the connection to the IDF and security forces was natural for her from a young age. However, it was one defining event, a chance encounter at a rehabilitation hospital with a group of young IDF wounded, that changed the course of her life forever.",
+      "about_the_founder_p_14": "In that encounter, Simona identified a huge and painful gap. While the medical system provided excellent physical treatment, the fighters' souls were often left bleeding. She understood that true rehabilitation of IDF wounded doesn't end with healing bones or mending physical scars, but requires rebuilding the sense of capability, self-confidence, and hope for the future. This understanding was the spark that led to the organization's establishment.",
+      "about_the_founder_p_15": "From then until today, Simona leads the association with a firm hand but endless sensitivity. She believes that challenging sports is a first-class rehabilitation tool. Through activities like skiing, mountain climbing, and cycling, she enables terror victims and rehabilitated fighters to rediscover the powers within them. For her, every smile of a fighter who has returned to stand on their feet (literally and figuratively) is a whole world.",
+      "about_the_founder_p_16": "The belief that there is no limit to human capability. Simona pushes IDF wounded to face complex physical challenges, not just as sport, but as a way to rehabilitate the self-confidence damaged following the injury.",
+      "about_the_founder_p_17": "For Simona, the association is not an institution but a home. Every fighter and every terror victim who joins the activities becomes part of a supportive, embracing, and understanding family that accompanies them throughout the entire journey.",
+      "about_the_founder_p_18": "Love of the land and gratitude to those who protect it are the foundation of all activities. The deep connection to IDF values and Israeli combat heritage is present in every activity and every meeting of the association.",
+      "about_the_founder_p_19": "This sentence, common on Simona's lips, constitutes the central motto of her activity. She sees each IDF wounded as a hero who needs the right tools to return and triumph - this time in the arena of civilian life.",
+      "about_the_founder_p_20": "The unique approach she developed combines uncompromising demands for excellence with a warm and loving embrace. She knows when to push the fighters to the edge of their capability so they can prove to themselves they are capable, and when to provide quiet and containing support in difficult moments.",
+      "about_the_founder_p_21": "Beyond physical rehabilitation, Simona places great emphasis on reintegrating terror victims and wounded back into society, studies, and the workforce. She works tirelessly with government and private entities to open doors for those who paid such a dear price.",
+      "about_the_founder_p_22": "Even after years of blessed work, Simona doesn't rest for a moment. The complex Israeli reality continues to create new challenges, and the family of IDF wounded unfortunately continues to expand. Her vision for the coming years includes expanding the activity center, establishing additional support groups for wounded families, and deepening cooperation with various IDF units.",
+      "about_the_founder_p_23": "She works to raise public awareness of the importance of mental rehabilitation alongside physical, and leads campaigns for recognition of the rights of terror victims and fighters. For Simona, as long as there is a soldier who needs help to return to smile, the mission is not yet complete.",
+      "about_the_founder_p_24": "The work of Simona and Tikvot Association is made possible thanks to good people who understand the magnitude of the hour. We invite you to take part in this wonderful journey and be partners in the path.",
+      "about_the_founder_p_25": "© 2025 Tikvot. All rights reserved.",
+      "about_the_founder_p_26": "Created using Zappy",
+      "legal_terms_page_title": "Terms of Use - [business_name]",
+      "legal_accessibility_p_9": "[business_name] is committed to making our services accessible to all users. We work to implement the Israeli Standard \n            (IS 5568) guidelines based on WCAG 2.1 Level AA guidelines.",
+      "about_the_founder_alt_46": "Tikvot",
+      "about_the_founder_alt_47": "Simona the Founder",
+      "about_the_founder_alt_48": "Simona Speaking",
+      "about_the_founder_div_37": "💪",
+      "about_the_founder_div_38": "🤝",
+      "about_the_founder_div_39": "🇮🇱",
+      "about_the_founder_nav_40": "Rehabilitation Programs",
+      "about_the_founder_nav_41": "About",
+      "about_the_founder_nav_42": "About the Association",
+      "about_the_founder_nav_43": "About the Founder",
+      "about_the_founder_nav_44": "Contact Us",
+      "about_the_founder_nav_45": "Donations",
+      "legal_accessibility_h1_1": "Accessibility Statement",
+      "legal_accessibility_h2_2": "1. Accessibility Policy",
+      "legal_accessibility_h2_3": "2. Website Accessibility Features",
+      "legal_accessibility_h2_4": "3. Supported Assistive Technologies",
+      "legal_accessibility_h2_5": "4. Accessibility Testing",
+      "legal_accessibility_h2_6": "5. Continuous Improvements",
+      "legal_accessibility_h2_7": "6. Contact and Feedback",
+      "legal_accessibility_h3_8": "WCAG 2.1 Compliance",
+      "legal_accessibility_p_10": "We believe in equal rights and every person's right to receive information and services independently and equally. \n            This website was designed and built with special emphasis on accessibility for people with disabilities.",
+      "legal_accessibility_p_11": "The website complies with WCAG 2.1 Level AA standard, which includes:",
+      "legal_accessibility_p_12": "The website has been tested using:",
+      "legal_accessibility_p_13": "We continuously work to improve the website's accessibility and update it according to technological developments and user feedback.",
+      "legal_accessibility_p_14": "If you encounter an accessibility issue on the website or need assistance, please contact us:",
+      "legal_accessibility_p_15": "Response times: We respond to accessibility inquiries within 3 business days and work toward resolution within 10 business days.",
+      "legal_accessibility_p_16": "Complaints: You may file a complaint with the Ministry of Justice - Commissioner for Equal Rights of Persons with Disabilities",
+      "legal_privacy_page_title": "Privacy Policy - [business_name]",
+      "about_the_founder_link_30": "Zappy",
+      "about_the_founder_link_31": "Contact Us",
+      "about_the_founder_link_32": "Support the Association's Activities",
+      "about_the_founder_link_33": "Privacy Policy",
+      "about_the_founder_link_34": "Accessibility",
+      "about_the_founder_link_35": "Terms of Use",
+      "about_the_founder_link_36": "Zappy",
+      "about_the_founder_span_27": "💪",
+      "about_the_founder_span_28": "🤝",
+      "about_the_founder_span_29": "🇮🇱",
+      "legal_accessibility_li_20": "Keyboard navigation support",
+      "legal_accessibility_li_21": "Screen reader support",
+      "legal_accessibility_li_22": "Appropriate color contrast",
+      "legal_accessibility_li_23": "Flexible and scalable font sizes",
+      "legal_accessibility_li_24": "Detailed image descriptions (Alt text)",
+      "legal_accessibility_li_25": "Hierarchically structured headings",
+      "legal_accessibility_li_26": "Descriptive and clear links",
+      "legal_accessibility_li_27": "Zoom support up to 200% without content loss",
+      "legal_accessibility_li_28": "Perceivable: Information is presented in ways users can perceive",
+      "legal_accessibility_li_29": "Operable: Interface components are operable",
+      "legal_accessibility_li_30": "Understandable: Information and user interface are understandable",
+      "legal_accessibility_li_31": "Robust: Content can be interpreted by a variety of technologies",
+      "legal_accessibility_li_32": "NVDA (Windows)",
+      "legal_accessibility_li_33": "JAWS (Windows)",
+      "legal_accessibility_li_34": "VoiceOver (Mac/iOS)",
+      "legal_accessibility_li_35": "TalkBack (Android)",
+      "legal_accessibility_li_36": "Dragon NaturallySpeaking",
+      "legal_accessibility_li_37": "Switch navigation",
+      "legal_accessibility_li_38": "Automated accessibility testing tools",
+      "legal_accessibility_li_39": "Manual testing with screen readers",
+      "legal_accessibility_li_40": "Keyboard-only navigation",
+      "legal_accessibility_li_41": "Color contrast testing",
+      "legal_accessibility_li_42": "Testing with users with disabilities",
+      "legal_accessibility_li_43": "Company: [business_name]",
+      "legal_accessibility_li_44": "Email: [business_email]",
+      "legal_accessibility_li_45": "Phone: [business_phone]",
+      "programs_meta_description": "Comprehensive rehabilitation programs for IDF wounded and terror victims: equine therapy, international ski expeditions, triathlon, races and special programs.",
+      "about_the_association_h1_1": "About Tikvot Association - 19 Years of Rehabilitating IDF Wounded",
+      "about_the_association_h2_2": "Our Story",
+      "about_the_association_h2_3": "Our Values",
+      "about_the_association_h2_4": "Our Team and Volunteers",
+      "about_the_association_h2_5": "Management and Administration",
+      "about_the_association_h2_6": "Sports Instructors and Coaches",
+      "about_the_association_h2_7": "Therapists and Professionals",
+      "about_the_association_h2_8": "Companions and Supporters",
+      "about_the_association_h2_9": "Join Us as Volunteers",
+      "about_the_association_p_23": "Happily created by Zappy",
+      "about_the_association_p_24": "Tikvot Association is a non-profit organization\nthat works to rehabilitate IDF wounded, terror attack victims and bereaved families through sports\nand action. Our goal is to transform trauma\ninto victory, and to restore hope and confidence to those who were injured.\n\nThe association, founded in 2007, has treated\nmore than 14,000 wounded to date. It accompanies IDF wounded and terror survivors from the moment of injury,\nthroughout the rehabilitation process until recovery.\n\nThe therapeutic tools we provide: water skiing, horseback\nriding, karting, training and participation in competitions\ntriathlon, cycling, surfing and more.\n\nTwice\na year the association goes out for skiing and snowboarding activities at ski resorts around the world with certified instructors\nand medical staff.\n\nThe delegation\nis built from wounded who are medically approved to go out for such challenging sports activities. This activity proves\nto them again - there is no peak that cannot be conquered.\n\nThe events of October 7th left a deep\nand lasting mark on Israeli society. Many soldiers and civilians fought for Israel and now we\nare fighting for their rehabilitation. transform trauma\ninto victory, and to restore hope and confidence to those who were injured.\n\nThe association, founded in 2007, has treated\nmore than 14,000 wounded to date. It accompanies IDF wounded and terror survivors from the moment of injury,\nthroughout the rehabilitation process until recovery.\n\nThe therapeutic tools we provide: water skiing, horseback\nriding, karting, training and participation in competitions\ntriathlon, cycling, surfing and more.\nTwice\na year the association goes out for skiing and snowboarding activities at ski resorts around the world with certified instructors\nand medical staff.\nThe delegation\nis built from wounded who are medically approved to go out for such challenging sports activities. This activity proves\nto them again - there is no peak that cannot be conquered.\n\nThe events of October 7th left a deep\nand lasting mark on Israeli society. Many soldiers and civilians fought for Israel and now we\nare fighting for their rehabilitation.",
+      "about_the_association_p_25": "We are committed to providing the best service to IDF wounded and terror victims. Every decision we make is guided by one question: what is best for our participants?",
+      "about_the_association_p_26": "We believe in the power of community. Our participants don't just receive services - they become part of a large and supportive family that stays with them over time.",
+      "about_the_association_p_27": "We strive for excellence in everything we do. Our team and volunteers receive professional training and work according to the highest standards.",
+      "about_the_association_p_28": "Tikvot operates on a full voluntary basis. We believe that giving from the heart brings the best results and strengthens the connection between volunteers and participants.",
+      "about_the_association_p_29": "We believe that every person is unique and requires a personally adapted approach. We invest in developing innovative programs and adapt them to the specific needs of each participant.",
+      "about_the_association_p_30": "Our name, Tikvot, reflects the core of what we do - we restore hope to people who have experienced difficult experiences and empower them to believe in their abilities.",
+      "about_the_association_p_31": "Tikvot operates thanks to hundreds of dedicated volunteers who invest their time, skills and hearts. Our team includes:",
+      "about_the_association_p_32": "Our management team consists of volunteers with rich experience in managing non-profit organizations, working with special populations and developing rehabilitation programs. They lead Tikvot's vision and ensure that we continue to provide service at the highest level.",
+      "about_the_association_p_33": "Our instructors are certified and experienced professionals in various sports fields - skiing, triathlon, swimming, riding and more. They all underwent special training in working with special populations and understand the unique challenges of IDF wounded and terror victims.",
+      "about_the_association_p_34": "Our therapeutic team includes psychologists, equine therapists, physiotherapists and other professionals. They all volunteer their time and provide professional services at the highest level.",
+      "about_the_association_p_35": "Hundreds of additional volunteers accompany our participants at events, assist in organizing activities, provide emotional support and create the warm and supportive community that is the heart of Tikvot.",
+      "about_the_association_p_36": "We are always looking for additional volunteers who want to be part of our mission. Whether you have specific professional skills or simply a desire to help and contribute - we have a place for you. Volunteering at Tikvot is an enriching and meaningful experience that changes lives - both of the participants and of the volunteers themselves.",
+      "about_the_association_p_37": "Throughout our 20 years of activity, we have achieved a lot. But our greatest achievement is not measurable in numbers - it is the change we see in the lives of our participants.",
+      "about_the_association_p_38": "Tikvot has received recognition and appreciation from many bodies, including the IDF, Ministry of Defense, international Paralympic sports organizations and more. But the most meaningful recognition for us comes from the participants and their families - their stories, their achievements and the change they undergo.",
+      "about_the_association_p_39": "Tikvot operates in cooperation with many organizations and bodies that support our mission and help us provide the best service to participants:",
+      "about_the_association_p_40": "We thank all our partners and supporters for their trust and support. Without you, we could not continue to operate and restore hope to our heroic soldiers.",
+      "about_the_association_p_41": "We look forward with hope and determination. Our goal is to continue and expand our activities, reach more IDF wounded and terror victims, and develop new and advanced programs.",
+      "about_the_association_p_42": "We believe that every IDF wounded and terror victim deserves to receive the support and tools to restore life to full and meaningful function. Tikvot will continue to operate tirelessly to make this vision a reality.",
+      "about_the_association_p_43": "Whether you are interested in joining as participants, as volunteers or as supporters - we would be happy to hear from you",
+      "about_the_association_p_44": "© 2025 Tikvot. All rights reserved.",
+      "about_the_association_p_45": "Created using Zappy",
+      "legal_accessibility_div_46": "Last updated: 10.2.2026",
+      "legal_accessibility_div_47": "Accessibility level: AA (Israeli Standard SI 5568)",
+      "about_the_association_h2_10": "Our Achievements",
+      "about_the_association_h2_11": "Recognition and Appreciation",
+      "about_the_association_h2_12": "Partners and Supporters",
+      "about_the_association_h2_13": "Our Vision for the Future",
+      "about_the_association_h2_14": "Goals for the Coming Years:",
+      "about_the_association_h2_15": "Join Us on the Journey",
+      "about_the_association_h3_16": "Our story, our values and our commitment to our heroic soldiers",
+      "about_the_association_h3_17": "Uncompromising Commitment",
+      "about_the_association_h3_18": "Community and Support",
+      "about_the_association_h3_19": "Excellence and Professionalism",
+      "about_the_association_h3_20": "Volunteering and Giving",
+      "about_the_association_h3_21": "Innovation and Personal Adaptation",
+      "about_the_association_h3_22": "Hope and Empowerment",
+      "about_the_association_li_73": "IDF and Ministry of Defense - collaboration in identifying candidates and supporting programs",
+      "about_the_association_li_74": "International Paralympic sports organizations - supporting delegations and participating in competitions",
+      "about_the_association_li_75": "Rehabilitation centers and hospitals - professional collaboration and therapeutic support",
+      "about_the_association_li_76": "Companies and private donors - financial and logistical support",
+      "about_the_association_li_77": "Sports instructors and professional coaches - volunteering and training",
+      "about_the_association_li_78": "Expanding equine therapy programs and establishing a dedicated treatment center",
+      "about_the_association_li_79": "Organizing additional delegations to international competitions and Paralympic Games",
+      "about_the_association_li_80": "Developing new programs for specific audiences, including women and youth",
+      "about_the_association_li_81": "Expanding staff and volunteers to reach more participants",
+      "about_the_association_li_82": "International collaborations and sharing our knowledge and experience with other organizations",
+      "about_the_association_li_83": "Research and development of innovative rehabilitation methods through sports",
+      "contact_us_meta_description": "Contact Tikvot - Join as participants, volunteers or supporters. We'll be happy to answer any questions and assist you in the joining process.",
+      "legal_accessibility_link_17": "[business_email]",
+      "legal_accessibility_link_18": "[business_phone]",
+      "legal_accessibility_link_19": "← Back to website",
+      "about_the_association_alt_96": "Tikvot",
+      "about_the_association_div_84": "Years of continuous activity",
+      "about_the_association_div_85": "Participants over the years",
+      "about_the_association_div_86": "International delegations",
+      "about_the_association_div_87": "Active volunteers",
+      "about_the_association_div_88": "Medals in international competitions",
+      "about_the_association_div_89": "Volunteering - zero salary",
+      "about_the_association_nav_90": "Rehabilitation Programs",
+      "about_the_association_nav_91": "About",
+      "about_the_association_nav_92": "About the Association",
+      "about_the_association_nav_93": "About the Founder",
+      "about_the_association_nav_94": "Contact Us",
+      "about_the_association_nav_95": "For Donations",
+      "about_the_founder_page_title": "About the Founder",
+      "about_the_association_link_65": "Zappy",
+      "about_the_association_link_66": "Contact Us",
+      "about_the_association_link_67": "Contact Us",
+      "about_the_association_link_68": "For Program Information",
+      "about_the_association_link_69": "Privacy Policy",
+      "about_the_association_link_70": "Accessibility",
+      "about_the_association_link_71": "Terms of Use",
+      "about_the_association_link_72": "Zappy",
+      "about_the_association_span_46": "Tikvot Association is a non-profit organization\nthat works to rehabilitate IDF wounded, terror attack victims and bereaved families through sports\nand action. Our goal is to transform trauma\ninto victory, and to restore hope and confidence to those who were injured",
+      "about_the_association_span_47": "The association, founded in 2007, has treated\nmore than 14,000 wounded to date. It accompanies IDF wounded and terror survivors from the moment of injury,\nthroughout the rehabilitation process until recovery",
+      "about_the_association_span_48": "Therapeutic tools we provide: water skiing, horseback riding,\ngo-karting, training and participation in competitions\ntriathlon, cycling, surfing and more.",
+      "about_the_association_span_49": "Therapeutic tools we provide: water skiing",
+      "about_the_association_span_50": "water skiing, horseback riding,\ngo-karting, training and participation in competitions\ntriathlon, cycling, surfing and more.",
+      "about_the_association_span_51": "Twice\na year the association goes on skiing and snowboarding activities at ski resorts around the world with certified instructors\nand medical staff.",
+      "about_the_association_span_52": "Twice\na year the association goes on skiing and snowboarding activities at ski resorts around the world with certified instructors\nand medical staff.",
+      "about_the_association_span_53": "The delegation\nis composed of wounded individuals who are medically approved to participate in such challenging sports activities. This activity proves\nto them once again - there is no peak that cannot be conquered.",
+      "about_the_association_span_54": "The delegation\nis composed of wounded individuals who are medically approved to participate in such challenging sports activities. This activity proves\nto them once again - there is no peak that cannot be conquered.",
+      "about_the_association_span_55": "The events of October 7th left a deep\nand lasting impact on Israeli society. Many soldiers and civilians fought for Israel and now we\nare fighting for their rehabilitation",
+      "about_the_association_span_56": "The association, founded in 2007, has treated\nover 14,000 wounded individuals to date. It accompanies IDF wounded and terror survivors from the moment of injury,\nthroughout the rehabilitation process and until recovery",
+      "about_the_association_span_57": "Therapeutic tools we provide: water skiing, horseback riding,\ngo-karting, training and participation in competitions\ntriathlon, cycling, surfing and more.",
+      "about_the_association_span_58": "Therapeutic tools we provide: water skiing",
+      "about_the_association_span_59": "water skiing, horseback riding,\ngo-karting, training and participation in competitions\ntriathlon, cycling, surfing and more.",
+      "about_the_association_span_60": "Twice\na year the association goes on skiing and snowboarding activities at ski resorts around the world with certified instructors\nand medical staff.",
+      "about_the_association_span_61": "Twice\na year the association goes on skiing and snowboarding activities at ski resorts around the world with certified instructors\nand medical staff.",
+      "about_the_association_span_62": "The delegation\nis composed of wounded individuals who are medically approved to participate in such challenging sports activities. This activity proves\nto them once again - there is no peak that cannot be conquered.",
+      "about_the_association_span_63": "The delegation\nis composed of wounded individuals who are medically approved to participate in such challenging sports activities. This activity proves\nto them once again - there is no peak that cannot be conquered.",
+      "about_the_association_span_64": "The events of October 7th left a deep\nand lasting impact on Israeli society. Many soldiers and civilians fought for Israel and now we\nare fighting for their rehabilitation",
+      "menu_group_1766306874186_h1_1": "Tikvot",
+      "menu_group_1766306874186_h2_2": "Welcome to Tikvot",
+      "menu_group_1766306874186_h2_3": "About Us",
+      "menu_group_1766306874186_h2_4": "Our Services",
+      "menu_group_1766306874186_h2_5": "Contact Us",
+      "menu_group_1766306874186_h3_6": "Web Development",
+      "menu_group_1766306874186_h3_7": "Mobile Apps",
+      "menu_group_1766306874186_h3_8": "Digital Marketing",
+      "menu_group_1766306874186_h3_9": "Tikvot",
+      "menu_group_1766306874186_p_12": "Your trusted partner in excellence",
+      "menu_group_1766306874186_p_13": "We are dedicated to providing exceptional services and solutions to our clients.",
+      "menu_group_1766306874186_p_14": "Custom websites tailored to your needs",
+      "menu_group_1766306874186_p_15": "Native and cross-platform applications",
+      "menu_group_1766306874186_p_16": "Grow your online presence",
+      "menu_group_1766306874186_p_17": "Excellence in every project",
+      "menu_group_1766306874186_p_18": "&copy; 2024 Tikvot. All rights reserved.",
+      "legal_accessibility_page_title": "Accessibility Statement - [business_name]",
+      "menu_group_1766306874186_h4_10": "Quick Links",
+      "menu_group_1766306874186_h4_11": "Follow Us",
+      "menu_group_1766306874186_li_25": "Home",
+      "menu_group_1766306874186_li_26": "About",
+      "menu_group_1766306874186_li_27": "Services",
+      "menu_group_1766306874186_li_28": "Contact",
+      "menu_group_1766306874186_btn_24": "Send Message",
+      "menu_group_1766306874186_nav_29": "Rehabilitation Programs",
+      "menu_group_1766306874186_nav_30": "About",
+      "menu_group_1766306874186_nav_31": "About the Organization",
+      "menu_group_1766306874186_nav_32": "About the Founder",
+      "menu_group_1766306874186_nav_33": "Contact Us",
+      "about_the_association_page_title": "About the Association",
+      "menu_group_1766306874186_link_19": "Get Started",
+      "menu_group_1766306874186_link_20": "Home",
+      "menu_group_1766306874186_link_21": "About",
+      "menu_group_1766306874186_link_22": "Services",
+      "menu_group_1766306874186_link_23": "Contact",
+      "about_the_founder_meta_description": "Meet Simona, the founder and living spirit behind Tikvot Association. A story of vision, giving, and uncompromising commitment to rehabilitating IDF wounded and terror victims.",
+      "menu_group_1766306874186_page_title": "Tikvot - Home",
+      "about_the_association_meta_description": "Tikvot - 20 years of excellence in rehabilitating IDF wounded and terror victims through sports. A volunteer-based association restoring hope to our heroic soldiers.",
+      "menu_group_1766306874186_placeholder_34": "Your Name",
+      "menu_group_1766306874186_placeholder_35": "Your Email",
+      "menu_group_1766306874186_placeholder_36": "Your Message"
+    }
+  }
+};
+  
+  // RTL languages
+  const rtlLanguages = ["he"];
+  
+  // Available languages
+  const availableLanguages = ["he","en"];
+  
+  // Language display info with SVG flag images for cross-platform compatibility
+  const languageInfo = {"he":{"name":"Hebrew","nativeName":"עברית","flag":"🇮🇱","flagIcon":"circle-flags:il","dir":"rtl","flagImg":"<img src=\"https://api.iconify.design/circle-flags/il.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"},"en":{"name":"English","nativeName":"English","flag":"🇺🇸","flagIcon":"circle-flags:us","dir":"ltr","flagImg":"<img src=\"https://api.iconify.design/circle-flags/us.svg\" width=\"20\" height=\"20\" alt=\"\" style=\"display:inline-block;vertical-align:middle;border-radius:50%;\" />"}};
+  
+  // Detect stored language preference - only use stored value, not browser language
+  // This ensures the site respects its original design (e.g., RTL Hebrew site stays RTL by default)
+  function detectLanguage() {
+    const stored = localStorage.getItem('zappy_lang');
+    if (stored && availableLanguages.includes(stored)) return stored;
+    
+    // Always default to the site's default language, not browser language
+    // This prevents breaking the original site layout on first visit
+    return 'he';
+  }
+  
+  // Callbacks for language change events (e.g., e-commerce content refresh)
+  const languageChangeCallbacks = [];
+  
+  // Simple i18n implementation (no external dependency)
+  const zappyI18n = {
+    language: detectLanguage(),
+    resources: resources,
+    t: function(key) {
+      const langResources = this.resources[this.language];
+      if (langResources && langResources.translation && langResources.translation[key]) {
+        return langResources.translation[key];
+      }
+      // Fallback to default language
+      const fallbackResources = this.resources['he'];
+      if (fallbackResources && fallbackResources.translation && fallbackResources.translation[key]) {
+        return fallbackResources.translation[key];
+      }
+      return key;
+    },
+    changeLanguage: function(lang) {
+      if (!availableLanguages.includes(lang)) return Promise.resolve();
+      var oldLang = this.language;
+      this.language = lang;
+      localStorage.setItem('zappy_lang', lang);
+      updateContent();
+      updateDirection();
+      // Re-detect icon color after direction change (background may differ)
+      fixLanguageSwitcherColor();
+      // Also re-check after a short delay to ensure styles are applied
+      setTimeout(fixLanguageSwitcherColor, 100);
+      
+      // Call all registered language change callbacks (e.g., e-commerce content refresh)
+      languageChangeCallbacks.forEach(function(callback) {
+        try {
+          callback(lang, oldLang);
+        } catch (e) {
+          console.error('[i18n] Language change callback error:', e);
+        }
+      });
+      
+      return Promise.resolve();
+    },
+    getCurrentLanguage: function() { return this.language; },
+    getAvailableLanguages: function() { return availableLanguages; },
+    // Register a callback to be called when language changes
+    onLanguageChange: function(callback) {
+      if (typeof callback === 'function') {
+        languageChangeCallbacks.push(callback);
+      }
+    }
+  };
+  
+  // Update all translatable content
+  function updateContent() {
+    // Newline character for detection
+    var newlineChar = String.fromCharCode(10);
+    // HTML tag pattern for detection (common formatting tags)
+    var htmlTagPattern = /<(font|b|i|u|strong|em|span|br|a|sub|sup|mark|del|ins|s|small|big)[^>]*>/i;
+    
+    // Update text content - use innerHTML when text contains line breaks or HTML tags
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      var translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        var hasNewlines = translation.indexOf(newlineChar) !== -1;
+        var hasHtmlTags = htmlTagPattern.test(translation);
+        var hasEntities = /&[a-zA-Z]+;|&#\d+;|&#x[0-9a-fA-F]+;/.test(translation);
+        var elementHasBr = /<br\s*\/?>/i.test(el.innerHTML);
+        
+        if (hasNewlines || hasHtmlTags || hasEntities || elementHasBr) {
+          el.innerHTML = translation.split(newlineChar).join('<br>');
+        } else {
+          el.textContent = translation;
+        }
+      }
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('placeholder', translation);
+      }
+    });
+    
+    // Update alt attributes
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-alt');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('alt', translation);
+      }
+    });
+    
+    // Update title attributes
+    document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-title');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('title', translation);
+      }
+    });
+    
+    // Update meta description
+    document.querySelectorAll('[data-i18n-content]').forEach(function(el) {
+      const key = el.getAttribute('data-i18n-content');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        el.setAttribute('content', translation);
+      }
+    });
+    
+    // Update page title
+    const titleEl = document.querySelector('title[data-i18n]');
+    if (titleEl) {
+      const key = titleEl.getAttribute('data-i18n');
+      const translation = zappyI18n.t(key);
+      if (translation && translation !== key) {
+        document.title = translation;
+      }
+    }
+  }
+  
+  // Update document direction based on language
+  function updateDirection() {
+    const currentLang = zappyI18n.language;
+    const isRTL = rtlLanguages.includes(currentLang);
+    const html = document.documentElement;
+    const body = document.body;
+    const newDir = isRTL ? 'rtl' : 'ltr';
+    
+    // Update html element - only direction, NOT text-align (preserve centered elements)
+    html.setAttribute('lang', currentLang);
+    html.setAttribute('dir', newDir);
+    html.style.direction = newDir;
+    
+    // Update body element - only direction
+    if (body) {
+      body.setAttribute('dir', newDir);
+      body.style.direction = newDir;
+    }
+    
+    // Update major content containers - only direction, NOT text-align
+    // This preserves centered hero sections, titles, etc.
+    document.querySelectorAll('main, article, section, .content, .container, .wrapper').forEach(function(el) {
+      el.style.direction = newDir;
+      // Do NOT set text-align - preserve original alignment (center, left, right)
+    });
+    
+    // ONLY apply text-align to legal page content
+    document.querySelectorAll('.legal-content, .terms-content, .privacy-content').forEach(function(el) {
+      el.style.direction = newDir;
+      el.style.textAlign = isRTL ? 'right' : 'left';
+    });
+    
+    // Update catalog menu RTL class to match current direction
+    // This is critical for e-commerce sites with category navigation
+    document.querySelectorAll('.zappy-catalog-menu').forEach(function(el) {
+      if (isRTL) {
+        el.classList.add('rtl');
+        el.setAttribute('dir', 'rtl');
+      } else {
+        el.classList.remove('rtl');
+        el.removeAttribute('dir');
+      }
+    });
+    
+    // IMPORTANT: Do NOT set direction on navigation flex containers!
+    // V2 sites have layouts designed for a specific direction.
+    // Changing inline direction on flex containers reverses the item order, breaking layouts.
+    // Instead, we rely on the dir attribute on <html> for text direction,
+    // and let the original CSS handle navigation layout.
+    
+    // Remove dir ATTRIBUTE from nav elements - they should inherit from <html>
+    // V2 sites may have hardcoded dir="rtl" on nav elements which needs to be removed
+    document.querySelectorAll('header, nav, .navbar, .nav-container, .header-container, .nav-links, .menu, nav ul, header ul, #navMenu').forEach(function(el) {
+      // Remove dir attribute so element inherits from <html>
+      el.removeAttribute('dir');
+      // Remove all layout-affecting inline styles - let original CSS take over
+      el.style.removeProperty('direction');
+      el.style.removeProperty('flex-direction');
+      el.style.removeProperty('justify-content');
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
+    });
+    
+    // SPECIAL HANDLING for nav elements
+    document.querySelectorAll('.nav-menu, #navMenu, .nav-right-group').forEach(function(el) {
+      el.removeAttribute('dir');
+      el.style.removeProperty('direction');
+      el.style.removeProperty('flex-direction');
+      el.style.removeProperty('justify-content');
+      if (isRTL) {
+        el.style.removeProperty('margin-left');
+        el.style.removeProperty('margin-right');
+      } else {
+        // In LTR: override CSS margin-left:auto with 0 for nav-menu elements
+        el.style.setProperty('margin-left', '0', 'important');
+        el.style.removeProperty('margin-right');
+      }
+    });
+    
+    // CRITICAL FIX FOR V2 SITES: Move lang-switcher INSIDE nav-cta-container
+    // V2 sites use margin-left:auto on nav-cta-container to push it right.
+    // If lang-switcher is a sibling, it gets left behind. Moving it inside keeps them grouped.
+    document.querySelectorAll('.lang-switcher').forEach(function(el) {
+      var ctaContainer = el.parentElement ? el.parentElement.querySelector('.nav-cta-container') : null;
+      if (ctaContainer && el.parentElement === ctaContainer.parentElement) {
+        // Move lang-switcher as first child of CTA container
+        ctaContainer.insertBefore(el, ctaContainer.firstChild);
+        // Ensure vertical alignment when lang-switcher and CTA button are siblings
+        ctaContainer.style.setProperty('align-items', 'center', 'important');
+      }
+      // Clear any margin overrides
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
+    });
+    
+    // CRITICAL FIX FOR E-COMMERCE SITES: Move lang-switcher inside nav-icons-left
+    // E-commerce sites have a nav-icons-left container with search box.
+    // For RTL: lang-switcher should appear to the RIGHT of search box
+    // For LTR: lang-switcher should appear to the LEFT of search box
+    document.querySelectorAll('.lang-switcher').forEach(function(el) {
+      var navIconsLeft = document.querySelector('.nav-icons-left');
+      var searchBox = document.querySelector('.nav-search-box');
+      
+      // Only move if not already inside nav-icons-left and the elements exist
+      if (navIconsLeft && searchBox && !el.closest('.nav-icons-left')) {
+        // Insert before search box - in RTL this visually appears to the RIGHT
+        navIconsLeft.insertBefore(el, searchBox);
+      }
+    });
+    
+    // Remove any previously set margins on nav links and logo
+    document.querySelectorAll('header > a, nav > a, .nav-menu > a, .nav-links > a, nav ul li, header ul li, .logo, .site-logo, .brand, .navbar-brand, .nav-brand').forEach(function(el) {
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
+    });
+    
+    // NOTE: Removed old code that set margin-left:auto on .lang-switcher
+    // This conflicted with V2 layouts. The margin handling is now done in the 
+    // special handling section above that sets margin-left:0 in LTR mode.
+    
+    // CTA buttons - remove any inline margin styles to let CSS handle positioning
+    document.querySelectorAll('header .btn, header .button, header .cta, nav .btn, nav .button, .navbar .btn, .nav-cta-container, .cta-container, .header-cta, .nav-cta').forEach(function(el) {
+      el.style.removeProperty('margin-left');
+      el.style.removeProperty('margin-right');
+    });
+    
+    // Globe icon SVG for language switcher button (minimal design, no chevron)
+    // Read the icon color from the data attribute (set by server based on navbar color detection)
+    var langSwitcher = document.querySelector('.lang-switcher');
+    var iconColor = langSwitcher ? langSwitcher.getAttribute('data-icon-color') : 'currentColor';
+    if (!iconColor) iconColor = 'currentColor';
+    
+    var globeIconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="' + iconColor + '" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421-6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>';
+    
+    // Update language switcher display - just the globe icon, no arrow
+    var currentLangEl = document.querySelector('.lang-switcher-current');
+    if (currentLangEl) {
+      currentLangEl.innerHTML = globeIconSvg;
+    }
+    
+    // Update dropdown options (show all except current)
+    document.querySelectorAll('.lang-switcher-dropdown').forEach(function(dropdown) {
+      dropdown.innerHTML = availableLanguages
+        .filter(function(lang) { return lang !== currentLang; })
+        .map(function(lang) {
+          const info = languageInfo[lang] || { flag: '🌐', flagImg: '🌐', nativeName: lang };
+          // Use flagImg (SVG) for cross-platform compatibility, fallback to emoji flag
+          return '<button class="lang-option" data-lang="' + lang + '" style="display:flex;align-items:center;gap:8px;width:100%;padding:10px 14px;background:none;border:none;text-align:left;cursor:pointer;font-size:14px;color:#333;">' + (info.flagImg || info.flag) + ' ' + info.nativeName + '</button>';
+        })
+        .join('');
+      
+      // Re-attach event listeners
+      dropdown.querySelectorAll('.lang-option').forEach(function(option) {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const lang = this.getAttribute('data-lang');
+          zappyI18n.changeLanguage(lang);
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateY(-8px)';
+        });
+      });
+    });
+    
+    // FIX: Update mobile button positions when language/direction changes
+    // CSS handles positioning based on html[dir] attribute.
+    // We just need to remove any inline left/right styles so CSS can take over.
+    if (window.innerWidth < 768) {
+      var mobileToggle = document.querySelector('.mobile-toggle');
+      var phoneBtn = document.querySelector('.phone-header-btn');
+      var navCtaContainer = document.querySelector('.nav-cta-container');
+      
+      // Remove inline left/right - CSS will position based on html[dir]
+      if (mobileToggle) {
+        mobileToggle.style.removeProperty('left');
+        mobileToggle.style.removeProperty('right');
+        console.log('[i18n] Cleared mobile toggle inline position - CSS will handle based on dir:', newDir);
+      }
+      
+      if (phoneBtn) {
+        phoneBtn.style.removeProperty('left');
+        phoneBtn.style.removeProperty('right');
+        console.log('[i18n] Cleared phone button inline position - CSS will handle based on dir:', newDir);
+      }
+      
+      if (navCtaContainer) {
+        navCtaContainer.style.removeProperty('left');
+        navCtaContainer.style.removeProperty('right');
+        console.log('[i18n] Cleared nav-cta-container inline position - CSS will handle based on dir:', newDir);
+      }
+    }
+    
+    // Update mobile language submenu in hamburger
+    updateMobileLangMenu();
+  }
+  
+  // Initialize language switcher dropdown
+  function initLanguageSwitcher() {
+    const switchers = document.querySelectorAll('.lang-switcher');
+    if (!switchers.length) return;
+    
+    switchers.forEach(function(switcher) {
+      const dropdown = switcher.querySelector('.lang-switcher-dropdown');
+      const current = switcher.querySelector('.lang-switcher-current');
+      
+      if (!current || !dropdown) return;
+      
+      // Ensure dropdown is hidden initially (inline style fallback)
+      dropdown.style.opacity = '0';
+      dropdown.style.visibility = 'hidden';
+      dropdown.style.transform = 'translateY(-8px)';
+      
+      // Toggle dropdown with inline styles
+      current.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = dropdown.style.opacity === '1';
+        if (isOpen) {
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateY(-8px)';
+        } else {
+          dropdown.style.opacity = '1';
+          dropdown.style.visibility = 'visible';
+          dropdown.style.transform = 'translateY(0)';
+        }
+      });
+      
+      // Handle language selection
+      dropdown.querySelectorAll('.lang-option').forEach(function(option) {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const lang = this.getAttribute('data-lang');
+          zappyI18n.changeLanguage(lang);
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateY(-8px)';
+        });
+      });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.lang-switcher-dropdown').forEach(function(dropdown) {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.transform = 'translateY(-8px)';
+      });
+    });
+  }
+  
+  // ==============================================
+  // MOBILE LANGUAGE SUBMENU (inside hamburger menu)
+  // ==============================================
+  
+  // Create mobile language menu inside hamburger
+  function injectMobileLangCss() {
+    if (document.getElementById('mobile-lang-menu-css')) return;
+    var style = document.createElement('style');
+    style.id = 'mobile-lang-menu-css';
+    style.textContent = '@media (max-width: 768px) {' +
+      '.lang-switcher, .nav-cta-container .lang-switcher, .nav-container .lang-switcher,' +
+      '.navbar .lang-switcher, .navbar .nav-cta-container .lang-switcher,' +
+      '.nav-icons-left .lang-switcher, .nav-ecommerce-icons .lang-switcher { display: none !important; }' +
+      '.zappy-lang-switcher-container { display: none !important; }' +
+      '.mobile-lang-menu { list-style: none !important; width: 100%; border-top: 1px solid rgba(128,128,128,0.2); margin-top: 8px; padding-top: 8px; }' +
+      '.mobile-lang-toggle { display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 16px; background: none; border: none; cursor: pointer; color: inherit; font-size: 15px; font-family: inherit; }' +
+      '.mobile-lang-toggle span { flex: 1; }' +
+      'html[dir="rtl"] .mobile-lang-toggle span, html[lang="he"] .mobile-lang-toggle span, html[lang="ar"] .mobile-lang-toggle span { text-align: right; }' +
+      'html:not([dir="rtl"]) .mobile-lang-toggle span { text-align: left; }' +
+      '.mobile-lang-chevron { transition: transform 0.3s ease; flex-shrink: 0; }' +
+      '.mobile-lang-options { display: none; flex-direction: column; padding: 0 16px 8px 46px; }' +
+      'html[dir="rtl"] .mobile-lang-options, html[lang="he"] .mobile-lang-options, html[lang="ar"] .mobile-lang-options { padding: 0 46px 8px 16px; }' +
+      '.mobile-lang-options.open { display: flex; }' +
+      '.mobile-lang-option { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: none; border: none; cursor: pointer; color: inherit; font-size: 14px; font-family: inherit; border-radius: 6px; transition: background-color 0.2s; width: 100%; }' +
+      'html[dir="rtl"] .mobile-lang-option, html[lang="he"] .mobile-lang-option, html[lang="ar"] .mobile-lang-option { text-align: right; }' +
+      'html:not([dir="rtl"]) .mobile-lang-option { text-align: left; }' +
+      '.mobile-lang-option:hover { background: rgba(128,128,128,0.1); }' +
+      '.mobile-lang-option img { width: 20px; height: 20px; border-radius: 50%; display: inline-block; vertical-align: middle; }' +
+      '}';
+    document.head.appendChild(style);
+  }
+
+  function createMobileLangMenu() {
+    if (window.innerWidth > 768) return;
+    if (document.querySelector('.mobile-lang-menu')) return;
+    if (availableLanguages.length < 2) return;
+    
+    injectMobileLangCss();
+    
+    var navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu');
+    if (!navMenu) return;
+    
+    var currentLang = zappyI18n.language;
+    var currentInfo = languageInfo[currentLang] || { nativeName: currentLang, flagImg: '' };
+    
+    var langSwitcher = document.querySelector('.lang-switcher');
+    var iconColor = langSwitcher ? langSwitcher.getAttribute('data-icon-color') : 'currentColor';
+    if (!iconColor) iconColor = 'currentColor';
+    
+    var optionsHtml = availableLanguages
+      .filter(function(lang) { return lang !== currentLang; })
+      .map(function(lang) {
+        var info = languageInfo[lang] || { nativeName: lang, flagImg: '' };
+        return '<button class="mobile-lang-option" data-lang="' + lang + '">' +
+          (info.flagImg || info.flag || '') + ' ' + info.nativeName + '</button>';
+      })
+      .join('');
+    
+    var li = document.createElement('li');
+    li.className = 'mobile-lang-menu';
+    li.innerHTML =
+      '<button class="mobile-lang-toggle" type="button">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="' + iconColor + '" style="flex-shrink:0;"><path d="M12.039,.002s0,0,0,0c-.013,0-.026-.002-.039-.002-.005,0-.009,0-.014,0-.002,0-.003,0-.005,0C5.373,.011,0,5.39,0,12s5.383,12,12,12,12-5.383,12-12S18.638,.023,12.039,.002Zm9.747,6.998h-4.814c-1.067-2.669-2.712-4.781-3.731-5.925,3.734,.421,6.901,2.719,8.546,5.925Zm-4.786,5c0,1.407-.292,2.753-.731,4H7.731c-.439-1.247-.731-2.593-.731-4s.292-2.754,.73-4h8.539c.439,1.247,.731,2.593,.731,4Zm-1.122,5c-1.229,2.838-3.116,4.99-3.878,5.788-.762-.798-2.649-2.95-3.878-5.788h7.755ZM8.121,7c1.229-2.841,3.117-4.992,3.879-5.789,.762,.798,2.649,2.95,3.878,5.789h-7.757ZM10.757,1.075c-1.025,1.15-2.668,3.264-3.73,5.925H2.214C3.859,3.795,7.024,1.498,10.757,1.075ZM1.764,8H6.668c-.403,1.247-.668,2.589-.668,4s.265,2.752,.669,4H1.764c-.487-1.242-.764-2.588-.764-4s.277-2.758,.764-4Zm.45,9H7.029c1.067,2.669,2.712,4.781,3.731,5.925-3.734-.421,6.901-2.719-8.546-5.925Zm11.026,5.925c1.019-1.144,2.664-3.257,3.731-5.925h4.814c-1.645,3.206-4.812,5.504-8.546,5.925Zm8.996-6.925h-4.905c.404-1.248,.669-2.589,.669-4s-.265-2.752-.669-4h4.905c.487,1.242,.764,2.588,.764,4s-.277,2.758-.764,4Z"/></svg>' +
+        '<span>' + currentInfo.nativeName + '</span>' +
+        '<svg class="mobile-lang-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"></polyline></svg>' +
+      '</button>' +
+      '<div class="mobile-lang-options">' + optionsHtml + '</div>';
+    
+    navMenu.appendChild(li);
+    
+    // Match nav link color for visual consistency
+    var firstNavLink = navMenu.querySelector('li:not(.mobile-lang-menu) > a');
+    if (firstNavLink) {
+      var navLinkColor = window.getComputedStyle(firstNavLink).color;
+      if (navLinkColor && navLinkColor !== 'rgba(0, 0, 0, 0)') {
+        li.style.color = navLinkColor;
+        // Update globe SVG fill to match nav link color
+        var globeSvg = li.querySelector('.mobile-lang-toggle > svg:first-child');
+        if (globeSvg) globeSvg.setAttribute('fill', navLinkColor);
+      }
+    }
+    
+    console.log('[i18n] Mobile language submenu created in hamburger menu');
+  }
+  
+  // Wire up mobile language submenu event handlers
+  function initMobileLangSwitcher() {
+    var toggle = document.querySelector('.mobile-lang-toggle');
+    var options = document.querySelector('.mobile-lang-options');
+    if (!toggle || !options) return;
+    
+    var newToggle = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(newToggle, toggle);
+    var optionsEl = newToggle.parentNode.querySelector('.mobile-lang-options');
+    
+    newToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = optionsEl.classList.contains('open');
+      if (isOpen) {
+        optionsEl.classList.remove('open');
+        optionsEl.style.display = 'none';
+      } else {
+        optionsEl.classList.add('open');
+        optionsEl.style.display = 'flex';
+      }
+      var chevron = newToggle.querySelector('.mobile-lang-chevron');
+      if (chevron) chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+    
+    optionsEl.querySelectorAll('.mobile-lang-option').forEach(function(option) {
+      option.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var lang = this.getAttribute('data-lang');
+        zappyI18n.changeLanguage(lang);
+        optionsEl.classList.remove('open');
+        optionsEl.style.display = 'none';
+        var chevron = newToggle.querySelector('.mobile-lang-chevron');
+        if (chevron) chevron.style.transform = '';
+        var navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu');
+        if (navMenu) navMenu.classList.remove('active');
+        var hamburgerIcon = document.querySelector('.hamburger-icon');
+        var closeIcon = document.querySelector('.close-icon');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+  
+  // Update mobile language menu after language change
+  function updateMobileLangMenu() {
+    var menuItem = document.querySelector('.mobile-lang-menu');
+    if (!menuItem) {
+      createMobileLangMenu();
+      initMobileLangSwitcher();
+      return;
+    }
+    
+    var currentLang = zappyI18n.language;
+    var currentInfo = languageInfo[currentLang] || { nativeName: currentLang };
+    
+    var toggleSpan = menuItem.querySelector('.mobile-lang-toggle span');
+    if (toggleSpan) toggleSpan.textContent = currentInfo.nativeName;
+    
+    var optionsContainer = menuItem.querySelector('.mobile-lang-options');
+    if (!optionsContainer) return;
+    
+    optionsContainer.innerHTML = availableLanguages
+      .filter(function(lang) { return lang !== currentLang; })
+      .map(function(lang) {
+        var info = languageInfo[lang] || { nativeName: lang, flagImg: '' };
+        return '<button class="mobile-lang-option" data-lang="' + lang + '">' +
+          (info.flagImg || info.flag || '') + ' ' + info.nativeName + '</button>';
+      })
+      .join('');
+    
+    optionsContainer.querySelectorAll('.mobile-lang-option').forEach(function(option) {
+      option.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var lang = this.getAttribute('data-lang');
+        zappyI18n.changeLanguage(lang);
+        optionsContainer.classList.remove('open');
+        optionsContainer.style.display = 'none';
+        var chevron = menuItem.querySelector('.mobile-lang-chevron');
+        if (chevron) chevron.style.transform = '';
+        var navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu');
+        if (navMenu) navMenu.classList.remove('active');
+        var hamburgerIcon = document.querySelector('.hamburger-icon');
+        var closeIcon = document.querySelector('.close-icon');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    optionsContainer.classList.remove('open');
+    optionsContainer.style.display = 'none';
+  }
+  
+  // Fix mobile menu inline styles that may have been incorrectly persisted
+  // This is needed because inline styles override CSS media queries
+  function fixMobileMenuStyles() {
+    // Only run on mobile
+    if (window.innerWidth >= 768) return;
+    
+    // Remove inline flex-direction from nav menus so CSS can take over
+    document.querySelectorAll('.nav-menu, #navMenu, nav ul, header ul').forEach(function(el) {
+      if (el.style.flexDirection) {
+        el.style.removeProperty('flex-direction');
+      }
+    });
+  }
+  
+  // Fix mobile button positioning based on current page direction
+  // Clear any inline left/right styles so CSS can take over based on html[dir]
+  function fixMobileButtonPositioning() {
+    // Only run on mobile
+    if (window.innerWidth >= 768) return;
+    
+    var mobileToggle = document.querySelector('.mobile-toggle');
+    var phoneBtn = document.querySelector('.phone-header-btn');
+    var navCtaContainer = document.querySelector('.nav-cta-container');
+    
+    // Clear inline left/right - CSS will position based on html[dir]
+    if (mobileToggle) {
+      mobileToggle.style.removeProperty('left');
+      mobileToggle.style.removeProperty('right');
+    }
+    
+    if (phoneBtn) {
+      phoneBtn.style.removeProperty('left');
+      phoneBtn.style.removeProperty('right');
+    }
+    
+    if (navCtaContainer) {
+      navCtaContainer.style.removeProperty('left');
+      navCtaContainer.style.removeProperty('right');
+    }
+    
+    console.log('[i18n] Cleared inline button positions - CSS handles based on html[dir]:', document.documentElement.dir);
+  }
+  
+  // ============================================
+  // LANGUAGE SWITCHER ICON COLOR DETECTION
+  // Dynamically detect if navbar has light/dark background
+  // and set the globe icon color accordingly
+  // ============================================
+  function fixLanguageSwitcherColor() {
+    var switcher = document.querySelector('.lang-switcher-current');
+    var svg = switcher ? switcher.querySelector('svg') : null;
+    if (!switcher || !svg) return;
+    
+    // Find the navbar or header element
+    var navbar = document.querySelector('.navbar') || 
+                 document.querySelector('nav') || 
+                 document.querySelector('header');
+    if (!navbar) return;
+    
+    // Get the effective background color by walking up the DOM tree
+    function getEffectiveBackgroundColor(element) {
+      var el = element;
+      var maxDepth = 10; // Prevent infinite loops
+      
+      while (el && maxDepth > 0) {
+        var style = window.getComputedStyle(el);
+        var bg = style.backgroundColor;
+        
+        // Skip transparent backgrounds
+        if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+          return bg;
+        }
+        
+        // Check background-image for gradients
+        var bgImage = style.backgroundImage;
+        if (bgImage && bgImage !== 'none') {
+          // Extract first color from gradient
+          var gradientMatch = bgImage.match(/rgba?\([^)]+\)|#[a-fA-F0-9]{3,8}/);
+          if (gradientMatch) {
+            return gradientMatch[0];
+          }
+        }
+        
+        el = el.parentElement;
+        maxDepth--;
+      }
+      
+      // Default to white if no background found (assume light)
+      return 'rgb(255, 255, 255)';
+    }
+    
+    // Parse color string to RGB values
+    function parseColor(colorStr) {
+      if (!colorStr) return null;
+      
+      // Handle rgb/rgba
+      var rgbMatch = colorStr.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+      if (rgbMatch) {
+        return {
+          r: parseInt(rgbMatch[1], 10),
+          g: parseInt(rgbMatch[2], 10),
+          b: parseInt(rgbMatch[3], 10)
+        };
+      }
+      
+      // Handle hex
+      var hexMatch = colorStr.match(/#([a-fA-F0-9]{2})([a-fA-F0-9]{2})([a-fA-F0-9]{2})/);
+      if (hexMatch) {
+        return {
+          r: parseInt(hexMatch[1], 16),
+          g: parseInt(hexMatch[2], 16),
+          b: parseInt(hexMatch[3], 16)
+        };
+      }
+      
+      // Handle 3-digit hex
+      var hex3Match = colorStr.match(/#([a-fA-F0-9])([a-fA-F0-9])([a-fA-F0-9])$/);
+      if (hex3Match) {
+        return {
+          r: parseInt(hex3Match[1] + hex3Match[1], 16),
+          g: parseInt(hex3Match[2] + hex3Match[2], 16),
+          b: parseInt(hex3Match[3] + hex3Match[3], 16)
+        };
+      }
+      
+      return null;
+    }
+    
+    // Calculate relative luminance (WCAG formula)
+    function getLuminance(rgb) {
+      if (!rgb) return 0.5; // Default to middle
+      
+      var r = rgb.r / 255;
+      var g = rgb.g / 255;
+      var b = rgb.b / 255;
+      
+      // Apply gamma correction
+      r = r <= 0.03928 ? r / 12.92 : Math.pow((r + 0.055) / 1.055, 2.4);
+      g = g <= 0.03928 ? g / 12.92 : Math.pow((g + 0.055) / 1.055, 2.4);
+      b = b <= 0.03928 ? b / 12.92 : Math.pow((b + 0.055) / 1.055, 2.4);
+      
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    }
+    
+    // Get the effective background color
+    var bgColor = getEffectiveBackgroundColor(navbar);
+    var rgb = parseColor(bgColor);
+    var luminance = getLuminance(rgb);
+    
+    // Threshold: 0.5 is middle, lower = darker background
+    // Use 0.4 as threshold for better contrast
+    var isLightBackground = luminance > 0.4;
+    
+    // Set icon color based on background
+    // Light background = dark icon (#1a1a1a)
+    // Dark background = light icon (#F3FAFF)
+    var iconColor = isLightBackground ? '#1a1a1a' : '#F3FAFF';
+    
+    svg.style.fill = iconColor;
+    switcher.style.color = iconColor;
+    
+    console.log('[i18n] Language switcher icon color:', iconColor, 
+                '(bg luminance:', luminance.toFixed(2), 
+                ', isLight:', isLightBackground, ')');
+  }
+  
+  // Initialize on DOM ready
+  function init() {
+    updateContent();
+    updateDirection();
+    initLanguageSwitcher();
+    createMobileLangMenu();
+    initMobileLangSwitcher();
+    fixMobileMenuStyles();
+    fixMobileButtonPositioning();
+    fixLanguageSwitcherColor();
+    
+    // Also fix on resize (in case user rotates device)
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        // Desktop: remove mobile lang menu if it exists
+        var mobileLangEl = document.querySelector('.mobile-lang-menu');
+        if (mobileLangEl) mobileLangEl.remove();
+        var mobileCssEl = document.getElementById('mobile-lang-menu-css');
+        if (mobileCssEl) mobileCssEl.remove();
+      } else {
+        createMobileLangMenu();
+        initMobileLangSwitcher();
+      }
+      fixMobileMenuStyles();
+      fixMobileButtonPositioning();
+      fixLanguageSwitcherColor();
+    });
+    
+    // Re-check color after a delay to catch dynamically loaded backgrounds
+    setTimeout(fixLanguageSwitcherColor, 500);
+    setTimeout(fixLanguageSwitcherColor, 1500);
+  }
+  
+  // Expose to global scope
+  window.zappyI18n = zappyI18n;
+  
+  // Run initialization
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
     <script id="zappy-mobile-submenu-script">
     (function() {
