@@ -1,57 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://tikvot.zappy5.app</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/programs</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/programs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/programs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/programs" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/programs</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/programs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/programs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/programs" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/menu-group-1766306874186</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/menu-group-1766306874186" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/menu-group-1766306874186" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/menu-group-1766306874186" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/menu-group-1766306874186</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/menu-group-1766306874186" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/menu-group-1766306874186" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/menu-group-1766306874186" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/about-the-association</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/about-the-association" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/about-the-association" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/about-the-association" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/about-the-association</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/about-the-association" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/about-the-association" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/about-the-association" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/about-the-founder</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/about-the-founder" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/about-the-founder" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/about-the-founder" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/about-the-founder</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/about-the-founder" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/about-the-founder" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/about-the-founder" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/contact-us</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/contact-us" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/contact-us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/contact-us" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/contact-us</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/contact-us" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/contact-us" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/contact-us" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/privacy</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/privacy" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/privacy</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/privacy" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/terms</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/terms" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/terms</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/terms" />
   </url>
   <url>
     <loc>https://tikvot.zappy5.app/accessibility</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/accessibility" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/accessibility" />
+  </url>
+  <url>
+    <loc>https://tikvot.zappy5.app/en/accessibility</loc>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="he" href="https://tikvot.zappy5.app/accessibility" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tikvot.zappy5.app/en/accessibility" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tikvot.zappy5.app/accessibility" />
   </url>
 </urlset>
