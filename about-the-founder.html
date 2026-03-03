@@ -293,8 +293,8 @@
             }
             
             /* Menu Group styling (non-clickable parent) - TOP LEVEL ONLY with ultra-specific selector */
-            .nav-menu &gt; li &gt; .menu-group-title,
-            #navMenu &gt; li &gt; .menu-group-title {
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -308,13 +308,13 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &gt; li &gt; .menu-group-title:hover,
-            #navMenu &gt; li &gt; .menu-group-title:hover {
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
             }
             
             /* Desktop: show submenu on Menu Group hover */
-            li:has(.menu-group-title):hover &gt; .sub-menu {
+            li:has(.menu-group-title):hover > .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -323,7 +323,7 @@
             
             /* Hide menu items marked as hidden (overrides hover states) */
             .zappy-hidden-menu-item,
-            li:has(.menu-group-title):hover &gt; .sub-menu .zappy-hidden-menu-item {
+            li:has(.menu-group-title):hover > .sub-menu .zappy-hidden-menu-item {
               display: none !important;
               opacity: 0 !important;
               visibility: hidden !important;
@@ -376,9 +376,9 @@
             }
             
             /* Show submenu on parent hover - more specific selectors */
-            .nav-menu li:hover &gt; .sub-menu,
-            nav li:hover &gt; .sub-menu,
-            .navbar li:hover &gt; .sub-menu {
+            .nav-menu li:hover > .sub-menu,
+            nav li:hover > .sub-menu,
+            .navbar li:hover > .sub-menu {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateY(0) !important;
@@ -416,8 +416,8 @@
             }
             
             /* CRITICAL: Override submenu styles for TOP-LEVEL Menu Groups only - must come AFTER submenu styles */
-            .nav-menu &gt; li &gt; .menu-group-title,
-            #navMenu &gt; li &gt; .menu-group-title {
+            .nav-menu > li > .menu-group-title,
+            #navMenu > li > .menu-group-title {
               display: inline-block !important;
               padding: 0.5rem 1rem !important;
               color: var(--nav-color) !important;
@@ -431,8 +431,8 @@
               transition: color 0.3s ease !important;
             }
             
-            .nav-menu &gt; li &gt; .menu-group-title:hover,
-            #navMenu &gt; li &gt; .menu-group-title:hover {
+            .nav-menu > li > .menu-group-title:hover,
+            #navMenu > li > .menu-group-title:hover {
               color: var(--nav-hover-color) !important;
               background-color: transparent !important;
             }
@@ -473,18 +473,18 @@
               }
               
               /* Disable hover behavior on mobile */
-              .nav-menu li:hover &gt; .sub-menu,
-              nav li:hover &gt; .sub-menu,
-              .navbar li:hover &gt; .sub-menu {
+              .nav-menu li:hover > .sub-menu,
+              nav li:hover > .sub-menu,
+              .navbar li:hover > .sub-menu {
                 opacity: 0;
                 visibility: hidden;
                 pointer-events: none;
               }
               
               /* Enable visibility for expanded submenus */
-              .nav-menu li &gt; .sub-menu.mobile-expanded,
-              nav li &gt; .sub-menu.mobile-expanded,
-              .navbar li &gt; .sub-menu.mobile-expanded {
+              .nav-menu li > .sub-menu.mobile-expanded,
+              nav li > .sub-menu.mobile-expanded,
+              .navbar li > .sub-menu.mobile-expanded {
                 opacity: 1 !important;
                 visibility: visible !important;
                 pointer-events: auto !important;
@@ -510,11 +510,11 @@
               }
               
               /* Parent link - takes most space, allows navigation */
-              .nav-menu li:has(.sub-menu) &gt; a,
-              nav li:has(.sub-menu) &gt; a,
-              .navbar li:has(.sub-menu) &gt; a,
-              .nav-menu &gt; li &gt; .menu-group-title,
-              #navMenu &gt; li &gt; .menu-group-title {
+              .nav-menu li:has(.sub-menu) > a,
+              nav li:has(.sub-menu) > a,
+              .navbar li:has(.sub-menu) > a,
+              .nav-menu > li > .menu-group-title,
+              #navMenu > li > .menu-group-title {
                 flex: 1 !important;
               }
               
@@ -551,9 +551,9 @@
               }
               
               /* Submenu takes full width below parent */
-              .nav-menu li:has(.sub-menu) &gt; .sub-menu,
-              nav li:has(.sub-menu) &gt; .sub-menu,
-              .navbar li:has(.sub-menu) &gt; .sub-menu {
+              .nav-menu li:has(.sub-menu) > .sub-menu,
+              nav li:has(.sub-menu) > .sub-menu,
+              .navbar li:has(.sub-menu) > .sub-menu {
                 flex-basis: 100% !important;
                 width: 100% !important;
               }
@@ -573,10 +573,10 @@
             (function() {
               function initMobileMenuToggles() {
                 // Only run on mobile
-                if (window.innerWidth &gt; 768) {
+                if (window.innerWidth > 768) {
                   // Remove any toggle buttons on desktop
-                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn =&gt; btn.remove());
-                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu =&gt; {
+                  document.querySelectorAll('.mobile-submenu-toggle').forEach(btn => btn.remove());
+                  document.querySelectorAll('.sub-menu.mobile-expanded').forEach(menu => {
                     menu.classList.remove('mobile-expanded');
                   });
                   console.log('[MOBILE MENU] Desktop mode - cleanup done');
@@ -599,7 +599,7 @@
                   }
                   
                   const submenu = li.querySelector('.sub-menu');
-                  const parentLink = li.querySelector(':scope &gt; a') || li.querySelector(':scope &gt; .menu-group-title');
+                  const parentLink = li.querySelector(':scope > a') || li.querySelector(':scope > .menu-group-title');
                   
                   if (!submenu || !parentLink) return;
                   
@@ -659,7 +659,7 @@
               // This handles cases where the mobile menu is hidden initially
               const observer = new MutationObserver(function(mutations) {
                 mutations.forEach(function(mutation) {
-                  if (mutation.type === 'attributes' &amp;&amp; mutation.attributeName === 'class') {
+                  if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
                     const target = mutation.target;
                     if (target.classList.contains('active') || target.style.display !== 'none') {
                       console.log('[MOBILE MENU] Mobile menu became visible, re-initializing...');
@@ -758,7 +758,7 @@ section[data-zappy-section] { display: block !important; grid-template-columns: 
 }
 /* Hero container fixes - contain absolute images */
 [class*="hero"], [id*="hero"] { position: relative !important; overflow: hidden !important; }
-[class*="hero"] &gt; .container, [id*="hero"] &gt; .container { position: relative; z-index: 2; }
+[class*="hero"] > .container, [id*="hero"] > .container { position: relative; z-index: 2; }
 .hero-image-wrapper, [class*="image-wrapper"] { position: relative !important; overflow: hidden !important; }
 /* Prevent hero positioning on non-hero page images */
 img[data-no-hero-position] { position: static !important; }
@@ -4273,148 +4273,38 @@ html[dir="rtl"] body {
   </nav><main class="page-main blog-page ai-generated-page">
   <!-- Hero Section -->
   <section class="section hero-section" id="founder-hero" style="background-color: #f8f9fa !important; padding: 80px 0;; position: relative; overflow: hidden;" data-zappy-section="true">
-    <div class="container">
+    <div class="container" style="text-align: right">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
         <div style="color: #102030 !important;">
           <h1 style="font-size: 3rem; margin-bottom: 20px; line-height: 1.2; color: #102030 !important;" data-i18n="about_the_founder_h1_1">סימונה: הלב הפועם מאחורי השיקום של פצועי צה"ל</h1>
           <p style="font-size: 1.2rem; line-height: 1.6; color: #204040 !important; margin-bottom: 30px;" data-i18n="about_the_founder_p_11">
             כבר למעלה משני עשורים שסימונה מקדישה את חייה למטרה אחת ויחידה: החזרת התקווה לחייהם של אלו שהקריבו את גופם ונפשם למען ביטחון המדינה. החזון שלה הפך למציאות משנה חיים עבור מאות לוחמים.
           </p>
-          <div style="display: flex; gap: 15px;">
-            <a href="/contact-us" class="btn" style="background-color: #116dff !important; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;" data-i18n="about_the_founder_link_31">צרו קשר</a>
+          <div style="display: flex !important; gap: 15px; text-align: center !important; justify-content: center !important; align-items: flex-start !important; width: 100% !important;">
+            <a href="/contact-us" class="btn btn-primary" style="color: rgb(255, 255, 255) !important; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; outline: none; border-color: rgb(17, 109, 255) !important; background-color: rgb(17, 109, 255) !important; background-image: none !important;" data-i18n="about_the_founder_link_31" data-element-type="button" data-element-id="btn-1772557165537-yu6enucrw" data-native-element="true">צרו קשר</a>
           </div>
         </div>
         <div>
-          <img data-placeholder="founder-portrait" data-context="Portrait of Simona, a kind looking middle-aged woman founder of a non-profit, professional photography, warm lighting" data-zappy-editable-image="true" src="/assets/page-founder-portrait-1766308245768.webp" alt="סימונה המייסדת" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" class="generated-image" data-i18n-alt="about_the_founder_alt_47">
+          <div data-zappy-zoom-wrapper="true" data-element-id="img-1772557165539-5jjpm9jy0" data-element-type="image" data-zappy-zoom-wrapper-width="660px" data-zappy-zoom-wrapper-height="495px" data-zappy-zoom-wrapper-width-mode="px" style="position: relative !important; overflow: hidden !important; width: 660px !important; max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; height: 495px !important; display: block !important;" data-zappy-zoom-clip="true" data-zappy-wrapper-margins-applied="true"><img data-placeholder="founder-portrait" data-context="Portrait of Simona, a kind looking middle-aged woman founder of a non-profit, professional photography, warm lighting" data-zappy-editable-image="true" src="/assets/business-general-service-upload-1772557204681.webp" alt="סימונה המייסדת" style="width: 100% !important; aspect-ratio: 4 / 3; object-fit: cover !important; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px; object-position: 50% 50%; margin: 0px !important; position: absolute !important; left: 0% !important; top: -38.8889% !important; height: 177.778% !important; max-width: none !important; max-height: none !important; display: block !important" class="generated-image zappy-editable-image" data-i18n-alt="about_the_founder_alt_47" data-element-type="image" data-element-id="img-1772557165539-5jjpm9jy0" data-resize-handler-attached="true" data-zappy-zoom="1" data-zappy-original-width="660" data-zappy-original-height="495"></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Biography & Vision Section -->
-  <section class="section bio-section" id="founder-story" style="background-color: #ffffff !important; padding: 80px 0;" data-zappy-section="true">
-    <div class="container">
-      <div style="max-width: 800px; margin: 0 auto;">
-        
-        
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #204040 !important; margin-bottom: 25px;" data-i18n="about_the_founder_p_12">
-          הסיפור של עמותת תקוות שזור באופן בלתי נפרד בסיפור חייה של סימונה. כמי שגדלה בבית שבו ערכי הציונות ואהבת הארץ היו נר לרגליהם, החיבור לצה"ל ולכוחות הביטחון היה טבעי עבורה מגיל צעיר. אולם, היה זה אירוע מכונן אחד, מפגש מקרי בבית חולים שיקומי עם קבוצת פצועי צה"ל צעירים, ששינה את מסלול חייה לנצח.
-        </p>
-
-        
-
-        
-      </div>
-    </div>
-  </section><section class="section bio-section" id="founder-story-1766322517801-93f45pw1h" style="background-color: #ffffff !important; padding: 80px 0;" data-zappy-section="true">
-    <div class="container">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <h2 style="color: #102030 !important; font-size: 2.5rem; margin-bottom: 30px; text-align: center;" data-i18n="about_the_founder_h2_2">סיפור של שליחות ונתינה</h2>
-        
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #204040 !important; margin-bottom: 25px;" data-i18n="about_the_founder_p_13">
-          הסיפור של עמותת תקוות שזור באופן בלתי נפרד בסיפור חייה של סימונה. כמי שגדלה בבית שבו ערכי הציונות ואהבת הארץ היו נר לרגליהם, החיבור לצה"ל ולכוחות הביטחון היה טבעי עבורה מגיל צעיר. אולם, היה זה אירוע מכונן אחד, מפגש מקרי בבית חולים שיקומי עם קבוצת פצועי צה"ל צעירים, ששינה את מסלול חייה לנצח.
-        </p>
-
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #204040 !important; margin-bottom: 25px;" data-i18n="about_the_founder_p_14">
-          באותו מפגש, סימונה זיהתה פער עצום וכואב. בעוד שהמערכת הרפואית העניקה טיפול פיזי מצוין, הנפש של הלוחמים נותרה פעמים רבות מדממת. היא הבינה ששיקום אמיתי של פצועי צה"ל אינו מסתיים באיחוי העצמות או בריפוי הצלקות הפיזיות, אלא דורש בנייה מחדש של תחושת המסוגלות, הביטחון העצמי והתקווה לעתיד. ההבנה הזו היתה הניצוץ שהוביל להקמת הארגון.
-        </p>
-
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #204040 !important; margin-bottom: 25px;" data-i18n="about_the_founder_p_15">
-          מאז ועד היום, סימונה מובילה את העמותה ביד רמה אך ברגישות אין-קץ. היא מאמינה כי הספורט האתגרי הוא כלי שיקומי מהמעלה הראשונה. דרך פעילויות כמו סקי, טיפוס הרים, ורכיבה על אופניים, היא מאפשרת לנפגעי טרור ולוחמים משוקמים לגלות מחדש את הכוחות הטמונים בהם. עבורה, כל חיוך של לוחם שחזר לעמוד על הרגליים (תרתי משמע) הוא עולם ומלואו.
-        </p>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Values Grid Section -->
-  <section class="section values-section" id="founder-values" style="background-color: #c0f0f0 !important; padding: 80px 0;" data-zappy-section="true">
-    <div class="container">
-      <h2 style="color: #102030 !important; text-align: center; margin-bottom: 50px; font-size: 2.2rem;" data-i18n="about_the_founder_h2_3">עקרונות הברזל של סימונה</h2>
-      <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        <!-- Value 1 -->
-        <article class="card" style="background-color: #ffffff !important; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-          <div style="width: 60px; height: 60px; background-color: #116dff !important; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;" data-i18n="about_the_founder_div_37">
-            <span style="color: white; font-size: 24px;" data-i18n="about_the_founder_span_27">💪</span>
-          </div>
-          <h3 style="color: #102030 !important; margin-bottom: 15px; font-size: 1.5rem;" data-i18n="about_the_founder_h3_6">שיקום דרך אתגר</h3>
-          <p style="color: #204040 !important; line-height: 1.6;" data-i18n="about_the_founder_p_16">
-            האמונה כי אין גבול ליכולת האנושית. סימונה דוחפת את פצועי צה"ל להתמודד עם אתגרים פיזיים מורכבים, לא כספורט בלבד, אלא כדרך לשיקום הביטחון העצמי שנפגע בעקבות הפציעה.
-          </p>
-        </article>
-
-        <!-- Value 2 -->
-        <article class="card" style="background-color: #ffffff !important; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-          <div style="width: 60px; height: 60px; background-color: #116dff !important; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;" data-i18n="about_the_founder_div_38">
-            <span style="color: white; font-size: 24px;" data-i18n="about_the_founder_span_28">🤝</span>
-          </div>
-          <h3 style="color: #102030 !important; margin-bottom: 15px; font-size: 1.5rem;" data-i18n="about_the_founder_h3_7">משפחה אחת גדולה</h3>
-          <p style="color: #204040 !important; line-height: 1.6;" data-i18n="about_the_founder_p_17">
-            עבור סימונה, העמותה היא לא מוסד אלא בית. כל לוחם וכל נפגעת טרור שמצטרפים לפעילות הופכים לחלק ממשפחה תומכת, מחבקת ומבינה, שמלווה אותם לאורך כל הדרך.
-          </p>
-        </article>
-
-        <!-- Value 3 -->
-        <article class="card" style="background-color: #ffffff !important; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-          <div style="width: 60px; height: 60px; background-color: #116dff !important; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;" data-i18n="about_the_founder_div_39">
-            <span style="color: white; font-size: 24px;" data-i18n="about_the_founder_span_29">🇮🇱</span>
-          </div>
-          <h3 style="color: #102030 !important; margin-bottom: 15px; font-size: 1.5rem;" data-i18n="about_the_founder_h3_8">ציונות הלכה למעשה</h3>
-          <p style="color: #204040 !important; line-height: 1.6;" data-i18n="about_the_founder_p_18">
-            אהבת הארץ והוקרת התודה למי שמגן עליה הם הבסיס לכל הפעילות. החיבור העמוק לערכי צה"ל ולמורשת הקרב הישראלית נוכח בכל פעילות ובכל מפגש של העמותה.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Detailed Philosophy Section -->
-  <section class="section philosophy-section" id="founder-philosophy" style="background-color: #f8f9fa !important; padding: 80px 0;" data-zappy-section="true">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; align-items: center;">
-        <div>
-          <img data-placeholder="simona-speaking" data-context="Simona giving a speech to soldiers, inspiring, candid photography" data-zappy-editable-image="true" src="/assets/page-simona-speaking-1766308244702.webp" alt="סימונה נושאת דברים" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" data-no-hero-position="true" class="generated-image" data-i18n-alt="about_the_founder_alt_48">
-        </div>
-        <div style="color: #102030 !important;">
-          <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #102030 !important;" data-i18n="about_the_founder_h2_4">"הפציעה היא לא סוף הסיפור, אלא התחלה של פרק חדש"</h2>
-          <p style="font-size: 1.1rem; line-height: 1.7; color: #204040 !important; margin-bottom: 20px;" data-i18n="about_the_founder_p_19">
-            משפט זה, השגור בפיה של סימונה, מהווה את המוטו המרכזי של פעילותה. היא רואה בכל אחד מפצועי צה"ל גיבור שזקוק לכלים הנכונים כדי לחזור ולנצח – הפעם בזירת החיים האזרחיים.
-          </p>
-          <p style="font-size: 1.1rem; line-height: 1.7; color: #204040 !important; margin-bottom: 20px;" data-i18n="about_the_founder_p_20">
-            הגישה הייחודית שפיתחה משלבת בין דרישות בלתי מתפשרות למצוינות לבין חיבוק חם ואוהב. היא יודעת מתי לדחוף את הלוחמים לקצה גבול היכולת כדי שיוכיחו לעצמם שהם מסוגלים, ומתי להעניק את התמיכה השקטה והמכילה ברגעים הקשים.
-          </p>
-          <p style="font-size: 1.1rem; line-height: 1.7; color: #204040 !important;" data-i18n="about_the_founder_p_21">
-            מעבר לשיקום הפיזי, סימונה שמה דגש רב על שילובם של נפגעי טרור ופצועים חזרה בחברה, בלימודים ובמעגל העבודה. היא פועלת ללא לאות מול גורמים ממשלתיים ופרטיים כדי לפתוח דלתות עבור אלו ששילמו מחיר כה יקר.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Quote Banner -->
   
 
   <!-- Impact & Future Section -->
-  <section class="section future-section" id="founder-future" style="background-color: #ffffff !important; padding: 80px 0;" data-zappy-section="true">
-    <div class="container">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <h2 style="color: #102030 !important; font-size: 2.2rem; margin-bottom: 30px;" data-i18n="about_the_founder_h2_5">מביטים קדימה: החזון לעתיד</h2>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #204040 !important; margin-bottom: 25px;" data-i18n="about_the_founder_p_22">
-          גם אחרי שנים של עשייה ברוכה, סימונה לא נחה לרגע. המציאות הישראלית המורכבת ממשיכה לייצר אתגרים חדשים, ומשפחת פצועי צה"ל לצערנו ממשיכה להתרחב. החזון שלה לשנים הקרובות כולל את הרחבת מרכז הפעילות, הקמת קבוצות תמיכה נוספות למשפחות הפצועים, והעמקת שיתופי הפעולה עם יחידות צה"ל השונות.
-        </p>
-        <p style="font-size: 1.125rem; line-height: 1.8; color: #204040 !important; margin-bottom: 25px;" data-i18n="about_the_founder_p_23">
-          היא פועלת להעלאת המודעות הציבורית לחשיבות השיקום הנפשי לצד הפיזי, ומובילה קמפיינים להכרה בזכויותיהם של נפגעי טרור ולוחמים. עבור סימונה, כל עוד ישנו חייל שזקוק לעזרה כדי לחזור לחייך, המשימה טרם הושלמה.
-        </p>
-        
-        <div style="margin-top: 40px; padding: 30px; background-color: #f8f9fa !important; border-right: 4px solid #116dff; border-radius: 4px;">
-          <h3 style="color: #102030 !important; margin-bottom: 15px;" data-i18n="about_the_founder_h3_9">הצטרפו לחזון של סימונה</h3>
-          <p style="color: #204040 !important; margin-bottom: 20px;" data-i18n="about_the_founder_p_24">
-            העשייה של סימונה ושל עמותת תקוות מתאפשרת בזכות אנשים טובים שמבינים את גודל השעה. אנו מזמינים אתכם לקחת חלק במסע המופלא הזה ולהיות שותפים לדרך.
-          </p>
-          <a href="/donate" class="btn" style="background-color: #116dff !important; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold;" data-i18n="about_the_founder_link_32">תמכו בפעילות העמותה</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 </main>
 
   
@@ -4437,14 +4327,14 @@ html[dir="rtl"] body {
 
   
     <!-- Legal Footer -->
-    <!DOCTYPE html>
-<html>
-<head>
+    
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tikvot</title>
-</head>
-<body>
+
+
 <footer class="legal-footer">
       <div class="container">
         <div class="footer-main">
@@ -4475,131 +4365,10 @@ html[dir="rtl"] body {
       </div>
     </footer>
 
-    <script id="zappy-mobile-submenu-script">
-    (function() {
-      function initMobileSubmenuToggles() {
-        if (window.innerWidth > 768) {
-          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
-          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
-          return;
-        }
-        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
-        items.forEach(function(li) {
-          if (li.querySelector('.mobile-submenu-toggle')) return;
-          var submenu = li.querySelector('.sub-menu');
-          var parentLink = li.querySelector(':scope > a');
-          if (!submenu || !parentLink) return;
-          var toggleBtn = document.createElement('button');
-          toggleBtn.className = 'mobile-submenu-toggle';
-          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
-          toggleBtn.setAttribute('type', 'button');
-          parentLink.insertAdjacentElement('afterend', toggleBtn);
-          toggleBtn.addEventListener('click', function(e) {
-            e.preventDefault(); e.stopPropagation();
-            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
-              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
-            });
-            submenu.classList.toggle('mobile-expanded');
-            toggleBtn.classList.toggle('expanded');
-          });
-        });
-      }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
-      else { initMobileSubmenuToggles(); }
-      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
-      // Re-initialize when mobile menu becomes visible (MutationObserver)
-      var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'attributes') {
-            var target = mutation.target;
-            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
-              setTimeout(initMobileSubmenuToggles, 100);
-            }
-          }
-        });
-      });
-      setTimeout(function() {
-        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
-          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
-        });
-      }, 500);
-    })();
-    </script>
-
-    <script id="zappy-mobile-lang-menu-script">
-    (function() {
-      function initMobileLangMenu() {
-        if (window.innerWidth > 768) {
-          var existingMenu = document.querySelector('.mobile-lang-menu');
-          if (existingMenu) existingMenu.remove();
-          return;
-        }
-        if (document.querySelector('.mobile-lang-menu')) return;
-        var switcher = document.querySelector('.lang-switcher');
-        if (!switcher) return;
-        var dropdown = switcher.querySelector('.lang-switcher-dropdown');
-        if (!dropdown) return;
-        var options = dropdown.querySelectorAll('.lang-option');
-        if (options.length === 0) return;
-        var navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu') || document.querySelector('nav ul');
-        if (!navMenu) return;
-        var currentLang = document.documentElement.lang || 'en';
-        var langConfigs = {
-          he: {name:'עברית',flag:'https://api.iconify.design/circle-flags/il.svg'},
-          en: {name:'English',flag:'https://api.iconify.design/circle-flags/us.svg'},
-          ar: {name:'العربية',flag:'https://api.iconify.design/circle-flags/sa.svg'},
-          fr: {name:'Français',flag:'https://api.iconify.design/circle-flags/fr.svg'},
-          es: {name:'Español',flag:'https://api.iconify.design/circle-flags/es.svg'},
-          de: {name:'Deutsch',flag:'https://api.iconify.design/circle-flags/de.svg'},
-          ru: {name:'Русский',flag:'https://api.iconify.design/circle-flags/ru.svg'},
-          zh: {name:'中文',flag:'https://api.iconify.design/circle-flags/cn.svg'},
-          ja: {name:'日本語',flag:'https://api.iconify.design/circle-flags/jp.svg'},
-          pt: {name:'Português',flag:'https://api.iconify.design/circle-flags/br.svg'},
-          it: {name:'Italiano',flag:'https://api.iconify.design/circle-flags/it.svg'},
-          ko: {name:'한국어',flag:'https://api.iconify.design/circle-flags/kr.svg'}
-        };
-        var container = document.createElement('div');
-        container.className = 'mobile-lang-menu';
-        var currentConfig = langConfigs[currentLang] || {name:currentLang,flag:''};
-        var toggleBtn = document.createElement('button');
-        toggleBtn.className = 'mobile-lang-toggle';
-        toggleBtn.type = 'button';
-        var currentFlagHtml = currentConfig.flag ? '<img src="' + currentConfig.flag + '" width="20" height="20" alt="" style="border-radius:50%;margin-right:8px;margin-left:8px;">' : '';
-        toggleBtn.innerHTML = currentFlagHtml + currentConfig.name;
-        container.appendChild(toggleBtn);
-        var optionsDiv = document.createElement('div');
-        optionsDiv.className = 'mobile-lang-options';
-        var currentLink = document.createElement('a');
-        currentLink.className = 'mobile-lang-option active';
-        currentLink.href = '#';
-        currentLink.innerHTML = currentFlagHtml + currentConfig.name;
-        optionsDiv.appendChild(currentLink);
-        options.forEach(function(opt) {
-          var link = document.createElement('a');
-          link.className = 'mobile-lang-option';
-          link.href = opt.getAttribute('href');
-          link.innerHTML = opt.innerHTML;
-          optionsDiv.appendChild(link);
-        });
-        container.appendChild(optionsDiv);
-        navMenu.appendChild(container);
-        toggleBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          toggleBtn.classList.toggle('expanded');
-          optionsDiv.classList.toggle('expanded');
-        });
-      }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileLangMenu); }
-      else { initMobileLangMenu(); }
-      window.addEventListener('resize', function() { clearTimeout(window._mlrt); window._mlrt = setTimeout(initMobileLangMenu, 250); });
-    })();
-    </script>
-</body>
-</html>
 
 
-<!-- Zappy Attribution Header Script -->
+
+
 <script>
 (function() {
   var websiteId = '992f852f-7842-45cf-b7a8-433f45d126bc';
@@ -4622,14 +4391,14 @@ html[dir="rtl"] body {
         var header = document.getElementById('zappy-attribution-header');
         if (header) {
           // Use dynamic announcement content if available
-          if (data.announcement &amp;&amp; data.announcement.html) {
+          if (data.announcement && data.announcement.html) {
             header.innerHTML = data.announcement.html;
           }
           // Apply fixed positioning styles inline (works for existing sites too)
           header.style.cssText = 'position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 99999 !important; display: flex !important; justify-content: center !important; align-items: center !important; text-align: center !important; box-sizing: border-box !important;';
           // Fix child elements that might have position: fixed from old CSS
           var children = header.querySelectorAll('*');
-          for (var i = 0; i &lt; children.length; i++) {
+          for (var i = 0; i < children.length; i++) {
             children[i].style.position = 'static';
           }
           // Get header height
@@ -4637,9 +4406,9 @@ html[dir="rtl"] body {
           // Find and fix navbar to be fixed as well (prevents gap at top of page)
           var navSelectors = ['nav', '.navbar', '.nav'];
           var navbar = null;
-          for (var j = 0; j &lt; navSelectors.length; j++) {
+          for (var j = 0; j < navSelectors.length; j++) {
             navbar = document.querySelector(navSelectors[j]);
-            if (navbar &amp;&amp; navbar.id !== 'zappy-attribution-header') break;
+            if (navbar && navbar.id !== 'zappy-attribution-header') break;
             navbar = null;
           }
           if (navbar) {
@@ -6513,5 +6282,154 @@ html[dir="rtl"] body {
 </script>
 
     <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+
+    <script id="zappy-mobile-lang-menu-script">
+    (function() {
+      function initMobileLangMenu() {
+        if (window.innerWidth > 768) {
+          var existingMenu = document.querySelector('.mobile-lang-menu');
+          if (existingMenu) existingMenu.remove();
+          return;
+        }
+        if (document.querySelector('.mobile-lang-menu')) return;
+        var switcher = document.querySelector('.lang-switcher');
+        if (!switcher) return;
+        var dropdown = switcher.querySelector('.lang-switcher-dropdown');
+        if (!dropdown) return;
+        var options = dropdown.querySelectorAll('.lang-option');
+        if (options.length === 0) return;
+        var navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu') || document.querySelector('nav ul');
+        if (!navMenu) return;
+        var currentLang = document.documentElement.lang || 'en';
+        var langConfigs = {
+          he: {name:'עברית',flag:'https://api.iconify.design/circle-flags/il.svg'},
+          en: {name:'English',flag:'https://api.iconify.design/circle-flags/us.svg'},
+          ar: {name:'العربية',flag:'https://api.iconify.design/circle-flags/sa.svg'},
+          fr: {name:'Français',flag:'https://api.iconify.design/circle-flags/fr.svg'},
+          es: {name:'Español',flag:'https://api.iconify.design/circle-flags/es.svg'},
+          de: {name:'Deutsch',flag:'https://api.iconify.design/circle-flags/de.svg'},
+          ru: {name:'Русский',flag:'https://api.iconify.design/circle-flags/ru.svg'},
+          zh: {name:'中文',flag:'https://api.iconify.design/circle-flags/cn.svg'},
+          ja: {name:'日本語',flag:'https://api.iconify.design/circle-flags/jp.svg'},
+          pt: {name:'Português',flag:'https://api.iconify.design/circle-flags/br.svg'},
+          it: {name:'Italiano',flag:'https://api.iconify.design/circle-flags/it.svg'},
+          ko: {name:'한국어',flag:'https://api.iconify.design/circle-flags/kr.svg'}
+        };
+        var container = document.createElement('div');
+        container.className = 'mobile-lang-menu';
+        var currentConfig = langConfigs[currentLang] || {name:currentLang,flag:''};
+        var toggleBtn = document.createElement('button');
+        toggleBtn.className = 'mobile-lang-toggle';
+        toggleBtn.type = 'button';
+        var currentFlagHtml = currentConfig.flag ? '<img src="' + currentConfig.flag + '" width="20" height="20" alt="" style="border-radius:50%;margin-right:8px;margin-left:8px;">' : '';
+        toggleBtn.innerHTML = currentFlagHtml + currentConfig.name;
+        container.appendChild(toggleBtn);
+        var optionsDiv = document.createElement('div');
+        optionsDiv.className = 'mobile-lang-options';
+        var currentLink = document.createElement('a');
+        currentLink.className = 'mobile-lang-option active';
+        currentLink.href = '#';
+        currentLink.innerHTML = currentFlagHtml + currentConfig.name;
+        optionsDiv.appendChild(currentLink);
+        options.forEach(function(opt) {
+          var link = document.createElement('a');
+          link.className = 'mobile-lang-option';
+          link.href = opt.getAttribute('href');
+          link.innerHTML = opt.innerHTML;
+          optionsDiv.appendChild(link);
+        });
+        container.appendChild(optionsDiv);
+        navMenu.appendChild(container);
+        toggleBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleBtn.classList.toggle('expanded');
+          optionsDiv.classList.toggle('expanded');
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileLangMenu); }
+      else { initMobileLangMenu(); }
+      window.addEventListener('resize', function() { clearTimeout(window._mlrt); window._mlrt = setTimeout(initMobileLangMenu, 250); });
+    })();
+    </script>
+
+    <script>
+    (function(){
+      if(window.innerWidth>768)return;
+      function fixZW(){
+        document.querySelectorAll('[data-zappy-zoom-wrapper="true"]').forEach(function(w){
+          var cw=w.style.getPropertyValue('width');
+          if(!cw||cw==='100%')return;
+          w.style.setProperty('width','100%','important');
+          w.style.setProperty('max-width','100%','important');
+          w.style.setProperty('height','auto','important');
+          var img=w.querySelector('img');
+          if(img){
+            img.style.setProperty('position','relative','important');
+            img.style.setProperty('width','100%','important');
+            img.style.setProperty('height','auto','important');
+            img.style.setProperty('max-width','100%','important');
+            img.style.setProperty('max-height','400px','important');
+            img.style.setProperty('object-fit','cover','important');
+            img.style.setProperty('left','0','important');
+            img.style.setProperty('top','0','important');
+          }
+        });
+      }
+      if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fixZW);
+      else setTimeout(fixZW,50);
+    })();
+    </script>
 </body>
 </html>
